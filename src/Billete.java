@@ -11,7 +11,7 @@ public class Billete {
 	//esta clase genera un fichero txt
 	
 
-	
+	fdfgfdfgdf
 
 	
 }
