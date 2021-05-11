@@ -26,6 +26,7 @@ public class Billete {
 			}
 			//Excepcion de NumberformatException
 			
+			int j=0;
 			
 			
 		}
