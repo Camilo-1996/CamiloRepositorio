@@ -36,4 +36,4 @@ public class Billete {
 		}
 
 }
->>>>>>> 7712d92 Corrigiendo errores
+
