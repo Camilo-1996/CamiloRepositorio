@@ -7,7 +7,7 @@ public class Billete {
 	private String origen ;
 	private String destino;
 	private Date fechas;
-	
-	
+
+	private Persona prueba;
 	
 }
