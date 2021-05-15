@@ -25,6 +25,7 @@ public class Billete {
 =======
 	//Metodo de busqueda
 	public void solo_ida (String destino) {
+		if()
 		
 	}
 	public static void menu() {
