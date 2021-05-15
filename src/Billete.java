@@ -6,8 +6,13 @@ public class Billete {
 	private Persona pasajero;
 	private String origen ;
 	private String destino;
-	
-
 	private Persona prueba;
 	
+	void soloIda() {
+		
+	}
+	
+	void idayVuelta() {
+		
+	}
 }
