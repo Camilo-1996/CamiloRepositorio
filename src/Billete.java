@@ -15,7 +15,7 @@ public class Billete {
 		numeroBillete++;
 		
 	}
-	//fbhdfbhed
+	//fbhdfbhedll-l-l
 	
 	
 	//método para consultar los datos del billete
