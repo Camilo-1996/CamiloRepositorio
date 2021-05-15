@@ -1,4 +1,4 @@
-
+	
 public class Persona {
 	
 	private String nombre;
@@ -50,6 +50,10 @@ public class Persona {
 	 * Fin Getters and Setters
 	 * */
 	
+	public String getNombreCompleto() {
+		
+		return nombre+" "+apellido;
+	}
 	
 
 }
