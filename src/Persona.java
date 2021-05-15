@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 	
 public class Persona {
 	
@@ -5,10 +6,15 @@ public class Persona {
 	private String apellido;
 	private int DNI;
 	private String pasaporte;
+=======
+
+public abstract class Persona {
+>>>>>>> branch 'master' of https://github.com/Camilo-1996/ProyectoFinal.git
 	
 	
 	
 	
+<<<<<<< HEAD
 	
 	//constructor
 	public Persona(String nombre, String apellido, String pasaporte) {
@@ -56,4 +62,6 @@ public class Persona {
 	}
 	
 
+=======
+>>>>>>> branch 'master' of https://github.com/Camilo-1996/ProyectoFinal.git
 }

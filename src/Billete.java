@@ -3,6 +3,7 @@ public class Billete {
 
 	//esta clase genera un fichero txt
 	
+<<<<<<< HEAD
 	private Persona datosPasajero;
 	private static long numeroBillete;
 	private Vuelo datosVuelo;
@@ -27,5 +28,18 @@ public class Billete {
 	}
 	
 	//método para escribir el billete en un fichero
+=======
+	private Persona pasajero;
+	private String origen ;
+	private String destino;
+	private Persona prueba;
+>>>>>>> branch 'master' of https://github.com/Camilo-1996/ProyectoFinal.git
 	
+	void soloIda() {
+		
+	}
+	
+	void idayVuelta() {
+		
+	}
 }
