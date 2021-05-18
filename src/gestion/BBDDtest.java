@@ -7,7 +7,7 @@ import java.sql.Statement;
 public class BBDDtest {
 
 	public static void main(String[] args) {
-		ConexionMySQL con = new ConexionMySQL();
+		ConexionMySQL con = new   ();
 		try {
 			Connection conn2 = con.conectarMySQL();
 			Statement stmt = conn2.createStatement();

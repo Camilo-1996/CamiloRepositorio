@@ -21,7 +21,7 @@ public class Hotel {
 		this.dias_estancia = dias_estancia;
 	}
 	//Nombre destino hace referencia al nombre de la columna que vendra en la tabla de la base de datos
-	public void buscoDestinos(String Destino) {
+	public void buscoDestinos(String Destino_ciudad) {
 		//El destino tiene como resultado 
 		/*if(Destino == destino) {
 			precios();
@@ -30,9 +30,12 @@ public class Hotel {
 		}*/
 		
 	}
-	//consulto disponibilidad segun fechas
-	public void precios(String nombre_hoteles) {
-		Double [] precios = new Double[3];
+	/*
+	 * consulto disponibilidad segun fechas, busca en la base de datos el nombre aleatoriogenerado segun la consulta, y devuelve numeros aleatroios de un array de numeros
+	 * reales
+	 */
+	public void disponibilidadRecinto(String nombre_hoteles) {
+		Double [] disponibilidad = new Double[3];
 				
 		
 		
