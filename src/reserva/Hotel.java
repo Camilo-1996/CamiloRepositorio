@@ -14,17 +14,35 @@ public class Hotel {
 	private String destino;
 	private Persona persona;
 	
-	public Hotel(Date fecha_entrada, Date fecha_salida, String destino) {
+	public Hotel(Date fecha_entrada, Date fecha_salida, String destino, int dias_estancia) {
 		this.fecha_entrada = fecha_entrada;
 		this.fecha_salida = fecha_salida;
 		this.destino = destino;
+		this.dias_estancia = dias_estancia;
+	}
+	//Nombre destino hace referencia al nombre de la columna que vendra en la tabla de la base de datos
+	public void buscoDestinos(String Destino) {
+		//El destino tiene como resultado 
+		/*if(Destino == destino) {
+			precios();
+		}else(){
+			//Llamo al metodo que solicita los datos al usuario
+		}*/
+		
+	}
+	//consulto disponibilidad segun fechas
+	public void precios(String nombre_hoteles) {
+		Double [] precios = new Double[3];
+				
+		
+		
 	}
 	
 	
 	/*
 	 * Getters
 	 * */
-	
+		
 	public Date getFecha_entrada() {
 		return fecha_entrada;
 	}
