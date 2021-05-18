@@ -10,7 +10,7 @@ public class Main {
 		
 		/*INTERFAZ OPCIONES QUE TENDRA LAS OPCIONES:
 		 *
-		 * 1-VUELO IDA (INTRODUCE:
+		 * 1-VUELO IDA (INTRODUCE: h
 		 * 
 		 * 				-ORIGEN
 		 * 				-DESTINO
