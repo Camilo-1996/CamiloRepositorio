@@ -7,31 +7,27 @@ public class Billete {
 	private Persona datosPasajero;
 	private static long numeroBillete;
 	private Vuelo datosVuelo;
+	private long nBillete;
 	
 	public Billete (Persona persona, Vuelo vuelo) {
 		
 		this.datosPasajero=persona;
 		this.datosVuelo=vuelo;
 		
-		numeroBillete++;
+		nBillete=numeroBillete++;
 		
 	}
-	//fbhdfbhedll-l-l
 	
 	
 	//método para consultar los datos del billete
 	public void datosBillete() {
 		
-		System.out.println("DATOS BILLETE Nº "+ numeroBillete);
+		System.out.println("DATOS BILLETE Nº "+ nBillete);
 			
 		//falta poner los otros datos persona y Vuelo
 	}
 	
-	//método para escribir el billete en un fichero
+	
 
-	private Persona pasajero;
-	private String origen ;
-	private String destino;
-	private Persona prueba;
 	
 }

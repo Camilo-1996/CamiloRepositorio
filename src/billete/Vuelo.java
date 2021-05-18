@@ -15,14 +15,7 @@ public class Vuelo {
 		this.compañia = compañia;
 	}
 
-	//pendiente
-	void soloIda() {
-		
-	}
 	
-	void idayVuelta() {
-		
-	}
 	
 	
 	//FIN getters y setters
