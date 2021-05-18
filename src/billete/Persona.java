@@ -66,7 +66,6 @@ public class Persona {
 	 *
 	 */
 	
-	public void 
 	
 	public String getNombreCompleto() {
 		
