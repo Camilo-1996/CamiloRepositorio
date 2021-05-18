@@ -1,4 +1,4 @@
-package billete;
+package reserva;
 
 public class Hotel {
 

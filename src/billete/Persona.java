@@ -8,6 +8,7 @@ public class Persona {
 	private String pasaporte;
 	private int edad;
 
+
 	// constructor
 	public Persona(String nombre, String apellido, String pasaporte, int edad) {
 		this.nombre = nombre;
@@ -17,9 +18,17 @@ public class Persona {
 	}
 	// fin constructor
 
-	/**
-	 * Getters and Setters
+	/*
+	 *Getters and Setters
 	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -52,9 +61,12 @@ public class Persona {
 		this.pasaporte = pasaporte;
 	}
 
-	/**
+	/*
 	 * Fin Getters and Setters
-	 * */
+	 *
+	 */
+	
+	public void 
 	
 	public String getNombreCompleto() {
 		

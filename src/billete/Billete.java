@@ -34,11 +34,4 @@ public class Billete {
 	private String destino;
 	private Persona prueba;
 	
-	void soloIda() {
-		
-	}
-	
-	void idayVuelta() {
-		
-	}
 }
