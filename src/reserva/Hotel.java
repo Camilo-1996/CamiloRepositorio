@@ -44,7 +44,7 @@ public class Hotel {
 	
 	/*
 	 * Getters
-	 * */*//*
+	 * */
 		
 	public Date getFecha_entrada() {
 		return fecha_entrada;
