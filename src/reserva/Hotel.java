@@ -4,8 +4,9 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 import billete.Persona;
+import java.util.*
 
-public class Hotel {
+;public class Hotel {
 	
 	private Date fecha_entrada;
 	private Date fecha_salida;
@@ -22,12 +23,13 @@ public class Hotel {
 	}
 	//Nombre destino hace referencia al nombre de la columna que vendra en la tabla de la base de datos
 	public void buscoDestinos(String Destino_ciudad) {
+		String destino = null;
 		//El destino tiene como resultado 
-		/*if(Destino == destino) {
+		if(Destino_ciudad.equalsIgnoreCase(destino)) {
 			precios();
-		}else(){
+		}
 			//Llamo al metodo que solicita los datos al usuario
-		}*/
+		
 		
 	}
 	/*
@@ -36,10 +38,20 @@ public class Hotel {
 	 */
 	public void disponibilidadRecinto(String nombre_hoteles) {
 		Double [] disponibilidad = new Double[3];
-				
+		
 		
 		
 	}
+	public void precios() {
+		double precios = Math.random()*500 +70;
+		double [] listado_precio = new double [3];
+		
+		for (int i = 0; i < listado_precio.length; i++) {
+			listado_precio[i] = precios;
+		}
+		
+	}
+	
 	
 	
 	/*
