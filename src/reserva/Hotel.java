@@ -36,19 +36,36 @@ import java.util.*
 	 * consulto disponibilidad segun fechas, busca en la base de datos el nombre aleatoriogenerado segun la consulta, y devuelve numeros aleatroios de un array de numeros
 	 * reales
 	 */
-	public void disponibilidadRecinto(String nombre_hoteles) {
-		Double [] disponibilidad = new Double[3];
+	public String [] disponibilidadRecinto(String nombre_hoteles) {
+		String [] disponibilidad = {"El llamado", "La Plaza", "Barceló"};
 		
-		
-		
+		return disponibilidad;
 	}
+	/*Listado de los hoteles 
+	 * 
+	 * CREATE FUNCTION nombre_hotel
+	 * BEGIN
+	 * 	DECLARE RESULTADO TEXT; 
+	 * 		SELECT nombre
+	 *		FROM hotel
+	 *		WHERE = (nombre = elnombre);
+	 *		INTO RESULTADO;
+	 * RETURN RESULTADO;
+	 * END;
+
+	 * */
 	public void precios() {
-		double precios = Math.random()*500 +70;
-		double [] listado_precio = new double [3];
+		double precio_BAJO = Math.random()*100 +40;
+		double precio_MEDIO = Math.random()*200 +70;
+		double precio_ALTO = Math.random()*600 +100;
+		double [][] listado_precio = new double [3][3];
 		
 		for (int i = 0; i < listado_precio.length; i++) {
-			listado_precio[i] = precios;
+			listado_precio[i] = precio_BAJO;
+			System.out.println(listado_precio[i]);
+			System.out.println(" - "+fecha_entrada);
 		}
+		
 		
 	}
 	
