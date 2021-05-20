@@ -15,23 +15,17 @@ import java.util.*
 	private String destino;
 	private Persona persona;
 	
-	public Hotel(Date fecha_entrada, Date fecha_salida, String destino, int dias_estancia) {
+	public Hotel(LocalDate fecha_entrada, LocalDate fecha_salida, String destino, int dias_estancia) {
 		this.fecha_entrada = fecha_entrada;
 		this.fecha_salida = fecha_salida;
 		this.destino = destino;
 		this.dias_estancia = dias_estancia;
 	}
 	//Nombre destino hace referencia al nombre de la columna que vendra en la tabla de la base de datos
-	public void buscoDestinos(String Destino_ciudad) {
-		String destino = null;
-		//El destino tiene como resultado 
-		if(Destino_ciudad.equalsIgnoreCase(destino)) {
-			precios();
-		}
 			//Llamo al metodo que solicita los datos al usuario
 		
 		
-	}
+	
 	
 	/**
 	 * System.out.println("Año: "+ (fecha2.getYear()+1900) );
@@ -91,10 +85,10 @@ import java.util.*
 	 * Getters
 	 * */
 		
-	public Date getFecha_entrada() {
+	public LocalDate getFecha_entrada() {
 		return fecha_entrada;
 	}
-	public Date getFecha_salida() {
+	public LocalDate getFecha_salida() {
 		return fecha_salida;
 	}
 	public int getDias_estancia() {

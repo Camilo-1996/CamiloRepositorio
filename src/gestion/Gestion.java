@@ -1,5 +1,8 @@
 package gestion;
 
+import reserva.Hotel;
+import reserva.Reservas;
+
 public class Gestion {
 	Reservas reservas = new Reservas();
 	
@@ -18,6 +21,7 @@ public class Gestion {
 	/*Gestion de datos Vuelos*/
 	public void buscoDestinosHoteles(String Destino_ciudad) {
 		String destino = " ";
+		Hotel h1= new Hotel(); 
 		//El destino tiene como resultado 
 	if(Destino_ciudad.equalsIgnoreCase(destino)) {
 	}
