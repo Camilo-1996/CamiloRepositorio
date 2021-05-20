@@ -8,7 +8,6 @@ public class InicioAplicacion {
 
 		
 	
-		boolean finAplicacion=false;
 		
 		//***************************** INICIO DE PROGRAMA *******************************
 		
