@@ -60,12 +60,13 @@ import java.util.*
 		double precio_ALTO = Math.random()*600 +100;
 		double [][] listado_precio = new double [3][3];
 		
-		for (int i = 0; i < listado_precio.length; i++) {
-			listado_precio[i] = precio_BAJO;
-			System.out.println(listado_precio[i]);
-			System.out.println(" - "+fecha_entrada);
-		}
 		
+		for (int i = 0; i < listado_precio.length; i++) {		
+			for (int j = 0; j < listado_precio.length; j++) {
+				listado_precio[i][j] = precio_BAJO;
+				System.out.println(listado_precio[i]);
+			}
+		}
 		
 	}
 	

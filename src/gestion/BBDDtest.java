@@ -1,3 +1,5 @@
+package gestion;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +9,7 @@ import java.sql.Statement;
 public class BBDDtest {
 
 	public static void main(String[] args) {
-		ConexionMySQL con = new   ();
+		ConexionMySQL con = new  ConexionMySQL();
 		try {
 			Connection conn2 = con.conectarMySQL();
 			Statement stmt = conn2.createStatement();
