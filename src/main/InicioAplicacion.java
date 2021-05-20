@@ -1,12 +1,36 @@
 package main;
 
+
+
 public class InicioAplicacion {
 
 	public static void main(String[] args) {
 
 		
 	
+		boolean finAplicacion=false;
+		
+		//***************************** INICIO DE PROGRAMA *******************************
+		
 		//INCLUIR INTERFAZ DE BIENVENIDA
+		
+		//new.menu.menuInicio()  metodo que falta del paquete Angel
+		
+		//-------------------- EMPIEZA LA INTERACCION  CON EL USUARIO -----------------------
+		
+		
+			
+		//new gestion.ejecutarAplicacion();
+			
+		
+		
+		 //******************************  FIN DE PROGRAMA ***********************************
+		
+		
+		
+		
+		
+		//DESCRIPCIÓN:
 		
 		/*INTERFAZ OPCIONES QUE TENDRA LAS OPCIONES:
 		 *
