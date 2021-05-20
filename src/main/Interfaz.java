@@ -2,7 +2,7 @@ package main;
 
 import java.util.Scanner;
 
-public class InicioAplicacion {
+public class Interfaz {
 	
 	Scanner sc = new Scanner(System.in);
 	
