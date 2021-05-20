@@ -3,31 +3,26 @@ package billete;
 public class Persona {
 
 	private String nombre;
-	private String apellido;
+	private String apellido1;
+	private String apellido2;
 	private int DNI;
 	private String pasaporte;
-	private int edad;
+	
 
 
 	// constructor
-	public Persona(String nombre, String apellido, String pasaporte, int edad) {
+	public Persona(String nombre, String apellido1, String apellido2, String pasaporte) {
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.apellido1 = apellido1;
+		this.apellido2=apellido2;
 		this.pasaporte = pasaporte;
-		this.edad=edad;
+		
 	}
 	// fin constructor
 
 	/*
 	 *Getters and Setters
 	 */
-	public int getEdad() {
-		return edad;
-	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
 	
 	public String getNombre() {
 		return nombre;
@@ -37,12 +32,20 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getApellido1() {
+		return apellido1;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellido1(String apellido) {
+		this.apellido1 = apellido;
+	}
+	
+	public String getApellido2() {
+		return apellido2;
+	}
+
+	public void setApellido2(String apellido) {
+		this.apellido2 = apellido;
 	}
 
 	public int getDNI() {
@@ -69,7 +72,7 @@ public class Persona {
 	
 	public String getNombreCompleto() {
 		
-		return nombre+" "+apellido;
+		return nombre+" "+apellido1+ " "+ apellido2;
 	}
 
 }
