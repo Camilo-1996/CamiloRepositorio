@@ -16,9 +16,10 @@ public class Gestion {
 	}
 	
 	/*Gestion de datos Vuelos*/
-	public void gestionarDestino() {
-		
-		
+	public void buscoDestinosHoteles(String Destino_ciudad) {
+		String destino = " ";
+		//El destino tiene como resultado 
+	if(Destino_ciudad.equalsIgnoreCase(destino)) {
 	}
 	
 	public void gestionarPartida() {

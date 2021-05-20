@@ -8,8 +8,8 @@ import java.util.*
 
 ;public class Hotel {
 	
-	private Date fecha_entrada;
-	private Date fecha_salida;
+	private LocalDate fecha_entrada;
+	private LocalDate fecha_salida;
 	private int dias_estancia;
 	private int cupo;
 	private String destino;
@@ -32,14 +32,24 @@ import java.util.*
 		
 		
 	}
+	
+	/**
+	 * System.out.println("Año: "+ (fecha2.getYear()+1900) );
+ 		System.out.println("Mes: "+fecha2.getMonth());
+ 		System.out.println("Dia: "+fecha2.getDate());
+ 		System.out.println("Dia de la semana "+fecha2.getDay());
+ 		System.out.println("Hora: "+fecha2.getHours());
+ 		System.out.println("Minutos: "+fecha2.getMinutes());
+ 		System.out.println("Segundos: "+fecha2.getSeconds());
+	 * 
+	 * */
 	/*
 	 * consulto disponibilidad segun fechas, busca en la base de datos el nombre aleatoriogenerado segun la consulta, y devuelve numeros aleatroios de un array de numeros
 	 * reales
 	 */
-	public String [] disponibilidadRecinto(String nombre_hoteles) {
-		String [] disponibilidad = {"El llamado", "La Plaza", "Barceló"};
+	public void disponibilidadRecinto(String nombre_hoteles) {
 		
-		return disponibilidad;
+
 	}
 	/*Listado de los hoteles 
 	 * 
@@ -59,12 +69,17 @@ import java.util.*
 		double precio_MEDIO = Math.random()*200 +70;
 		double precio_ALTO = Math.random()*600 +100;
 		double [][] listado_precio = new double [3][3];
+
 		
-		
-		for (int i = 0; i < listado_precio.length; i++) {		
+		for (int i = 0; i < listado_precio.length; i++) {
+			System.out.println(" ");
 			for (int j = 0; j < listado_precio.length; j++) {
 				listado_precio[i][j] = precio_BAJO;
-				System.out.println(listado_precio[i]);
+				listado_precio[j][i] = precio_MEDIO;
+				System.out.print(" "+listado_precio[i][j]);
+				System.out.println("-");
+
+				
 			}
 		}
 		
