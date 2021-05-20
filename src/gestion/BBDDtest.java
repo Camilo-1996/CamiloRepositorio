@@ -9,7 +9,11 @@ import java.sql.Statement;
 public class BBDDtest {
 
 	public static void main(String[] args) {
-		ConexionMySQL con = new  ConexionMySQL();
+
+		aerolineasBBDD con = new  aerolineasBBDD();
+
+		aerolineasBBDD con = new aerolineasBBDD();
+
 		try {
 			Connection conn2 = con.conectarMySQL();
 			Statement stmt = conn2.createStatement();
