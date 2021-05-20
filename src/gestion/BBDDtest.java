@@ -8,12 +8,11 @@ import java.sql.Statement;
 
 public class BBDDtest {
 
-	public static void main(String[] args) {
 
 		aerolineasBBDD con = new  aerolineasBBDD();
-
-		aerolineasBBDD con = new aerolineasBBDD();
-
+		
+		
+public void consultaBBDD() {		
 		try {
 			Connection conn2 = con.conectarMySQL();
 			Statement stmt = conn2.createStatement();
@@ -21,8 +20,7 @@ public class BBDDtest {
 			ResultSet rs = stmt.executeQuery(sqlQuery);
 			while(rs.next()) {
 				String Nombre = rs.getString("Nombre");
-				String sede = rs.getString("sede");
-				System.out.println("el nombre de la compañia es: "+ Nombre +  "\n su sede esta en : "+sede);
+				System.out.println("el nombre de la compañia es: "+ Nombre);
 			}
 			rs.close();
 			stmt.close();

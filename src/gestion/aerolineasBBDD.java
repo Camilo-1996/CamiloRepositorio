@@ -3,9 +3,11 @@ package agencia_proyecto;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.mysql.cj.jdbc.MysqlDataSource;
+
 public class aerolineasBBDD {
 	private static final String databasename = "proyecto_java";
-	private static final String serverTimeZone = "UTC";
+	private static final String serverTimeZone = "UTC-8";
 	private static final String hostname = "localhost";
 	private static final int port = 3306;
 	private static final String user = "root";

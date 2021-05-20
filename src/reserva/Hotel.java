@@ -4,10 +4,14 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 import billete.Persona;
+import gestion.BBDDtest;
+
 import java.util.*
 
 ;public class Hotel {
 	
+	
+	BBDDtest bd1 = new BBDDtest();
 	private LocalDate fecha_entrada;
 	private LocalDate fecha_salida;
 	private int dias_estancia;
@@ -42,7 +46,8 @@ import java.util.*
 	 * reales
 	 */
 	public void disponibilidadRecinto(String nombre_hoteles) {
-		ArrayList<Integer> 
+		ArrayList<Integer> recintoHoteles = new Arrayist
+		
 
 	}
 	/*Listado de los hoteles 
