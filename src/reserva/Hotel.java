@@ -42,7 +42,7 @@ import java.util.*
 	 * reales
 	 */
 	public void disponibilidadRecinto(String nombre_hoteles) {
-		
+		ArrayList<Integer> 
 
 	}
 	/*Listado de los hoteles 
@@ -58,6 +58,7 @@ import java.util.*
 	 * END;
 
 	 * */
+	
 	public void precios() {
 		double precio_BAJO = Math.random()*100 +40;
 		double precio_MEDIO = Math.random()*200 +70;
@@ -108,10 +109,10 @@ import java.util.*
 	 * Setters
 	 * */
 	
-	public void setFecha_entrada(Date fecha_entrada) {
+	public void setFecha_entrada(LocalDate fecha_entrada) {
 		this.fecha_entrada = fecha_entrada;
 	}
-	public void setFecha_salida(Date fecha_salida) {
+	public void setFecha_salida(LocalDate fecha_salida) {
 		this.fecha_salida = fecha_salida;
 	}
 	public void setDias_estancia(int dias_estancia) {
