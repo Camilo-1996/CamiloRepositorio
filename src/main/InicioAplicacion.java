@@ -1,6 +1,6 @@
 package main;
 
-public class Main {
+public class InicioAplicacion {
 
 	public static void main(String[] args) {
 
