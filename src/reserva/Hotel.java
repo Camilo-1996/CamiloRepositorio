@@ -30,7 +30,7 @@ import java.util.*
 		
 		
 	
-	
+	//Reaizar la consula de de las busquedas
 	/**
 	 * System.out.println("Año: "+ (fecha2.getYear()+1900) );
  		System.out.println("Mes: "+fecha2.getMonth());
