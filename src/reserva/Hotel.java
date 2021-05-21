@@ -42,9 +42,7 @@ import java.util.*
 	 * 
 	 * */
 	/*
-	 * consulto disponibilidad segun fechas, busca en la base de datos el nombre aleatoriogenerado segun la consulta, y devuelve numeros aleatroios de un array de numeros
-	 * reales
-	 */
+
 	public void disponibilidadRecinto(String nombre_hoteles) {
 		ArrayList<Integer> recintoHoteles = new Arrayist
 		

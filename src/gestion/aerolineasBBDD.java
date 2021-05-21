@@ -16,12 +16,12 @@ public class aerolineasBBDD {
 	public Connection conectarMySQL()throws SQLException{
 		MysqlDataSource dataSource = new MysqlDataSource();
 		dataSource.setUseSSL(false);
-		dataSource.setServerTime(serverTimeZone);
+		dataSource.setServerTimezone(serverTimeZone);
 		dataSource.setDatabaseName(databasename);
 		dataSource.setPortNumber(port);
 		dataSource.setUser(user);
 		dataSource.setPassword(password);
-		return dataSource.getConnection;
+		return dataSource.getConnection();
 		
 	}
 
