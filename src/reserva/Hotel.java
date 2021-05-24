@@ -30,18 +30,8 @@ import java.util.*
 		
 		
 	
-	//Reaizar la consula de de las busquedas
-	/**
-	 * System.out.println("Año: "+ (fecha2.getYear()+1900) );
- 		System.out.println("Mes: "+fecha2.getMonth());
- 		System.out.println("Dia: "+fecha2.getDate());
- 		System.out.println("Dia de la semana "+fecha2.getDay());
- 		System.out.println("Hora: "+fecha2.getHours());
- 		System.out.println("Minutos: "+fecha2.getMinutes());
- 		System.out.println("Segundos: "+fecha2.getSeconds());
-	 * 
-	 * */
-	/*
+	
+
 
 	public void disponibilidadRecinto(String nombre_hoteles) {
 		ArrayList<Integer> recintoHoteles = new Arrayist
