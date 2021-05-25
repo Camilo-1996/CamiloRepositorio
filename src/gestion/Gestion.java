@@ -6,7 +6,7 @@ import reserva.Hotel;
 import reserva.Reservas;
 
 public class Gestion {
-	
+	Scanner scn=new Scanner(System.in);
 	
 
 	public static void ida() {
@@ -20,7 +20,13 @@ public class Gestion {
 	}
 	
 	
-	public static void vueloHotel() {
+	public static void vueloHotel(opcion) {
+		Switch(opcion){
+			
+			case 1:
+				
+			
+		}
 		
 		
 	}
@@ -34,7 +40,6 @@ public class Gestion {
 	
 	public void buscoDestinosHoteles(){
 		
-		Scanner scn=new Scanner(System.in);
 		String origen;
 		System.out.println("Introduce origen");
 		origen= scn.next();
@@ -46,15 +51,6 @@ public class Gestion {
 		
 		
 	
-	public void buscoDestinosHoteles(String destino) {
-		
-		Hotel h1= new Hotel(null, null, destino, 0); 
-		//El destino tiene como resultado 
-	if(destino.equalsIgnoreCase(destino)) {
-		
-		
-	}
-	}
 	
 	public void gestionarPartida() {
 		
@@ -69,4 +65,21 @@ public class Gestion {
 	}
 	/*Gestion datos*/
 
+	/*Operaciones y metodos de la clase Hoteles*/
+	public void buscoDestinosHoteles(String destino) {
+		
+		
+		Hotel h1= new Hotel(null, null, destino, 0); 
+		//El destino tiene como resultado 
+	if(destino.equalsIgnoreCase(destino)) {
+		System.out.println("Introduce la fecha de entrada");
+		
+	
+	}
+	}
+		
+	
 }
+
+
+	

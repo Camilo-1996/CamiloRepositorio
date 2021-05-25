@@ -33,11 +33,11 @@ import java.util.*
 	
 
 
-	public void disponibilidadRecinto(String nombre_hoteles) {
+	/*public void disponibilidadRecinto(String nombre_hoteles) {
 		ArrayList<Integer> recintoHoteles = new Arrayist
 		
 
-	}
+	}*/
 	/*Listado de los hoteles 
 	 * 
 	 * CREATE FUNCTION nombre_hotel
@@ -57,7 +57,7 @@ import java.util.*
 		double precio_MEDIO = Math.random()*200 +70;
 		double precio_ALTO = Math.random()*600 +100;
 		double [][] listado_precio = new double [3][3];
-
+		Date [][] fechas_desde_hasta = new Date [3][3];
 		
 		for (int i = 0; i < listado_precio.length; i++) {
 			System.out.println(" ");
@@ -66,6 +66,7 @@ import java.util.*
 				listado_precio[j][i] = precio_MEDIO;
 				System.out.print(" "+listado_precio[i][j]);
 				System.out.println("-");
+		
 
 				
 			}
