@@ -21,7 +21,7 @@ public class Gestion {
 	/*Gestion de datos Vuelos*/
 	public void buscoDestinosHoteles(String Destino_ciudad) {
 		String destino = " ";
-		Hotel h1= new Hotel(); 
+		Hotel h1= new Hotel(null, null, destino, 0); 
 		//El destino tiene como resultado 
 	if(Destino_ciudad.equalsIgnoreCase(destino)) {
 	}
