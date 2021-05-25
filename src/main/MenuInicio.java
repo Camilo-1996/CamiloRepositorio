@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 import gestion.Gestion;
 
-public class Interfaz {
-	
-	private Scanner scn = new Scanner(System.in);
-	private boolean opcionCorrecta;
+public  class  MenuInicio{
 	
 	
-	public void menuInicio() {
+	
+	public static void menuInicio() {
 		
 		System.out.println("*************************************************************************************************************");
 		System.out.println("**************************************    BIENVENIDO A VUELINKING!!  ***************************************");
@@ -22,12 +20,13 @@ public class Interfaz {
 	
 	
 	
-	public void menuUsuario() {
+	public  static void menuUsuario() {
 		
 		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!");
 		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
 	
-		opcionCorrecta=false;
+		Scanner scn = new Scanner(System.in);
+		boolean opcionCorrecta=false;
 		int opcionElejida=0;
 		
 		while(opcionCorrecta!=true) {
@@ -49,26 +48,32 @@ public class Interfaz {
 			
 		} 
 		
+		scn.close();
+		
 		switch(opcionElejida) {
 	
 		case 1:
 			Gestion.ida();
+			break;
 			
 		case 2:
 			Gestion.idaVuelta();
-				
+			break;
+			
 		case 3:
 			Gestion.vueloHotel();
+			break;
 			
 		case 4:
 			
 			Gestion.finApp();
+			break;
 		}
 		
 	}
 	
 	
-	public void menuFinAPP() {
+	public static void menuFinAPP() {
 		
 		System.out.println("GRACIAS POR UTLIZAR NUESTRA APP\n "
 				+ "ESPERAMOS VERTE PRONTO EN VUELIKING");
