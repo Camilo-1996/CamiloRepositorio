@@ -2,110 +2,78 @@ package main;
 
 import java.util.Scanner;
 
+import gestion.Gestion;
+
 public class Interfaz {
 	
-	Scanner sc = new Scanner(System.in);
+	private Scanner scn = new Scanner(System.in);
+	private boolean opcionCorrecta;
 	
-	public void bienvenida() {
-		
-		/**
-		 * Intefaz de la primera pantalla que vera el usuario Faltan varios try/catch por poner
-		 */
-		System.out.println("BIENVENIDO!!");
-		System.out.println("¿Como Desea Viajar? - Elija un Plan de Vuelo");
-		System.out.println("1-Vuelo Solo De Ida | 2-Vuelo De Ida y Vuelta | 3-Ida / Vuelta + Reserva De Hotel | 4-Finalizar Programa");
 	
-		int opcion = sc.nextInt();
+	public void menuInicio() {
 		
-		switch(opcion) {
-			case 1:
-				ida();
-			case 2:
-				idaVuelta();
-			case 3:
-				idaVueltaHotel();
-			case 4:
-				finPrograma();
-		}
-		
-	}
-	
-	/**
-	 * Interfaz simple, solo pide dates al usuario y regresa al menu principal al finalizar 
-	 */
-	public void ida() {
-		String origen;
-		String destino;
-		String fecha;
-		int numbillete;
-		System.out.println("Por Favor Indique: Un Origen, Un Destino, Una Fecha y Cuantos Billetes Desea Comprar");
-		
-		System.out.println("Introduczca un Origen");
-		origen = sc.nextLine();
-		System.out.println("Introduczca un Destino");
-		destino = sc.nextLine();
-		System.out.println("Introduczca una Fecha");
-		fecha = sc.nextLine();
-		System.out.println("Indique Cuantos Billetes");
-		numbillete = sc.nextInt();
-		bienvenida();
-		
-	}
-	
-	/**
-	 * Metodo por el momento identico al anterior, faltan añadir metodos
-	 */
-	public void idaVuelta() {
-		String origen;
-		String destino;
-		String fecha;
-		int numbillete;
-		System.out.println("Por Favor Indique: Un Origen, Un Destino, Una Fecha y Cuantos Billetes Desea Comprar");
-		
-		System.out.println("Introduczca un Origen");
-		origen = sc.nextLine();
-		System.out.println("Introduczca un Destino");
-		destino = sc.nextLine();
-		System.out.println("Introduczca una Fecha");
-		fecha = sc.nextLine();
-		System.out.println("Indique Cuantos Billetes");
-		numbillete = sc.nextInt();
-		bienvenida();
-	}
+		System.out.println("*************************************************************************************************************");
+		System.out.println("**************************************    BIENVENIDO A VUELINKING!!  ***************************************");
+		System.out.println("*************************************************************************************************************");
+		System.out.println("***************************************    TU  APP  DE  VIAJES    *************************************************\n\n");
 
-	public void idaVueltaHotel() {
 		
-		System.out.println("Ida + Hotel o Ida y Vuelta + Hotel - Elija un Plan de Vuelo");
-		System.out.println("1-Ida + Hotel | 2-Ida y Vuelta + Hotel | 3-Finalizar Programa");
+	}
 	
-		int opcion = sc.nextInt();
+	
+	
+	public void menuUsuario() {
 		
-		switch(opcion) {
-			case 1:
-				/**
-				 * Metodo Pendiente que Muestre los datos de hoteles
-				 */
-				ida();
-			case 2:
-				/**
-				 * Metodo Pendiente que Muestre los datos de hoteles
-				 */
-				idaVuelta();
-			case 3:
-				finPrograma();
-			case 4:
+		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!");
+		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
+	
+		opcionCorrecta=false;
+		int opcionElejida=0;
+		
+		while(opcionCorrecta!=true) {
+			
+			
+			try {
 				
+				opcionElejida= scn.nextInt();
+				
+				opcionCorrecta=true;
+				
+			}catch(Exception exc){
+				
+				System.out.println("El valor introducido no es correcto");
+				
+			}
+			
+		} 
+		
+		switch(opcionElejida) {
+	
+		case 1:
+			Gestion.ida();
+			
+		case 2:
+			Gestion.idaVuelta();
+				
+		case 3:
+			Gestion.vueloHotel();
+			
+		case 4:
+			
+			Gestion.finApp();
 		}
 		
 	}
 	
-	/**
-	 * Metodo que siempre finaliza el programa
-	 */
-	public void finPrograma() {
-		System.out.println("HASTA LUEGO!!");
-		System.exit(0);
+	
+	public void menuFinAPP() {
+		
+		System.out.println("GRACIAS POR UTLIZAR NUESTRA APP\n "
+				+ "ESPERAMOS VERTE PRONTO EN VUELIKING");
+		
 	}
+	
+}
 	
 	//INCLUIR INTERFAZ DE BIENVENIDA
 	
@@ -161,4 +129,3 @@ public class Interfaz {
 			 * 
 			 */
 	
-}

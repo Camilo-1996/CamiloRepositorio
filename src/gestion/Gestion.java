@@ -6,21 +6,30 @@ import reserva.Hotel;
 import reserva.Reservas;
 
 public class Gestion {
-	Reservas reservas = new Reservas();
 	
-	public void opcion(int opcion) {
+	
+
+	public static void ida() {
 		
-		switch(opcion) {
-		case 1: 
-			soloIda();
-		case 2:
-			idayVuelta();
-		case 3:
-			buscoDestinosHoteles();
-			
-		}
 	}
 	
+	
+	public static void idaVuelta() {
+		
+		
+	}
+	
+	
+	public static void vueloHotel() {
+		
+		
+	}
+	
+	
+	public static void finApp() {
+		
+		
+	}
 	/*Gestion de datos Vuelos*/
 	
 	public void buscoDestinosHoteles(){
