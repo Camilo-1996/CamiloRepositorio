@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import billete.Persona;
 import gestion.BBDDtest;
+import main.Interfaz;
 import reserva.Hotel;
 
 import java.util.*;
@@ -12,7 +13,7 @@ import java.util.*;
 public class Gestion {
 	Scanner scn=new Scanner(System.in);
 	
-
+	Interfaz llamado = new Interfaz();
 	public static void ida() {
 		
 	}
@@ -24,13 +25,17 @@ public class Gestion {
 	}
 	
 	
-	public static void vueloHotel(opcion) {
-		Switch(opcion){
+	public static void vueloHotel(opcionElegida) {
+		Switch(opcionElegida){//Llamar a a variable que de la subOpcion de Vuelo mas hotel
 			
 			case 1:
 				//hotel+ vuelo
+				
 			case 2:
-				//solo hotel
+
+					System.out.println("Introduce origen");
+					String origen= scn.next();				
+					buscoDestinosHoteles(origen);
 
 				
 			}
@@ -48,17 +53,7 @@ public class Gestion {
 	}
 	/*Gestion de datos Vuelos*/
 	
-	public void buscoDestinosHoteles(){
-		
-		String origen;
-		System.out.println("Introduce origen");
-		origen= scn.next();
-		scn.close();
-		
-		 buscoDestinosHoteles(origen);
-
-	}
-		
+	
 		
 	
 	
@@ -76,6 +71,8 @@ public class Gestion {
 	/*Gestion datos*/
 
 	/*Operaciones y metodos de la clase Hoteles*/
+	
+
 	public void buscoDestinosHoteles(String destino) {
 		Date entrada; 
 		Date salida; 
