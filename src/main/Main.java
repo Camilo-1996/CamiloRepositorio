@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//intenat meter solo static
+		//intenat meter solo static  mcnnf
 	}
 
 }
