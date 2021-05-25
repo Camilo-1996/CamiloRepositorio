@@ -17,6 +17,7 @@ public class Usuario extends Persona {
 		this.apellido1= apellido1;
 		this.apellido2= apellido2;
 		this.pasaporte=pasaporte;
+		
 	}
 	
 	
