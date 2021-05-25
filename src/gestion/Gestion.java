@@ -28,6 +28,12 @@ public class Gestion {
 		Switch(opcion){
 			
 			case 1:
+				//hotel+ vuelo
+			case 2:
+				//solo hotel
+
+				
+			}
 				
 			
 		}
