@@ -37,6 +37,8 @@ public class Interfaz {
 				
 				opcionElejida= scn.nextInt();
 				
+				if(opcionElejida<4 && opcionElejida>0)
+				
 				opcionCorrecta=true;
 				
 			}catch(Exception exc){
