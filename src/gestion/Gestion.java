@@ -89,8 +89,8 @@ public class Gestion {
 	
 
 	public void buscoHoteles(String destino) {
-		Date entrada = null; 
-		Date salida = null;
+		LocalDate entrada = null; 
+		LocalDate salida = null;
 		int dia =0;
 		int  mes =0;
 		Hotel h1= new Hotel(entrada, salida, destino, 0); 
@@ -107,15 +107,13 @@ public class Gestion {
 	 * Este metodo solicita las fechas al usuario introducuieno 
 	 * **/
 	//El flujo Scnner me da error al momento de solicitar las fechas
-	public void solicitoFechas(int dia, int  mes, Date entrada) {
+	public void solicitoFechas(int dia, int  mes, LocalDate entrada) {
 			System.out.println("Introduce la fecha");
-			for (int i = 0; i < 2; i++) {
 				dia = MenuInicio.scn.nextInt();
 				System.out.println(" - ");
 				mes = MenuInicio.scn.nextInt();
-			}
-			entrada = new Date(122, dia, mes);
-		System.out.println("ok");
+			entrada = LocalDate.of(2021, mes, dia);
+		System.out.println(entrada.toString());
 	}
 		
 	
@@ -137,15 +135,12 @@ public class Gestion {
 		String fecha = "111";
 		
 		for (int i = 0; i < listado_precio.length; i++) {
-			System.out.println(" ");
-			for (int j = 0; j < listado_precio.length; j++) {
 				listado_precio[i] = precio_Hotel;
 				System.out.print(" "+listado_precio[i]);
-				System.out.println(" ");
 		
 
 				
-			}
+			
 		}
 		
 	}
@@ -154,16 +149,13 @@ public class Gestion {
 	 * vuelos de solo ida
 	 * */
 	public void precioVueloSoloIda() {
-		double precio_Hotel = Math.random()*500 +800;
+		double precio_VueloSoloIda = Math.random()*500 +800;
 		double [] listado_precio = new double [10];
 		String [] fechas_desde_hasta = new String [10];
 		
 		for (int i = 0; i < listado_precio.length; i++) {
-			System.out.println(" ");
-			for (int j = 0; j < listado_precio.length; j++) {
-				listado_precio[i] = precio_Hotel;
+				listado_precio[i] = precio_VueloSoloIda;
 				System.out.print(" "+listado_precio[i]);
-				System.out.println(" ");
 		
 
 				

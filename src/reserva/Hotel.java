@@ -11,8 +11,8 @@ import java.util.*
 ;public class Hotel {
 	
 	
-	private Date fecha_entrada;
-	private Date fecha_salida;
+	private LocalDate fecha_entrada;
+	private LocalDate fecha_salida;
 	private int dias_estancia;
 	private int cupo;
 	private String destino;
@@ -21,7 +21,7 @@ import java.util.*
 	private int mes;
 	private int dia;
 	
-	public Hotel(Date fecha_entrada, Date fecha_salida, String destino, int dias_estancia) {
+	public Hotel(LocalDate fecha_entrada, LocalDate fecha_salida, String destino, int dias_estancia) {
 		this.fecha_entrada = fecha_entrada;
 		this.fecha_salida = fecha_salida;
 		this.destino = destino;
@@ -59,10 +59,10 @@ import java.util.*
 	 * Getters
 	 * */
 		
-	public Date getFecha_entrada() {
+	public LocalDate getFecha_entrada() {
 		return fecha_entrada;
 	}
-	public Date getFecha_salida() {
+	public LocalDate getFecha_salida() {
 		return fecha_salida;
 	}
 	public int getDias_estancia() {
@@ -82,10 +82,10 @@ import java.util.*
 	 * Setters
 	 * */
 	
-	public void setFecha_entrada(Date fecha_entrada) {
+	public void setFecha_entrada(LocalDate fecha_entrada) {
 		this.fecha_entrada = fecha_entrada;
 	}
-	public void setFecha_salida(Date fecha_salida) {
+	public void setFecha_salida(LocalDate fecha_salida) {
 		this.fecha_salida = fecha_salida;
 	}
 	public void setDias_estancia(int dias_estancia) {
