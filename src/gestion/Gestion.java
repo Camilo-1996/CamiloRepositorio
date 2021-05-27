@@ -18,7 +18,7 @@ public class Gestion {
 	public void ida() {
 		String origen = "";
 		String destino ="";
-		Vuelo pasajero = new Vuelo(destino, origen, compañia);
+		Vuelo pasajero;
 		System.out.println("Introduce el origen");
 		origen = scn.next();
 		System.out.println("Introduce el destino");
@@ -75,7 +75,7 @@ public class Gestion {
 		origen = scn.next();
 		System.out.println("Introduce el destino");
 		destino = scn.next();
-		solicitoFechas(dia, mes, entrada);
+		solicitoFechas(dia, mes,entrada);
 	}
 	
 	public void idayVuelta() {
@@ -93,22 +93,26 @@ public class Gestion {
 		int  mes =0;
 		Hotel h1= new Hotel(entrada, salida, destino, 0); 
 		//El destino tiene como resultado 
-		solicitoFechas();
+		solicitoFechas(dia, mes, entrada);
 
 		
 		System.out.println("Tenemos estos precios para estos hoteles");
 		precioHotel();
 	
 	}
+	
+	/*
+	 * Este metodo solicita las fechas al usuario introducuieno 
+	 * **/
 	//El flujo Scnner me da error al momento de solicitar las fechas
-	public void solicitoFechas() {
-			String fecha = "111";
+	public void solicitoFechas(int dia, int  mes, Date entrada) {
 			System.out.println("Introduce la fecha");
 			for (int i = 0; i < 2; i++) {
-				fecha = scn.next().charAt(1);
+				dia = scn.nextInt();
 				System.out.println(" - ");
-				fecha = scn.next().charAt(2);
+				mes = scn.nextInt();
 			}
+			entrada = new Date(122, dia, mes);
 		System.out.println("ok");
 	}
 		
@@ -120,6 +124,10 @@ public class Gestion {
 		double precio_ALTO = Math.random()*600 +100;*/
 	
 	/*Consulta de precios*/
+	/**
+	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de 500 a 800 para precio de
+	 * vuelos de solo ida
+	 * */
 	public void precioHotel() {
 		double precio_Hotel = Math.random()*100 +150;
 		double [] listado_precio = new double [10];
@@ -139,7 +147,11 @@ public class Gestion {
 		}
 		
 	}
-	public void precioVuelos() {
+	/**
+	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de 500 a 800 para precio de
+	 * vuelos de solo ida
+	 * */
+	public void precioVueloSoloIda() {
 		double precio_Hotel = Math.random()*500 +800;
 		double [] listado_precio = new double [10];
 		String [] fechas_desde_hasta = new String [10];
