@@ -26,7 +26,7 @@ public class Gestion {
 	
 	
 	public static void vueloHotel(opcionElegida) {
-		Switch(opcionElegida){//Llamar a a variable que de la subOpcion de Vuelo mas hotel
+		switch(opcionElegida){//Llamar a a variable que de la subOpcion de Vuelo mas hotel
 			
 			case 1:
 				//hotel+ vuelo
@@ -91,7 +91,7 @@ public class Gestion {
 		int mes1 = scn.nextInt();
 		h1.setFecha_salida(new Date(dia1, mes1, h1.getAño()));
 	
-	.
+	
 	}
 	}
 		
