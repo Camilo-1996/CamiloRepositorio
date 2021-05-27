@@ -7,7 +7,6 @@ import gestion.Gestion;
 public  class  MenuInicio{
 	
 	
-	
 	public static void menuInicio() {
 		
 		System.out.println("*************************************************************************************************************");
@@ -36,7 +35,7 @@ public  class  MenuInicio{
 				
 				opcionElejida= scn.nextInt();
 				
-				if(opcionElejida<=4 && opcionElejida>0)
+				if(opcionElejida<4 && opcionElejida>0)
 				
 				opcionCorrecta=true;
 				

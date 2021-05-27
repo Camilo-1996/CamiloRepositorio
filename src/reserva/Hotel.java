@@ -11,7 +11,6 @@ import java.util.*
 ;public class Hotel {
 	
 	
-	BBDDtest bd1 = new BBDDtest();
 	private Date fecha_entrada;
 	private Date fecha_salida;
 	private int dias_estancia;

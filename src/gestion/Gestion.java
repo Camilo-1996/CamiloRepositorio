@@ -5,15 +5,15 @@ import java.time.LocalDate;
 
 import billete.Persona;
 import gestion.BBDDtest;
-import main.Interfaz;
+import main.MenuInicio;
 import reserva.Hotel;
 
 import java.util.*;
 
 public class Gestion {
-	Scanner scn=new Scanner(System.in);
 	
-	Interfaz llamado = new Interfaz();
+	
+	MenuInicio llamado = new MenuInicio();
 	public static void ida() {
 		
 	}
@@ -25,25 +25,18 @@ public class Gestion {
 	}
 	
 	
-	public static void vueloHotel(opcionElegida) {
-		switch(opcionElegida){//Llamar a a variable que de la subOpcion de Vuelo mas hotel
-			
-			case 1:
-				//hotel+ vuelo
-				
-			case 2:
-
+	public static void vueloHotel() {
+		Scanner scn=new Scanner(System.in);
+		String origen = "España";
 					System.out.println("Introduce origen");
-					String origen= scn.next();				
-					buscoDestinosHoteles(origen);
+					try {
+					buscoHoteles(origen);
+					}catch(NoSuchElementException e) {
+						System.out.println(e.getMessage());
+					}catch(Exception e) {
+						System.out.println(e.getMessage());
+					}
 
-				
-			}
-				
-			
-		
-		
-		
 	}
 	
 	
@@ -73,26 +66,25 @@ public class Gestion {
 	/*Operaciones y metodos de la clase Hoteles*/
 	
 
-	public void buscoDestinosHoteles(String destino) {
-		Date entrada; 
-		Date salida; 
+	public static void buscoHoteles(String destino) {
+		Date entrada = null; 
+		Date salida = null;
+		int dia =0;
+		int  mes =0;
 		Hotel h1= new Hotel(entrada, salida, destino, 0); 
 		//El destino tiene como resultado 
-	if(destino.equalsIgnoreCase(destino)) {
-		System.out.println("Introduce la fecha de entrada");
-		int dia = scn.nextInt();
-		h1.setDia(dia);
-		int mes = scn.nextInt();
-		h1.setMes(mes);
-		h1.setFecha_entrada(new Date(dia, mes, h1.getAño()));
-		System.out.println("Introduce la fecha de salida 'dia/mes'");
-		int dia1 = scn.nextInt();
-		System.out.println("");
-		int mes1 = scn.nextInt();
-		h1.setFecha_salida(new Date(dia1, mes1, h1.getAño()));
+		solicitoFechas(dia, mes, entrada);
 	
 	
 	}
+	//El flujo Scnner me da error al momento de solicitar las fechas
+	public static void solicitoFechas(int dia, int mes, Date fecha) {
+			Scanner scn = new Scanner(System.in);
+			fecha = new Date(122, mes, dia);
+			System.out.println("Introduce la fecha de entrada");
+			dia = scn.nextInt();
+			mes = scn.nextInt();
+		System.out.println(fecha);
 	}
 		
 	
