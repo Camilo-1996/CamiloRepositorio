@@ -20,6 +20,7 @@ public  class  MenuInicio{
 	
 	
 	public void menuUsuario() {
+		Gestion gestion = new Gestion();
 		
 		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!");
 		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
@@ -52,20 +53,20 @@ public  class  MenuInicio{
 		switch(opcionElejida) {
 	
 		case 1:
-			Gestion.ida();
+			gestion.ida();
 			break;
 			
 		case 2:
-			Gestion.idaVuelta();
+			gestion.idaVuelta();
 			break;
 			
 		case 3:
-			Gestion.vueloHotel();
+			gestion.vueloHotel();
 			break;
 			
 		case 4:
 			
-			Gestion.finApp();
+			gestion.finApp();
 			break;
 		}
 		

@@ -12,11 +12,30 @@ import reserva.Hotel;
 import java.util.*;
 
 public class Gestion {
-	
+	Scanner scn=new Scanner(System.in);
 	
 	MenuInicio llamado = new MenuInicio();
-	public static void ida() {
-		Scanner scn=new Scanner(System.in);
+	public void ida() {
+		String origen = "";
+		String destino ="";
+		Vuelo pasajero = new Vuelo(destino, origen, compañia);
+		System.out.println("Introduce el origen");
+		origen = scn.next();
+		System.out.println("Introduce el destino");
+		destino = scn.next();
+		
+		
+		
+	}
+	
+	
+	public void idaVuelta() {
+		
+		
+	}
+	
+	
+	public void vueloHotel() {
 		String origen = "España";
 					System.out.println("Introduce origen");
 					try {
@@ -27,33 +46,10 @@ public class Gestion {
 						System.out.println(e.getMessage());
 					}
 
-
-		
 	}
 	
 	
-	public static void idaVuelta() {
-		
-		
-	}
-	
-	
-	public static void vueloHotel() {
-		Scanner scn=new Scanner(System.in);
-		String origen = "España";
-					System.out.println("Introduce origen");
-					try {
-					buscoHoteles(origen);
-					}catch(NoSuchElementException e) {
-						System.out.println(e.getMessage());
-					}catch(Exception e) {
-						System.out.println(e.getMessage());
-					}
-
-	}
-	
-	
-	public static void finApp() {
+	public void finApp() {
 		
 		
 	}
@@ -67,10 +63,19 @@ public class Gestion {
 		
 	}
 	
-	public void soloIda(String origen, String Destino) {
-		Vuelo pasajero = new Vuelo(Destino, origen, Destino);
-		
-		
+	public void soloIda(String origen, String destino) {
+		Date entrada = null; 
+		Date salida = null;
+		int dia =0;
+		int  mes =0;
+		String compañía= "";
+		Vuelo pasajero = new Vuelo(destino, origen, compañía);
+		String fecha = new String ("111");
+		System.out.println("Introduce el origen");
+		origen = scn.next();
+		System.out.println("Introduce el destino");
+		destino = scn.next();
+		solicitoFechas(dia, mes, entrada);
 	}
 	
 	public void idayVuelta() {
@@ -81,40 +86,61 @@ public class Gestion {
 	/*Operaciones y metodos de la clase Hoteles*/
 	
 
-	public static void buscoHoteles(String destino) {
+	public void buscoHoteles(String destino) {
 		Date entrada = null; 
 		Date salida = null;
 		int dia =0;
 		int  mes =0;
 		Hotel h1= new Hotel(entrada, salida, destino, 0); 
 		//El destino tiene como resultado 
-		solicitoFechas(dia, mes, entrada);
-		solicitoFechas(dia, mes, salida);
+		solicitoFechas();
+
 		
 		System.out.println("Tenemos estos precios para estos hoteles");
-		precios();
+		precioHotel();
 	
 	}
 	//El flujo Scnner me da error al momento de solicitar las fechas
-	public static void solicitoFechas(int dia, int mes, Date fecha) {
-			Scanner nc = new Scanner(System.in);
-			System.out.println("Introduce la fecha de entrada");
+	public void solicitoFechas() {
+			String fecha = "111";
+			System.out.println("Introduce la fecha");
 			for (int i = 0; i < 2; i++) {
-				dia = nc.nextInt();
+				fecha = scn.next().charAt(1);
 				System.out.println(" - ");
-				mes = nc.nextInt();
+				fecha = scn.next().charAt(2);
 			}
-			fecha = new Date(122, mes, dia);
 		System.out.println("ok");
 	}
 		
+	
+	/******************************************************************************************/
+	/**************************METODOS DE PRECIOS HOTEL, VUELOS*******************************/ 
 	/*
 	 * 	double precio_MEDIO = Math.random()*200 +70;
 		double precio_ALTO = Math.random()*600 +100;*/
 	
 	/*Consulta de precios*/
-	public static void precios() {
+	public void precioHotel() {
 		double precio_Hotel = Math.random()*100 +150;
+		double [] listado_precio = new double [10];
+		String [] fechas_desde_hasta = new String [10];
+		String fecha = "111";
+		
+		for (int i = 0; i < listado_precio.length; i++) {
+			System.out.println(" ");
+			for (int j = 0; j < listado_precio.length; j++) {
+				listado_precio[i] = precio_Hotel;
+				System.out.print(" "+listado_precio[i]);
+				System.out.println(" ");
+		
+
+				
+			}
+		}
+		
+	}
+	public void precioVuelos() {
+		double precio_Hotel = Math.random()*500 +800;
 		double [] listado_precio = new double [10];
 		String [] fechas_desde_hasta = new String [10];
 		
