@@ -7,7 +7,7 @@ import gestion.Gestion;
 public  class  MenuInicio{
 	
 	
-	public static void menuInicio() {
+	public void menuInicio() {
 		
 		System.out.println("*************************************************************************************************************");
 		System.out.println("**************************************    BIENVENIDO A VUELINKING!!  ***************************************");
@@ -19,7 +19,7 @@ public  class  MenuInicio{
 	
 	
 	
-	public  static void menuUsuario() {
+	public void menuUsuario() {
 		
 		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!");
 		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
@@ -72,7 +72,7 @@ public  class  MenuInicio{
 	}
 	
 	
-	public static void menuFinAPP() {
+	public void menuFinAPP() {
 		
 		System.out.println("GRACIAS POR UTLIZAR NUESTRA APP\n "
 				+ "ESPERAMOS VERTE PRONTO EN VUELIKING");

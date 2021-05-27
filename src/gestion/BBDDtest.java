@@ -18,7 +18,7 @@ public void consultaBBDD() {
 		try {
 			Connection conn2 = con.conectarMySQL();
 			Statement stmt = conn2.createStatement();
-			String sqlQuery = "SELECT * from proyectoprogramacion.aerolinea";
+			String sqlQuery = "SELECT * from proyecto.aerolinea";
 			ResultSet rs = stmt.executeQuery(sqlQuery);
 			while(rs.next()) {
 				String Nombre = rs.getString("Nombre");
