@@ -12,7 +12,7 @@ import reserva.Hotel;
 import java.util.*;
 
 public class Gestion {
-	Scanner scn=new Scanner(System.in);
+	
 	
 	MenuInicio llamado = new MenuInicio();
 	public void ida() {
@@ -20,9 +20,9 @@ public class Gestion {
 		String destino ="";
 		Vuelo pasajero;
 		System.out.println("Introduce el origen");
-		origen = scn.next();
+		origen = MenuInicio.scn.next();
 		System.out.println("Introduce el destino");
-		destino = scn.next();
+		destino = MenuInicio.scn.next();
 		
 		
 		
@@ -41,8 +41,10 @@ public class Gestion {
 					try {
 					buscoHoteles(origen);
 					}catch(NoSuchElementException e) {
+						e.printStackTrace();
 						System.out.println(e.getMessage());
 					}catch(Exception e) {
+						e.printStackTrace();
 						System.out.println(e.getMessage());
 					}
 
@@ -72,9 +74,9 @@ public class Gestion {
 		Vuelo pasajero = new Vuelo(destino, origen, compañía);
 		String fecha = new String ("111");
 		System.out.println("Introduce el origen");
-		origen = scn.next();
+		origen = MenuInicio.scn.next();
 		System.out.println("Introduce el destino");
-		destino = scn.next();
+		destino = MenuInicio.scn.next();
 		solicitoFechas(dia, mes,entrada);
 	}
 	
@@ -108,9 +110,9 @@ public class Gestion {
 	public void solicitoFechas(int dia, int  mes, Date entrada) {
 			System.out.println("Introduce la fecha");
 			for (int i = 0; i < 2; i++) {
-				dia = scn.nextInt();
+				dia = MenuInicio.scn.nextInt();
 				System.out.println(" - ");
-				mes = scn.nextInt();
+				mes = MenuInicio.scn.nextInt();
 			}
 			entrada = new Date(122, dia, mes);
 		System.out.println("ok");

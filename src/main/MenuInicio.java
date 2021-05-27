@@ -6,6 +6,7 @@ import gestion.Gestion;
 
 public  class  MenuInicio{
 	
+	public static Scanner scn = new Scanner(System.in);
 	
 	public void menuInicio() {
 		
@@ -25,7 +26,7 @@ public  class  MenuInicio{
 		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!");
 		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
 	
-		Scanner scn = new Scanner(System.in);
+	
 		boolean opcionCorrecta=false;
 		int opcionElejida=0;
 		
@@ -48,7 +49,7 @@ public  class  MenuInicio{
 			
 		} 
 		
-		scn.close();
+		//scn.close();
 		
 		switch(opcionElejida) {
 	
