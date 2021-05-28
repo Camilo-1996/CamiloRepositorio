@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import billete.Persona;
 import billete.Vuelo;
 import gestion.BBDDtest;
-import main.MenuInicio;
+import interfazes.MenuInicio;
 import reserva.Hotel;
 
 import java.util.*;

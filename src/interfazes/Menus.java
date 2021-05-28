@@ -1,13 +1,16 @@
-package main;
+package interfazes;
 
 import java.util.Scanner;
 import gestion.Gestion;
 
-public  class  MenuInicio{
+public  class  Menus{
 	
 	public static Scanner scn = new Scanner(System.in);
 	
-	public void menuInicio() {
+	/**
+	 * menu de presentación de la aplicación
+	 */
+	public static void menuInicio() {
 		
 		System.out.println("*************************************************************************************************************");
 		System.out.println("**************************************    BIENVENIDO A VUELINKING!!  ***************************************");
@@ -16,32 +19,65 @@ public  class  MenuInicio{
 		
 	}
 	
-	public void menuUsuario() {
-		Gestion gestion = new Gestion();
-		
-		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!\n");
-		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
+	
+	
+	
+	/*
+	 * menú de interación inicial con el usuario, tenemos 3 opciones: <br/>
+	 * 
+	 * 1- Sólo Ida. <br/>
+	 * 2- Ida y vuelta.<br/>
+	 * 3- VUelo+Hotel. <br/>
+	 * 4- Salir de la App. <br/>
+	 * 
+	 * Principalmente sirbve para comprobar que la interación se ejecuta de forma correcta
+	 */
+	
+	public static void menuUsuario() {
+	
 	
 		boolean opcionCorrecta = false;
 		int opcionElejida = 0;
 		
 		while(opcionCorrecta!=true) {
+			
+			System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!\n");
+			System.out.println("1-SÓLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
+			
 			try {
+				
 				opcionElejida = Integer.parseInt(scn.next());
+				
 				if(opcionElejida <= 4 && opcionElejida > 0) {
+					
 					opcionCorrecta = true;
+					
 				}else {
-					System.out.println("Por Favor Introduzca Una Opcion Valida\n");
-					System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
+					
+					System.out.println("NO DISPONEMOS DE ESA OPCIÓN. INTELANTALO DE NUEVO\n");
+					
 				}
-			}catch(java.lang.NumberFormatException e){
-				System.out.println("Por Favor Introduzca Una Opcion Valida\n");
-				System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
+				
+				
+			}catch(NumberFormatException exc){
+				
+				
+				System.out.println("FORMATO NO VALIDO\n");
+			
+				
+			}catch(Exception exc) {
+				
+				System.out.println("ERROR\n");
+				exc.printStackTrace();
+				
 			}
 		} 
 		
+		Gestion gestion = new Gestion();
 		
 		switch(opcionElejida) {
+		
+		
 			case 1:
 				gestion.ida();
 				break;
@@ -57,7 +93,8 @@ public  class  MenuInicio{
 		}
 	}
 	
-	public void menuFinAPP() {
+	public static void menuFinAPP() {
+		
 		System.out.println("\nGRACIAS POR UTLIZAR NUESTRA APP\n "
 				+ "ESPERAMOS VERTE PRONTO EN VUELIKING");
 	}
