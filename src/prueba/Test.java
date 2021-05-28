@@ -1,11 +1,10 @@
-package main;
+package prueba;
 
 import interfazes.Menus;
 
-public class Main {
+public class Test {
 
 	public static void main(String[] args) {
-		
 	
 		Menus.menuInicio();
 		
