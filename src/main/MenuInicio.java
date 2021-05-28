@@ -40,7 +40,6 @@ public  class  MenuInicio{
 			}
 		} 
 		
-		//scn.close();
 		
 		switch(opcionElejida) {
 			case 1:
