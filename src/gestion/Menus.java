@@ -1,7 +1,6 @@
-package interfazes;
+package gestion;
 
 import java.util.Scanner;
-import gestion.Gestion;
 
 public  class  Menus{
 	

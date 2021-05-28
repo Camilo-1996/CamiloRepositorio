@@ -1,6 +1,6 @@
 package prueba;
 
-import interfazes.Menus;
+import gestion.Menus;
 
 public class Test {
 

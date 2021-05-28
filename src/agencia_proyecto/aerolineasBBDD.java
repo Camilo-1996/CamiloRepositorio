@@ -1,11 +1,10 @@
 package agencia_proyecto;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 
 public class aerolineasBBDD {
+	
 	private static final String databasename = "proyecto_java";
 	private static final String serverTimeZone = "UTC-8";
 	private static final String hostname = "localhost";
