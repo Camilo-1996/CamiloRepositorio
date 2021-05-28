@@ -36,8 +36,12 @@ public class Gestion {
 	
 	
 	public void vueloHotel() {
-		String origen = "España";
+		String origen = "";
+		String destino = "";
 					System.out.println("Introduce origen");
+					origen =  MenuInicio.scn.next();
+					System.out.println("Introduce destino");
+					destino =  MenuInicio.scn.next();
 					try {
 					buscoHoteles(origen);
 					}catch(NoSuchElementException e) {
@@ -66,8 +70,8 @@ public class Gestion {
 	}
 	
 	public void soloIda(String origen, String destino) {
-		Date entrada = null; 
-		Date salida = null;
+		LocalDate entrada = null; 
+		LocalDate salida = null;
 		int dia =0;
 		int  mes =0;
 		String compañía= "";
@@ -78,6 +82,7 @@ public class Gestion {
 		System.out.println("Introduce el destino");
 		destino = MenuInicio.scn.next();
 		solicitoFechas(dia, mes,entrada);
+		solicitoFechas(dia, mes,salida);
 	}
 	
 	public void idayVuelta() {
@@ -96,24 +101,20 @@ public class Gestion {
 		Hotel h1= new Hotel(entrada, salida, destino, 0); 
 		//El destino tiene como resultado 
 		solicitoFechas(dia, mes, entrada);
-
-		
 		System.out.println("Tenemos estos precios para estos hoteles");
-		precioHotel();
-	
+		precioHotel(dia,mes,entrada);
 	}
 	
 	/*
 	 * Este metodo solicita las fechas al usuario introducuieno 
 	 * **/
 	//El flujo Scnner me da error al momento de solicitar las fechas
-	public void solicitoFechas(int dia, int  mes, LocalDate entrada) {
+	public void solicitoFechas(int dia, int  mes, LocalDate fecha) {
 			System.out.println("Introduce la fecha");
 				dia = MenuInicio.scn.nextInt();
-				System.out.println(" - ");
 				mes = MenuInicio.scn.nextInt();
-			entrada = LocalDate.of(2021, mes, dia);
-		System.out.println(entrada.toString());
+				fecha = LocalDate.of(2021, mes, dia);
+		System.out.println(fecha.toString());
 	}
 		
 	
@@ -128,20 +129,20 @@ public class Gestion {
 	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de 500 a 800 para precio de
 	 * vuelos de solo ida
 	 * */
-	public void precioHotel() {
-		double precio_Hotel = Math.random()*100 +150;
-		double [] listado_precio = new double [10];
-		String [] fechas_desde_hasta = new String [10];
-		String fecha = "111";
-		
+	public void precioHotel(int dia, int  mes,LocalDate fecha) {
+		float precio_Hotel = (float) (Math.random()*100 +150);
+		int eligoPrecio = 0;
+		float [] listado_precio = new float [3];
+		LocalDate [] fechas = new LocalDate[3];
 		for (int i = 0; i < listado_precio.length; i++) {
+				dia++;
+				mes = mes+1;
 				listado_precio[i] = precio_Hotel;
+				fechas[i] = fecha.of(2021, mes, dia);
 				System.out.print(" "+listado_precio[i]);
-		
-
-				
-			
+				System.out.println(" "+fechas[i]);
 		}
+		
 		
 	}
 	/**

@@ -7,7 +7,6 @@ public class Main {
 		//intenat meter solo static  mcnnf
 		llamado.menuInicio();
 		llamado.menuUsuario();
-		llamado.menuFinAPP();
 	}
 
 }
