@@ -1,7 +1,6 @@
 package main;
 
 import java.util.Scanner;
-
 import gestion.Gestion;
 
 public  class  MenuInicio{
@@ -14,71 +13,54 @@ public  class  MenuInicio{
 		System.out.println("**************************************    BIENVENIDO A VUELINKING!!  ***************************************");
 		System.out.println("*************************************************************************************************************");
 		System.out.println("***************************************    TU  APP  DE  VIAJES    *************************************************\n\n");
-
 		
 	}
-	
-	
 	
 	public void menuUsuario() {
 		Gestion gestion = new Gestion();
 		
-		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!");
+		System.out.println("¡ELIJE TU FORMA DE VIAJAR CON NOSOTROS!\n");
 		System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
 	
-	
-		boolean opcionCorrecta=false;
-		int opcionElejida=0;
+		boolean opcionCorrecta = false;
+		int opcionElejida = 0;
 		
 		while(opcionCorrecta!=true) {
-			
-			
 			try {
-				
-				opcionElejida= scn.nextInt();
-				
-				if(opcionElejida<4 && opcionElejida>0)
-				
-				opcionCorrecta=true;
-				
-			}catch(Exception exc){
-				
-				System.out.println("El valor introducido no es correcto");
-				
+				opcionElejida = Integer.parseInt(scn.next());
+				if(opcionElejida <= 4 && opcionElejida > 0) {
+					opcionCorrecta = true;
+				}else {
+					System.out.println("Por Favor Introduzca Una Opcion Valida\n");
+					System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
+				}
+			}catch(java.lang.NumberFormatException e){
+				System.out.println("Por Favor Introduzca Una Opcion Valida\n");
+				System.out.println("1-SOLO IDA \n2-IDA Y VUELTA  \n3-VUELO + HOTEL  \n4-SALIR DE LA APP");
 			}
-			
 		} 
 		
 		//scn.close();
 		
 		switch(opcionElejida) {
-	
-		case 1:
-			gestion.ida();
-			break;
-			
-		case 2:
-			gestion.idaVuelta();
-			break;
-			
-		case 3:
-			gestion.vueloHotel();
-			break;
-			
-		case 4:
-			
-			gestion.finApp();
-			break;
+			case 1:
+				gestion.ida();
+				break;
+			case 2:
+				gestion.idaVuelta();
+				break;
+			case 3:
+				gestion.vueloHotel();
+				break;
+			case 4:
+				gestion.finApp();
+				break;
 		}
-		
 	}
 	
-	
 	public void menuFinAPP() {
-		
-		System.out.println("GRACIAS POR UTLIZAR NUESTRA APP\n "
+		System.out.println("\nGRACIAS POR UTLIZAR NUESTRA APP\n "
 				+ "ESPERAMOS VERTE PRONTO EN VUELIKING");
-		
 	}
 	
 }

@@ -13,68 +13,51 @@ import java.util.*;
 
 public class Gestion {
 	
-	
 	MenuInicio llamado = new MenuInicio();
 	public void ida() {
 		String origen = "";
-		String destino ="";
+		String destino = "";
 		Vuelo pasajero;
 		System.out.println("Introduce el origen");
 		origen = MenuInicio.scn.next();
 		System.out.println("Introduce el destino");
 		destino = MenuInicio.scn.next();
-		
-		
-		
 	}
-	
 	
 	public void idaVuelta() {
 		
-		
 	}
-	
 	
 	public void vueloHotel() {
-		String origen = "";
-		String destino = "";
-					System.out.println("Introduce origen");
-					origen =  MenuInicio.scn.next();
-					System.out.println("Introduce destino");
-					destino =  MenuInicio.scn.next();
-					try {
-					buscoHoteles(origen);
-					}catch(NoSuchElementException e) {
-						e.printStackTrace();
-						System.out.println(e.getMessage());
-					}catch(Exception e) {
-						e.printStackTrace();
-						System.out.println(e.getMessage());
-					}
-
+		String origen = "España";
+		System.out.println("Introduce origen");
+		try {
+			buscoHoteles(origen);
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 	}
-	
 	
 	public void finApp() {
-		
-		
+		System.out.println("HASTA LUEGO!!");
+		System.exit(0);
 	}
 	/*Gestion de datos Vuelos*/
-	
-	
-		
-	
 	
 	public void gestionarPartida() {
 		
 	}
 	
 	public void soloIda(String origen, String destino) {
-		LocalDate entrada = null; 
-		LocalDate salida = null;
-		int dia =0;
-		int  mes =0;
-		String compañía= "";
+		Date entrada = null; 
+		Date salida = null;
+		int dia = 0;
+		int  mes = 0;
+		String compañía = "";
 		Vuelo pasajero = new Vuelo(destino, origen, compañía);
 		String fecha = new String ("111");
 		System.out.println("Introduce el origen");
@@ -82,7 +65,6 @@ public class Gestion {
 		System.out.println("Introduce el destino");
 		destino = MenuInicio.scn.next();
 		solicitoFechas(dia, mes,entrada);
-		solicitoFechas(dia, mes,salida);
 	}
 	
 	public void idayVuelta() {
@@ -92,29 +74,38 @@ public class Gestion {
 
 	/*Operaciones y metodos de la clase Hoteles*/
 	
-
 	public void buscoHoteles(String destino) {
 		LocalDate entrada = null; 
 		LocalDate salida = null;
 		int dia =0;
 		int  mes =0;
 		Hotel h1= new Hotel(entrada, salida, destino, 0); 
-		//El destino tiene como resultado 
+		//El destino tiene como resultado
+		
 		solicitoFechas(dia, mes, entrada);
-		System.out.println("Tenemos estos precios para estos hoteles");
-		precioHotel(dia,mes,entrada);
+		
+		System.out.println("Tenemos Estos Precios Para Estos Hoteles:\n");
+		precioHotel();
+	
 	}
 	
 	/*
 	 * Este metodo solicita las fechas al usuario introducuieno 
 	 * **/
 	//El flujo Scnner me da error al momento de solicitar las fechas
-	public void solicitoFechas(int dia, int  mes, LocalDate fecha) {
-			System.out.println("Introduce la fecha");
-				dia = MenuInicio.scn.nextInt();
-				mes = MenuInicio.scn.nextInt();
-				fecha = LocalDate.of(2021, mes, dia);
-		System.out.println(fecha.toString());
+	public void solicitoFechas(int dia, int  mes, LocalDate entrada) {
+		System.out.println("Introduce Una Fecha\n");
+		System.out.println("¿Cual Dia?");
+		try {
+			dia = MenuInicio.scn.nextInt();
+		}catch(java.util.InputMismatchException e) {
+			System.out.println("\nIntroduzca Una Opcion Valida!!\n");
+			vueloHotel();
+		}
+		System.out.println("¿Cual Mes?");
+		mes = MenuInicio.scn.nextInt();
+		entrada = LocalDate.of(2021, mes, dia);
+		System.out.println(entrada.toString());
 	}
 		
 	
@@ -129,21 +120,16 @@ public class Gestion {
 	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de 500 a 800 para precio de
 	 * vuelos de solo ida
 	 * */
-	public void precioHotel(int dia, int  mes,LocalDate fecha) {
-		float precio_Hotel = (float) (Math.random()*100 +150);
-		int eligoPrecio = 0;
-		float [] listado_precio = new float [3];
-		LocalDate [] fechas = new LocalDate[3];
+	public void precioHotel() {
+		double precio_Hotel = Math.random()*100 +150;
+		double [] listado_precio = new double [10];
+		String [] fechas_desde_hasta = new String [10];
+		String fecha = "111";
+		
 		for (int i = 0; i < listado_precio.length; i++) {
-				dia++;
-				mes = mes+1;
 				listado_precio[i] = precio_Hotel;
-				fechas[i] = fecha.of(2021, mes, dia);
-				System.out.print(" "+listado_precio[i]);
-				System.out.println(" "+fechas[i]);
+				System.out.print(" "+listado_precio[i]);	
 		}
-		
-		
 	}
 	/**
 	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de 500 a 800 para precio de
@@ -155,18 +141,14 @@ public class Gestion {
 		String [] fechas_desde_hasta = new String [10];
 		
 		for (int i = 0; i < listado_precio.length; i++) {
-				listado_precio[i] = precio_VueloSoloIda;
-				System.out.print(" "+listado_precio[i]);
-		
-
-				
-			}
+			listado_precio[i] = precio_VueloSoloIda;
+			System.out.print(" "+listado_precio[i]);
 		}
-		
-	
-	
-	
+	}
 }
+	
+	
+
 
 
 	
