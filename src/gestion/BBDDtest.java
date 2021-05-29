@@ -9,7 +9,7 @@ import agencia_proyecto.aerolineasBBDD;
 
 public class BBDDtest {
 
-	aerolineasBBDD con = new aerolineasBBDD();
+	AerolineasBBDD con = new AerolineasBBDD();
 
 	public void consultaBBDD() {
 		try {

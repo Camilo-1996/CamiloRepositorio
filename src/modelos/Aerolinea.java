@@ -1,11 +1,11 @@
 package modelos;
 
-public class aerolinea {
+public class Aerolinea {
 
 	private String id;
 	private String Nombre;
 
-	public aerolinea(String id, String nombre) {
+	public Aerolinea(String id, String nombre) {
 		super();
 		this.id = id;
 		Nombre = nombre;
