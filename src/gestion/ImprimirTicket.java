@@ -14,7 +14,8 @@ public class ImprimirTicket {
 	String hora = "12:30pm";
 	int puerta = 7;
 	int asiento = 13;
-	String usuario = System.getProperty("user.name");
+	String usuario = "";
+	usuario = System.getProperty("user.name");
 	
 	
 
