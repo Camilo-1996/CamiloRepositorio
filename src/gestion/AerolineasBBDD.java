@@ -35,7 +35,7 @@ public class aerolineasBBDD {
 		} catch (Exception e) {
 			System.out.println("error al conectarse a la Base de datos! " + e.getMessage());
 		}
-
+	}
 //Metodo para obtener todas las aerolineas
 	public List<aerolinea> TodasAerolineas() {
 		List<aerolinea> lista = new ArrayList<aerolinea>();

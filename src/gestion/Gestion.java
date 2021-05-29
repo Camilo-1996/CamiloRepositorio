@@ -206,6 +206,7 @@ public class Gestion {
 		
 		System.out.println("Tenemos Estos Precios Para Estos Hoteles:\n");
 		precioHotel();
+
 	
 	}
 
