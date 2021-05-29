@@ -3,6 +3,7 @@ package gestion;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import billete.Billete;
 import billete.Persona;
 import billete.Vuelo;
 import gestion.BBDDtest;
@@ -13,15 +14,133 @@ import java.util.*;
 
 public class Gestion {
 	
+	private static Scanner scn = new Scanner(System.in);
+	private Billete billete=new Billete();
+
+	
+	
+	public void inicioSesion() {
+			
+		boolean opcionCorrecta = false;
+		int opcionElejida = 0;
+		
+		while(opcionCorrecta!=true) {
+			
+			Menus.menuUsuario();
+			
+			try {
+				
+				opcionElejida = Integer.parseInt(scn.next());
+				
+				if(opcionElejida <= 4 && opcionElejida > 0) {
+					
+					opcionCorrecta = true;
+					
+				}else {
+					
+					System.out.println("NO DISPONEMOS DE ESA OPCIÓN. INTELANTALO DE NUEVO\n");
+					
+				}
+				
+				
+			}catch(NumberFormatException exc){
+				
+				
+				System.out.println("FORMATO NO VALIDO\n");
+			
+				
+			}catch(Exception exc) {
+				
+				System.out.println("ERROR\n");
+				exc.printStackTrace();
+				
+			}
+		} 
+		
+		switch(opcionElejida) {
+		
+		
+			case 1:
+				this.ida();
+				break;
+			case 2:
+				this.idaVuelta();
+				break;
+			case 3:
+				this.vueloHotel();
+				break;
+			case 4:
+				this.finApp();
+				break;
+		}
+	}
+	
+	
+	
+	/**
+	 * Método de Ida
+	 */
 	public void ida() {
+		
 		String origen = "";
 		String destino = "";
-		Vuelo pasajero;
+		
 		System.out.println("Introduce el origen");
-		origen = Menus.scn.next();
+		
+		do {
+			
+			origen =scn.next();
+			
+			this.comprueboPais(origen);
+			
+			if(this.comprueboPais(origen)!=true) {
+				
+				System.out.println("INTRODUCE UN ORIGEN VALIDO.");
+			}
+			
+			
+		}while(this.comprueboPais(origen)!=true);
+		
+		
 		System.out.println("Introduce el destino");
-		destino = Menus.scn.next();
+		
+		
+		do {
+			
+			destino = scn.next();
+			
+			this.comprueboPais(destino);
+			
+			if(this.comprueboPais(destino)!=true) {
+				
+				System.out.println("INTRODUCE UN DESTINO VALIDO.");
+			}
+			
+			
+		}while(this.comprueboPais(destino)!=true);
+		
+		this.solicitoFechas(0, 0, null);
+		
 	}
+	
+	
+	
+	public boolean comprueboPais(String pais) {
+		
+		boolean estaPais=false;
+	
+		
+		if(staticmetodoPaulBDcomprobarPais(String pais)!=false){
+				
+			estaPais=true;
+		}
+		
+		return estaPais;
+	}
+		
+		
+	
+	
 	
 	public void idaVuelta() {
 		
@@ -68,6 +187,8 @@ public class Gestion {
 	
 	public void idayVuelta() {
 		
+		
+		
 	}
 	/*Gestion datos*/
 
@@ -87,6 +208,60 @@ public class Gestion {
 		precioHotel();
 	
 	}
+
+	
+	
+	public void comprobarDiayMes() {
+		
+		int diaComprobado=0;
+		int mesComprobado=0;
+		
+		boolean diaCorrecto=false;
+		
+		while(diaCorrecto!=true) {
+			
+			try{
+				
+				System.out.println("DIA");
+				
+				diaComprobado=scn.nextInt();
+				
+				System.out.println("MES");
+				
+				mesComprobado=scn.nextInt();
+				
+				if((diaComprobado<31 && diaComprobado>0)&&(mesComprobado>0 && mesComprobado<13)) {
+					
+					
+					billete.setFecha(diaComprobado, mesComprobado, 2021);
+					
+					
+					
+					diaCorrecto=true;
+					
+					
+				}else {
+					
+					System.out.println("INTRODUCE UNA FECHA VALIDA");
+					System.out.println("INTRODUCE DE NUEVO EL DIA");
+					
+				}
+				
+			}catch(Exception exc) {
+				
+				System.out.println("INTRODUCE UN FORMATO ADECCUADO");
+				System.out.println("INTRODUCE DE NUEVO EL DIA");
+				
+			}
+		}
+		
+
+		
+	}
+	
+	
+	
+	
 	
 	/*
 	 * Este metodo solicita las fechas al usuario introducuieno 
@@ -144,6 +319,8 @@ public class Gestion {
 			System.out.print(" "+listado_precio[i]);
 		}
 	}
+
+	
 }
 	
 	
