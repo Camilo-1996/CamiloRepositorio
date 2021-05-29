@@ -1,5 +1,5 @@
 package bd;
-
+//no entiendo para que sirve esta clase???
 import java.sql.*;
 
 //import com.mysql.cj.jdbc.MysqlDataSource;
