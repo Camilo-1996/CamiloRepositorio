@@ -6,22 +6,21 @@ import java.time.LocalDate;
 import billete.Persona;
 import billete.Vuelo;
 import gestion.BBDDtest;
-import interfazes.MenuInicio;
+import interfazes.Menus;
 import reserva.Hotel;
 
 import java.util.*;
 
 public class Gestion {
 	
-	MenuInicio llamado = new MenuInicio();
 	public void ida() {
 		String origen = "";
 		String destino = "";
 		Vuelo pasajero;
 		System.out.println("Introduce el origen");
-		origen = MenuInicio.scn.next();
+		origen = Menus.scn.next();
 		System.out.println("Introduce el destino");
-		destino = MenuInicio.scn.next();
+		destino = Menus.scn.next();
 	}
 	
 	public void idaVuelta() {
@@ -53,17 +52,17 @@ public class Gestion {
 	}
 	
 	public void soloIda(String origen, String destino) {
-		Date entrada = null; 
-		Date salida = null;
+		LocalDate entrada = null; 
+		LocalDate salida = null;
 		int dia = 0;
 		int  mes = 0;
 		String compañía = "";
 		Vuelo pasajero = new Vuelo(destino, origen, compañía);
 		String fecha = new String ("111");
 		System.out.println("Introduce el origen");
-		origen = MenuInicio.scn.next();
+		origen = Menus.scn.next();
 		System.out.println("Introduce el destino");
-		destino = MenuInicio.scn.next();
+		destino = Menus.scn.next();
 		solicitoFechas(dia, mes,entrada);
 	}
 	
@@ -97,13 +96,13 @@ public class Gestion {
 		System.out.println("Introduce Una Fecha\n");
 		System.out.println("¿Cual Dia?");
 		try {
-			dia = MenuInicio.scn.nextInt();
+			dia = Menus.scn.nextInt();
 		}catch(java.util.InputMismatchException e) {
 			System.out.println("\nIntroduzca Una Opcion Valida!!\n");
 			vueloHotel();
 		}
 		System.out.println("¿Cual Mes?");
-		mes = MenuInicio.scn.nextInt();
+		mes = Menus.scn.nextInt();
 		entrada = LocalDate.of(2021, mes, dia);
 		System.out.println(entrada.toString());
 	}
