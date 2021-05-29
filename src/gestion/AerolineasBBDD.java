@@ -10,7 +10,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 import modelos.aerolinea;
 
-public class aerolineasBBDD {
+public class AerolineasBBDD {
 	private Statement st;
 	private String databasename = "proyecto";
 	private String serverTimeZone = "UTC";
@@ -21,10 +21,10 @@ public class aerolineasBBDD {
 
 	private Connection BBDDaero;
 
-	public aerolineasBBDD() {
+	public AerolineasBBDD() {
 		try {
 			MysqlDataSource dataSource = new MysqlDataSource();
-			dataSource.setUseSSL(false); // Para pruebas!
+			dataSource.setUseSSL(false); 
 			dataSource.setServerTimezone(serverTimeZone);
 			dataSource.setDatabaseName(databasename);
 			dataSource.setPortNumber(port);
