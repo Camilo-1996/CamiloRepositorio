@@ -4,9 +4,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import bd.aerolinea;
 import interfazes.Menus;
-
-
 public class Gestion {
 	
 	Scanner scn = new Scanner(System.in);
@@ -281,12 +280,12 @@ public class Gestion {
 		}
 			
 	}
-	public void confirmoVuelo(int numPasajeros) {
+	public Billete confirmoVuelo(int numPasajeros) {
 		String nombre;
 		String apellido1;
 		String apellido2;
 		String pasaporte ;
-		Billete [] billetes = new Billete[numPasajeros];
+		Billete billete = new Billete();
 		Usuario [] pasajeros = new Usuario[numPasajeros];
 		for (int i = 0; i <= numPasajeros; i++) {
 			System.out.println("Introduce los datos del pasajero -No"+i+1);
@@ -299,15 +298,13 @@ public class Gestion {
 			System.out.println("Tu numero de pasaporte:");
 			pasaporte = scn.next();
 			pasajeros[i]= new Usuario(nombre,apellido1,apellido2, pasaporte);
-			billetes[i].setDatosPasajero(pasajeros[i]);
-			
+			billete.setDatosPasajero(pasajeros[i]);
 		}
-		
-		
+		return billete;
 	}
 	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate fecha, int numPasajeros){
 		String respuesta = "";
-		Aerolinea A01 = new Aerolinea("IB", "Iberia");
+		aerolinea A01 = new aerolinea("IB", "Iberia");
 		System.out.println("el vuelo del:"+fecha.getDayOfYear()+" de "+fecha.getMonth());
 		System.out.println("Operado por: "+A01.getNombre());
 		System.out.println("Con precio: "+precioElegido);	
@@ -315,7 +312,7 @@ public class Gestion {
 		System.out.println("Con 1mt de mano de 10kg");
 		System.out.println("Deseas confirmar s/n?");
 		respuesta = scn.next();
-		if(respuesta.equalsIgnoreCase("si")) {
+		if(respuesta.equalsIgnoreCase("s")) {
 			confirmoVuelo(numPasajeros);
 		}else {
 			System.out.println("Deseas:");
@@ -323,21 +320,27 @@ public class Gestion {
 		}
 		
 	}
-	public void consultoOpcion(LocalDate fecha,  int dia, int mes, int  numPasajeros, int opcionColumna, String respuesta, float i){
+	public void consultoOpcion(LocalDate fecha,  int dia, int mes, int  numPasajeros, int opcionColumna,String respuesta, float precios[]){
 			int opcion=0;
 			float precioElegido =0;
-		if(respuesta.equalsIgnoreCase("si")) {
+		if(respuesta.equalsIgnoreCase("s")) {
 			System.out.println("Indica el numero de opcion");
 			opcion = scn.nextInt();
-			if(opcion == opcionColumna) {
-				precioElegido = i;
+			for (int i = 0; i <= opcionColumna; i++) {
+				if (i == opcion) {
+					precioElegido = precios[i-1];
+				}
+			}
 				muestroDetallesdelPrecioElegido(precioElegido, fecha,  numPasajeros);
-			}
+	
 			
-			}else {
-			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal");
-			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
-			}
+
+	}else{
+		System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal");
+		eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
+	}
+			
+			
 	}
 		
 
@@ -351,22 +354,22 @@ public class Gestion {
 		String respuesta;
 		float[] listado_precio = new float[4];
 		LocalDate[] listado_Fechas = new LocalDate[4];
-		System.out.println("Desde el dia " + fecha.getDayOfYear() +"/" +fecha.getMonth() +". Tenemos las siguientes opciones, para "+numPasajeros+" pasajeros\n");
-		System.out.println("Fecha       Precio Solicitado");
-		System.out.println("-----       ------------------");
+		System.out.println("Desde el dia " + fecha.getDayOfMonth() +"/" +fecha.getMonth() +". Tenemos las siguientes opciones, para "+numPasajeros+" pasajeros\n");
+		System.out.println("Fecha       Opciones    Precio Solicitado");
+		System.out.println("-----       --------     ---------------");
 		for (int i = 0; i < listado_precio.length; i++) {
 			float precio_VueloSoloIda_Medio = (float) (Math.random() * 300 + 700);
 			listado_precio[i] = precio_VueloSoloIda_Medio*numPasajeros;
-			listado_Fechas[i] = fecha.of(fecha.getYear(), fecha.getMonthValue(), fecha.getDayOfMonth() + i);
+			listado_Fechas[i] = fecha.of(2021, fecha.getMonthValue(), fecha.getDayOfMonth() + i);
 			System.out.print(listado_Fechas[i] + " ->");
-			System.out.print( " - " +(opcionColumna + 1) + " - " + listado_precio[i] + "€");
+			opcionColumna++;
+			System.out.print( " - " +opcionColumna+ " - " + listado_precio[i] + "€\n");
+	
 			}
 			System.out.println("Te interesa alguna opcion? s/n");
 			respuesta = scn.next();
-			if(respuesta.equalsIgnoreCase("si")) {
-			System.out.println("Indica el numero de opcion");
-			opcion = scn.nextInt();
-			consultoOpcion(fecha,  dia, mes, numPasajeros, opcionColumna, respuesta, i);
+			if(respuesta.equalsIgnoreCase("s")) {
+			consultoOpcion(fecha,  dia, mes, numPasajeros,opcionColumna ,respuesta, listado_precio);
 			
 			}else {
 			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal");
