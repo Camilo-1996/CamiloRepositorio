@@ -6,7 +6,6 @@ public class Aerolinea {
 	private String Nombre;
 
 	public Aerolinea(String id, String nombre) {
-		super();
 		this.id = id;
 		Nombre = nombre;
 	}

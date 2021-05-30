@@ -2,7 +2,7 @@ package billete;
 
 import java.time.*;
 public class Vuelo {
-
+	//Necesito saber que hace la clase vuelo
 	private String origen;
 	private String destino;
 	private String compañia;

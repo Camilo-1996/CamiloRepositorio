@@ -1,5 +1,7 @@
 package billete;
 
+import java.time.LocalDate;
+
 public class Billete {
 
 	//esta clase genera un fichero txt
@@ -8,6 +10,7 @@ public class Billete {
 	private static long numeroBillete;
 	private Vuelo datosVuelo;
 	private long nBillete;
+	private LocalDate fecha;
 	
 	
 	
@@ -23,6 +26,15 @@ public class Billete {
 		
 		
 	}
+	//Creo Getters y Setters de apoyo
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
+	}
+	
 	
 	
 
