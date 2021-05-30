@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
-import modelos.aerolinea;
+import modelos.Aerolinea;
 
 public class AerolineasBBDD {
 	private Statement st;
@@ -24,7 +24,7 @@ public class AerolineasBBDD {
 	public AerolineasBBDD() {
 		try {
 			MysqlDataSource dataSource = new MysqlDataSource();
-			dataSource.setUseSSL(false); 
+			dataSource.setUseSSL(false);
 			dataSource.setServerTimezone(serverTimeZone);
 			dataSource.setDatabaseName(databasename);
 			dataSource.setPortNumber(port);
@@ -36,9 +36,14 @@ public class AerolineasBBDD {
 			System.out.println("error al conectarse a la Base de datos! " + e.getMessage());
 		}
 	}
-//Metodo para obtener todas las aerolineas
-	public List<aerolinea> TodasAerolineas() {
-		List<aerolinea> lista = new ArrayList<aerolinea>();
+
+	/**
+	 * Metodo para obtener todas las aerolineas
+	 * 
+	 * @return
+	 */
+	public List<AerolineasBBDD> TodasAerolineas() {
+		List<AerolineasBBDD> lista = new ArrayList<AerolineasBBDD>();
 		try {
 
 			st = BBDDaero.createStatement();
@@ -47,7 +52,7 @@ public class AerolineasBBDD {
 			while (rs.next()) {
 				String ID = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
-				aerolinea ae = new aerolinea(ID, Nombre);
+				AerolineasBBDD ae = new AerolineasBBDD();
 				lista.add(ae);
 			}
 			st.close();
@@ -59,7 +64,13 @@ public class AerolineasBBDD {
 
 	}
 
-	public aerolinea ObtenerporID(String ID) {
+	/**
+	 * Método que obtiene el ID de la aerolínea
+	 * 
+	 * @param ID
+	 * @return
+	 */
+	public Aerolinea ObtenerporID(String ID) {
 		try {
 			st = BBDDaero.createStatement();
 
@@ -67,7 +78,7 @@ public class AerolineasBBDD {
 			if (rs.next()) {
 				String Id = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
-				aerolinea ae = new aerolinea(Id, Nombre);
+				Aerolinea ae = new Aerolinea(Id, Nombre);
 				return ae;
 			}
 		} catch (Exception e) {
@@ -77,6 +88,12 @@ public class AerolineasBBDD {
 
 	}
 
+	/**
+	 * Método en el que se podrá modificar el nombre de las aerolíneas
+	 * 
+	 * @param ID
+	 * @param Nombre
+	 */
 	public void ModificarNombreAerolinea(String ID, String Nombre) {
 		try {
 			st = BBDDaero.createStatement();
@@ -88,6 +105,11 @@ public class AerolineasBBDD {
 		}
 	}
 
+	/**
+	 * Método en el que se podrá eliminar el nombre de las aerolíneas
+	 * 
+	 * @param ID
+	 */
 	public void EliminarAerolinea(String ID) {
 
 		try {
@@ -100,7 +122,12 @@ public class AerolineasBBDD {
 		}
 	}
 
-	public void InsertarAerlionea(aerolinea ae) {
+	/**
+	 * Método en el que se podrá insertar el nombre de las aerolíneas
+	 * 
+	 * @param ae
+	 */
+	public void InsertarAerlionea(Aerolinea ae) {
 		try {
 			st = BBDDaero.createStatement();
 

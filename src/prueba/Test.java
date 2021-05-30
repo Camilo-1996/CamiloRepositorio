@@ -1,6 +1,7 @@
 package prueba;
 
 import gestion.Gestion;
+import gestion.PaisesBBDD;
 import interfazes.Menus;
 
 public class Test {
@@ -12,6 +13,12 @@ public class Test {
 		Gestion gestion01= new Gestion();
 		
 		gestion01.inicioSesion();
+		
+		PaisesBBDD pa = new PaisesBBDD();
+		pa.ExisteCiudad(null);
+		pa.ExistePais(pa);
+		
+		
 		
 		
 	}
