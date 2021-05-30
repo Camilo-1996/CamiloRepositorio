@@ -1,6 +1,6 @@
 package gestion;
 
-import billete.Vuelo;
+import java.time.LocalDate;
 
 public class Billete {
 
@@ -8,8 +8,8 @@ public class Billete {
 
 	private Persona datosPasajero;
 	private static long numeroBillete;
-	private Vuelo datosVuelo;
 	private long nBillete;
+	private LocalDate fecha;
 	
 	
 	
@@ -24,6 +24,14 @@ public class Billete {
 	public void setFecha(int dia, int mes, int año) {
 		
 		
+	}
+	//Creo Getters y Setters de apoyo
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
 	}
 	
 	
