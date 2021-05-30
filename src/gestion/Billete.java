@@ -1,6 +1,8 @@
-package billete;
+package gestion;
 
 import java.time.LocalDate;
+
+import billete.Vuelo;
 
 public class Billete {
 

@@ -4,8 +4,6 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 
-import billete.Billete;
-import billete.Persona;
 import billete.Vuelo;
 import gestion.BBDDtest;
 import interfazes.Menus;

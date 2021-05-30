@@ -1,4 +1,4 @@
-package billete;
+package gestion;
 
 public class Persona {
 
