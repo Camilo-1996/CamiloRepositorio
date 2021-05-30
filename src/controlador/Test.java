@@ -1,4 +1,4 @@
-package prueba;
+package controlador;
 
 import gestion.Gestion;
 import gestion.PaisesBBDD;
