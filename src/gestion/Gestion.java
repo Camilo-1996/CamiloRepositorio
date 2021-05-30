@@ -157,14 +157,14 @@ public class Gestion {
 		String laciudad = "Madrid";// prueba
 		boolean estaPais = false;
 		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
-		if (ciudadOPais.equalsIgnoreCase(elPais)) {
+		/*if (ciudadOPais.equalsIgnoreCase(elPais)) {
 			estaPais = eligoCiudad(ciudadOPais);
 		} else {
 			if (ciudadOPais.equalsIgnoreCase(laciudad)) {
 				estaPais = true;
 			}
 
-		}
+		}*/
 		return estaPais;
 	}
 
