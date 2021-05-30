@@ -1,7 +1,6 @@
-package controlador;
+package test;
 
 import gestion.Gestion;
-import gestion.PaisesBBDD;
 import interfazes.Menus;
 
 public class Test {
@@ -13,7 +12,8 @@ public class Test {
 		Gestion gestion01= new Gestion();
 		
 		gestion01.inicioSesion();
-	
+		
+		
 	}
 
 }

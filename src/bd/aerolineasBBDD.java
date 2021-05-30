@@ -1,4 +1,4 @@
-package gestion;
+package bd;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,9 +8,7 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
-import modelos.Aerolinea;
-
-public class AerolineasBBDD {
+public class aerolineasBBDD {
 	private Statement st;
 	private String databasename = "proyecto";
 	private String serverTimeZone = "UTC";
@@ -21,10 +19,10 @@ public class AerolineasBBDD {
 
 	private Connection BBDDaero;
 
-	public AerolineasBBDD() {
+	public aerolineasBBDD() {
 		try {
 			MysqlDataSource dataSource = new MysqlDataSource();
-			dataSource.setUseSSL(false);
+			dataSource.setUseSSL(false); // Para pruebas!
 			dataSource.setServerTimezone(serverTimeZone);
 			dataSource.setDatabaseName(databasename);
 			dataSource.setPortNumber(port);
@@ -35,15 +33,10 @@ public class AerolineasBBDD {
 		} catch (Exception e) {
 			System.out.println("error al conectarse a la Base de datos! " + e.getMessage());
 		}
-	}
 
-	/**
-	 * Metodo para obtener todas las aerolineas
-	 * 
-	 * @return
-	 */
-	public List<AerolineasBBDD> TodasAerolineas() {
-		List<AerolineasBBDD> lista = new ArrayList<AerolineasBBDD>();
+//Metodo para obtener todas las aerolineas
+	public List<aerolinea> TodasAerolineas() {
+		List<aerolinea> lista = new ArrayList<aerolinea>();
 		try {
 
 			st = BBDDaero.createStatement();
@@ -52,7 +45,7 @@ public class AerolineasBBDD {
 			while (rs.next()) {
 				String ID = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
-				AerolineasBBDD ae = new AerolineasBBDD();
+				aerolinea ae = new aerolinea(ID, Nombre);
 				lista.add(ae);
 			}
 			st.close();
@@ -64,13 +57,7 @@ public class AerolineasBBDD {
 
 	}
 
-	/**
-	 * Método que obtiene el ID de la aerolínea
-	 * 
-	 * @param ID
-	 * @return
-	 */
-	public Aerolinea ObtenerporID(String ID) {
+	public aerolinea ObtenerporID(String ID) {
 		try {
 			st = BBDDaero.createStatement();
 
@@ -78,7 +65,7 @@ public class AerolineasBBDD {
 			if (rs.next()) {
 				String Id = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
-				Aerolinea ae = new Aerolinea(Id, Nombre);
+				aerolinea ae = new aerolinea(Id, Nombre);
 				return ae;
 			}
 		} catch (Exception e) {
@@ -88,12 +75,6 @@ public class AerolineasBBDD {
 
 	}
 
-	/**
-	 * Método en el que se podrá modificar el nombre de las aerolíneas
-	 * 
-	 * @param ID
-	 * @param Nombre
-	 */
 	public void ModificarNombreAerolinea(String ID, String Nombre) {
 		try {
 			st = BBDDaero.createStatement();
@@ -105,11 +86,6 @@ public class AerolineasBBDD {
 		}
 	}
 
-	/**
-	 * Método en el que se podrá eliminar el nombre de las aerolíneas
-	 * 
-	 * @param ID
-	 */
 	public void EliminarAerolinea(String ID) {
 
 		try {
@@ -122,12 +98,7 @@ public class AerolineasBBDD {
 		}
 	}
 
-	/**
-	 * Método en el que se podrá insertar el nombre de las aerolíneas
-	 * 
-	 * @param ae
-	 */
-	public void InsertarAerlionea(Aerolinea ae) {
+	public void InsertarAerlionea(aerolinea ae) {
 		try {
 			st = BBDDaero.createStatement();
 

@@ -3,7 +3,8 @@ package gestion;
 import java.io.*;
 
 public class ImprimirTicket {
-
+	
+	
 	String aerolinea = "AEROLINEA_TEST";
 	String pasajero = "Nombre_Test";
 	int vuelo = 512;
@@ -13,27 +14,27 @@ public class ImprimirTicket {
 	String hora = "12:30pm";
 	int puerta = 7;
 	int asiento = 13;
-	String usuario = "";usuario=System.getProperty("user.name");
+	String usuario = "";
+	usuario = System.getProperty("user.name");
+	
+	
 
-	try
-	{
+	
+	try{
 		/**
-		 * Declaracion del objeto FileWriter y apertura de los flujos de lectura y
-		 * escritura
+		 * Declaracion del objeto FileWriter y apertura de los flujos de lectura y escritura
 		 */
-		FileWriter fw = new FileWriter("C:/Users/" + usuario + "/Desktop/Ticket-" + pasajero + ".txt");
+		FileWriter fw = new FileWriter("C:/Users/"+usuario+"/Desktop/Ticket-"+pasajero+".txt");
 		BufferedWriter bw = new BufferedWriter(fw);
-		BufferedReader br = new BufferedReader(
-				new FileReader("C:/Users/" + usuario + "/Desktop/Ticket-" + pasajero + ".txt"));
+		BufferedReader br = new BufferedReader(new FileReader("C:/Users/"+usuario+"/Desktop/Ticket-"+pasajero+".txt"));
 		/**
-		 * Metodo Que Siempre Imprime el Billete en el Escritorio sin Importar Quien sea
-		 * el Usuario y Siempre en el Escritorio
+		 * Metodo Que Siempre Imprime el Billete en el Escritorio sin Importar Quien sea el Usuario y Siempre en el Escritorio
 		 */
 		bw.write("::::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::::");
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
-		bw.write("      " + aerolinea);
+		bw.write("      "+aerolinea);
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
@@ -41,37 +42,37 @@ public class ImprimirTicket {
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
-		bw.write("          Nombre Del Pasajero: " + pasajero);
+		bw.write("          Nombre Del Pasajero: "+pasajero);
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
-		bw.write("          Vuelo Nº: " + vuelo + "  Origen: " + origen + "  Destino: " + destino);
+		bw.write("          Vuelo Nº: "+vuelo+"  Origen: "+origen+"  Destino: "+destino);
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
-		bw.write("          Fecha: " + fecha + "  Hora: " + hora);
+		bw.write("          Fecha: "+fecha+"  Hora: "+hora);
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
-		bw.write("          Puerta Nº: " + puerta);
+		bw.write("          Puerta Nº: "+puerta);
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
-		bw.write("          Asiento Nº: " + asiento);
+		bw.write("          Asiento Nº: "+asiento); 
 		bw.newLine();
 		bw.write("::                                                                              ::");
 		bw.newLine();
 		bw.write("::::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::  ::::");
 		bw.flush();
-
+		
 		System.out.println("Billete Creado Correctamente En El Escritorio!!");
-
+		
 		/**
 		 * Metodo Que Siempre Lee El Fichero Que Se Creo En El Metodo Anterior
 		 */
 		String leer = br.readLine();
-
-		while (leer != null) {
+		
+		while(leer != null) {
 			System.out.println(leer);
 			leer = br.readLine();
 		}
@@ -80,11 +81,14 @@ public class ImprimirTicket {
 		 */
 		bw.close();
 		br.close();
-	}catch(
-	IOException e)
-	{
-
+	}catch(IOException e){
+		
 		System.out.println(e.getMessage());
 	}
-
+	
+	
+	
 }
+
+	
+		
