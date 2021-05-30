@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Billete {
 
-	//esta clase genera un fichero txt
 
 	private Persona datosPasajero;
 	private static long numeroBillete;
