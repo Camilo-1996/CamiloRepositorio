@@ -10,7 +10,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 public class PaisesBBDD {
 
-	private Statement st;
+	private static Statement st;
 	private String databasename = "proyecto";
 	private String serverTimeZone = "UTC";
 	private String hostname = "localhost";
@@ -95,7 +95,7 @@ public class PaisesBBDD {
 	 * @param Nombre
 	 * @return
 	 */
-	public boolean ExisteCiudad(String Nombre) {
+	public  boolean ExisteCiudad(String Nombre) {
 		try {
 			st = BBDDpais.createStatement();
 
