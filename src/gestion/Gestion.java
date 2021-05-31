@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import bd.aerolinea;
-import interfazes.Menus;
+import interfazes.Menu;
 
 public class Gestion {
 	
@@ -34,7 +34,7 @@ public class Gestion {
 
 		while (opcionCorrecta != true) {
 
-			Menus.menuUsuario();
+			Menu.menuUsuario();
 
 			try {
 
