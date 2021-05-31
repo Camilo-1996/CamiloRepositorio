@@ -5,35 +5,77 @@ import java.time.LocalDate;
 public class Billete {
 
 
-	private Persona datosPasajero;
-	private static long numeroBillete;
-	private long nBillete;
-	private LocalDate fecha;
+	private String nombrePasajero;
+	private String apellido1_pasajero;
+	private String apellido2_pasajero;
+	private String pasaporte;
+	private int idPasajero;
+	private static int idBillete;
+	private int numeroBillete;
+	private LocalDate fechaBillete;
 	
-	
-	
-	//método para consultar los datos del billete
-	public void datosBillete() {
+	//start constructor
+	public Billete(Usuario usuario) {
 		
-		System.out.println("DATOS BILLETE Nº "+ nBillete);
-			
-		//falta poner los otros datos persona y Vuelo
+		this.nombrePasajero=usuario.getNombre();
+		this.apellido1_pasajero=usuario.getApellido1();
+		this.apellido2_pasajero=usuario.getApellido2();
+		this.pasaporte= usuario.getPasaporte();
+		this.idPasajero= usuario.getIdUsuario();
+		this.numeroBillete= idBillete++;
+		
 	}
 	
-	public void setFecha(int dia, int mes, int año) {
-		
-		
+	
+	
+	
+	//start getters 
+	
+	public String getNombrePasajero() {
+		return nombrePasajero;
 	}
-	//Creo Getters y Setters de apoyo
-	public LocalDate getFecha() {
-		return fecha;
+	
+	
+	public String getApellido1_pasajero() {
+		return apellido1_pasajero;
+	}
+	
+	
+	public String getApellido2_pasajero() {
+		return apellido2_pasajero;
+	}
+	
+	
+	public String getPasaporte() {
+		return pasaporte;
+	}
+	
+	
+	public int getIdPasajero() {
+		return idPasajero;
+	}
+	
+	
+	public static int getIdBillete() {
+		return idBillete;
+	}
+	
+	
+	
+	public LocalDate getFechaBillete() {
+		
+		return fechaBillete;
 	}
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
+	
+	/*fecha es la unica variable que tiene setter ya que es la unica variable que se puede cambiar de esta clase.
+	 * Para cambiar los datos de usuario hay que ir a la clase correspondiente Usuario.
+	 */
+	public void setFechaBillete(LocalDate fechaBillete) {
+		
+		this.fechaBillete=fechaBillete;
+		
 	}
-	
-	
 
 	
 }
