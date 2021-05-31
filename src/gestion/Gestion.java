@@ -69,7 +69,7 @@ public class Gestion {
 			this.ida();
 			break;
 		case 2:
-			this.idaVuelta();
+			//this.idaVuelta();
 			break;
 		case 3:
 			this.finApp();
@@ -100,28 +100,7 @@ public class Gestion {
 
 	
 	
-	
-	/**
-	 * Método de Ida y vuelta ,Que tiene como variables 
-	 */
-	public void idaVuelta() {
 		
-		String origen = "";
-		String destino = "";
-		int diaSalida = 0;
-		int mesSalida = 0;
-		int diaRetorno =0;
-		int mesRetorno =0;
-		int numeroPasajeros =0;
-		LocalDate salida = null;
-		LocalDate vuelta = null;
-		solicitoOrigenyDestino(origen,destino);
-		comprobarDiayMesIdayVuelta(diaSalida, mesSalida, salida,vuelta, numeroPasajeros);
-	}
-	
-	
-	
-	
 	
 	
 	
@@ -284,81 +263,12 @@ public class Gestion {
 		}
 		numeroPasajeros = pidoNumeroDeViajeros(numeroPasajeros);
 		precioVueloSoloIda(fecha, diaComprobado, mesComprobado, numeroPasajeros);
-		if(this.opcionElejida ==1) {
-			
-		}
-		else {
-			if(this.opcionElejida ==2) {
-				
-				LocalDate vuelta = LocalDate.of(2021, mesComprobado, diaComprobado);
-				precioVueloIdayVuelta(fecha,vuelta,diaComprobado, mesComprobado, numeroPasajeros);
-			
-			}
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	public void comprobarDiayMesIdayVuelta(int diaComprobado, int mesComprobado, LocalDate salida,LocalDate vuelta,int numeroPasajeros) {
-		
-	
-		boolean diaCorrecto = false;
-		
-		System.out.println("INDICA EL DIA DE LA SALIDA DE TU VIAJE");
-		
-		
-		while (diaCorrecto != true) {
-			
-		
-			try {
-
-				diaComprobado = scn.nextInt();
-
-				System.out.println("Y EL MES");
-
-				mesComprobado = scn.nextInt();
-
-				if ((diaComprobado <= 31 && diaComprobado >= 1) && (mesComprobado > 0 && mesComprobado < 13)) {
-					
-				
-					if(salida==null) {
-						
-					
-					  salida = LocalDate.of(2021, mesComprobado, diaComprobado);
-					  
-						System.out.println("INDICA EL DIA DE LA VUELTA DE TU VIAJE");
-						
-					}else if(vuelta ==null) {
-						
-						vuelta = LocalDate.of(2021, mesComprobado, diaComprobado);
-						diaCorrecto=true;
-							
-				
-					} else {
-
-					System.out.println("INTRODUCE UNA FECHA VALIDA");
-					System.out.println("INTRODUCE DE NUEVO EL DIA");
-
-					}
-				}
-
-			} catch (Exception exc) {
-
-				System.out.println("INTRODUCE UN FORMATO ADECCUADO");
-				System.out.println("INTRODUCE DE NUEVO EL DIA");
-
-			}
-		}
-		numeroPasajeros = pidoNumeroDeViajeros(numeroPasajeros);
-		precioVueloIdayVuelta(salida,vuelta,diaComprobado, mesComprobado, numeroPasajeros);
-			
-			
 		
 	}
+	
+	
+	
+
 	
 	
 	
@@ -517,38 +427,7 @@ public class Gestion {
 	
 	
 
-	public void precioVueloIdayVuelta(LocalDate salida, LocalDate vuelta ,int dia, int mes, int numPasajeros) {
-		int opcion =0;
-		int opcionColumna =0;
-		String respuesta;
-		float[] listado_precio = new float[4];
-		LocalDate[] listado_fechas_salida = new LocalDate[4];
-		LocalDate[] listado_fechas_vuelta = new LocalDate[4];
-		System.out.println("Desde el dia " + salida.getDayOfMonth() +"/" +salida.getMonth() +" Hasta "+vuelta.getDayOfMonth()+vuelta.getMonth()+". Tenemos las siguientes opciones, para "+numPasajeros+" pasajero(s)\n");
-		System.out.println("Fecha Salida  Fecha Llegada     Opciones    Precio Solicitado");
-		System.out.println("------------  -------------     --------     ---------------");
-		for (int i = 0; i < listado_precio.length; i++) {
-			float precio_VueloSoloIda_Medio = (float) (Math.random() * 600 + 1200);
-			listado_precio[i] = precio_VueloSoloIda_Medio*numPasajeros;
-			listado_fechas_salida[i] = salida.of(2021, salida.getMonthValue(), salida.getDayOfMonth() + i);
-			listado_fechas_vuelta[i] = vuelta.of(2021, vuelta.getMonthValue(), vuelta.getDayOfMonth() + i);
-			System.out.print(listado_fechas_salida[i] + "  -  "+listado_fechas_vuelta[i]);
-			opcionColumna++;
-			System.out.print( "         - " +opcionColumna+ " -          " + listado_precio[i] + "€\n");
-	
-			}
-			System.out.println("Te interesa alguna opcion? s/n");
-			respuesta = scn.next();
-			if(respuesta.equalsIgnoreCase("s")) {
-				consultoOpcion(listado_fechas_salida, salida,dia, mes, numPasajeros, opcionColumna,respuesta, listado_precio);
-			//Comprobar si es s o n
-			}else {
-			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
-			eligoOpcion( salida,  dia,  mes,  numPasajeros,  opcion);
-			}
-		}
-	
-	/**
+	/*
 	 * Método que comprueba si el usuario introduce un si o un no,  tanto en la variación de mayúsculas o minúscula y
 	 * una simple "S", como un "Si" tamto en minúscumas como mayúsculas
 	 * @return si quiere cambiar la opcion, o si no.
