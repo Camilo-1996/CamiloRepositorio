@@ -339,8 +339,7 @@ public class Gestion {
 		String apellido1;
 		String apellido2;
 		String pasaporte ;
-		Billete billete = new Billete();
-		Usuario [] pasajeros = new Usuario[numPasajeros];
+		Persona [] pasajeros = new Persona[numPasajeros];
 		for (int i = 0; i < numPasajeros; i++) {
 			System.out.println("Introduce los datos del pasajero -No"+(i+1));
 			System.out.println("Nombre:");
