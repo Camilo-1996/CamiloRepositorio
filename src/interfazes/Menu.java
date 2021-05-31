@@ -1,6 +1,6 @@
 package interfazes;
 
-public  class  Menus{
+public  class  Menu{
 	
 	
 	/**
