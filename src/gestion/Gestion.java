@@ -327,7 +327,7 @@ public class Gestion {
 			nombre = scn.next();
 			System.out.println("Primer Apellido:");
 			apellido1 = scn.next();
-			System.out.println("Segundo Apellido:");
+			System.out.println("Segundo Apellido:.");
 			apellido2 = scn.next();
 			System.out.println("Tu numero de pasaporte:");
 			pasaporte = scn.next();
