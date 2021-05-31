@@ -14,7 +14,7 @@ public class Gestion {
 	
 	
 	
-	private Scanner scn = new Scanner(System.in);
+	public static Scanner scn = new Scanner(System.in);
 	int opcionElejida = 0;
 	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
 	
