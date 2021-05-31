@@ -3,6 +3,7 @@ package gestion;
 import java.sql.Date;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import bd.aerolinea;
@@ -15,9 +16,7 @@ public class Gestion {
 	
 	private Scanner scn = new Scanner(System.in);
 	int opcionElejida = 0;
-	
-	
-	
+	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
 	
 	
 	public void inicioSesion() {
@@ -354,9 +353,9 @@ public class Gestion {
 			pasaporte = scn.next();
 			personas[i] = new Persona(nombre,apellido1,apellido2);
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
-			
+			billetes_conirmados.add(new Billete(pasajeros[i]));
 		}
-		System.out.println(pasajeros.toString());
+		System.out.println(billetes_conirmados.get(1));
 		//billete.setDatosPasajero(pasajeros[i]);
 	}
 	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate fecha,int numPasajeros, int dia, int mes, int opcion){
@@ -433,7 +432,7 @@ public class Gestion {
 			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
 			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
 			}
-			
+		
 	}
 
 
