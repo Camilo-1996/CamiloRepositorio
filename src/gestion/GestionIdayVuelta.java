@@ -21,7 +21,7 @@ public class GestionIdayVuelta {
 	
 	/**
 	 * Metodo IdayVuelta, vacio, no recibe ningun parmetro 
-	 * contiene variables locales dentro del metodo que haran referencia a los datos que se solicitaran al
+	 * contiene variables locales. dentro del metodo que haran referencia a los datos que se solicitaran al
 	 * usuario
 	 * para luego implementar los metodos siguientes:
 	 * 

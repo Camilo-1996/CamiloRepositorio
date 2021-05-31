@@ -167,7 +167,7 @@ public static Scanner scn = new Scanner(System.in);
 	/*
 	 * Este metodo comprueba si lo introducido es ciudad o pais, si es ciudad es
 	 * correcto si es pais va al metodo eligoCiudad y lista las ciudades el que se
-	 * debe elegir, ya que en un pais puede hacer 1 o mas aereopuertos, pero no
+	 * debe elegir, ya que en un pais puede hacer 1 o mas aereop.uertos, pero no
 	 * todas las ciudades lo tienen
 	 * 
 	 * @param ciudad - de tipo String
@@ -365,7 +365,7 @@ public static Scanner scn = new Scanner(System.in);
 	
 	
 	/**
-	 * Metodo muestroDetallesdelPrecioElegido, una ves en el anterior mmetodo realizada la comprobacion de la opciob elegida por el usuario, se 
+	 * Metodo muestroDetallesdelPrecioElegido, una ves en el. anterior mmetodo realizada la comprobacion de la opciob elegida por el usuario, se 
 	 * muestra el contenido de ese precio y lo que tiene
 	 * Tona de referencia datos que anteriormete se le solicito al usuario como la fecha, etc
 	 * 
