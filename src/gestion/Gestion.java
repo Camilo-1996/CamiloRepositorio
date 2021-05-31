@@ -19,7 +19,16 @@ public class Gestion {
 	
 	
 	
-	
+	/**
+	 * Método que inicia la sesión de la opción a elegir para el usuario.
+	 * El usuario tinene que elegir entre uno de los 3 números del menú.<br/>
+	 * <br/>
+	 * 1. Ida.<br/>
+	 * 2. Ida y vuelta.<br/>
+	 * 3. Salir de la aplicación.<br/>
+	 * <br/>
+	 * Se comprueba que la opción elegida sea correcta y se envia el método correcto de gestión.
+	 */
 	public void inicioSesion() {
 
 		boolean opcionCorrecta = false;
@@ -73,7 +82,8 @@ public class Gestion {
 	
 
 	/**
-	 * Método de Ida ,Que tiene como variables 
+	 * Método de Ida al elegir la opción 1.<br/>
+	 * Éste método solicita el origen y el destino y la fecha de dicho vuelo. 
 	 */
 	public void ida() {
 		String origen = "";

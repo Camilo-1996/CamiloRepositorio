@@ -4,9 +4,9 @@ public  class  Menus{
 	
 	
 	/**
-	 * menu de presentación de la aplicación
+	 * Mensaje de presentación de la aplicación
 	 */
-	public static void menuInicio() {
+	public static void mensajeInicio() {
 		
 		System.out.println("*************************************************************************************************************");
 		System.out.println("**************************************    BIENVENIDO A VUELINKING!!  ***************************************");
@@ -16,8 +16,12 @@ public  class  Menus{
 	}
 	
 	
-	/*
-	 * menú de interación inicial con el usuario, tenemos 3 opciones: <br/>
+	/**
+	 * Menú de interación inicial con el usuario, tenemos 3 opciones: <br/>
+	 * <br/>
+	 * 1. Ida.<br/>
+	 * 2. Ida y vuelta.<br/>
+	 * 3. Salir de la aplicación.<br/>
 	 * 
 	 */
 	public static void menuUsuario() {
@@ -28,20 +32,34 @@ public  class  Menus{
 	}
 	
 	
-	
-	public static void menuFinAPP() {
+	/**
+	 * Mensaje de fin de la aplicación.
+	 */
+	public static void mensajeFin() {
 		
 		System.out.println("\nGRACIAS POR UTLIZAR NUESTRA APP\n "
 				+ "ESPERAMOS VERTE PRONTO EN VUELIKING");
 	}
 	
 	
-	public static void menuSoloIda() {
+	/**
+	 * Mensaje que informa al usuario de que la aplicación pide una fecha de ida.
+	 */
+	public static void messajeIda() {
 		
 		System.out.println("POR FAVOR INTRODUCE TU FECHA DE IDA");
 	}
 	
 	
+	/**
+	 * Mensaje que informa al usuario cuantos billetes quiere comprar el usuario.
+	 * 
+	 */
+	public static void mensajeNumeroBilletes() {
+		
+		System.out.println("¿CUANTOS BILLETES QUIERES COMPRAR?");
+		
+	}
 	
 }
 	
