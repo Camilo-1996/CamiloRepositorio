@@ -9,7 +9,6 @@ import java.util.Scanner;
 import bd.Aerolinea;
 import interfazes.Menu;
 
-
 public class Gestion {
 	
 public static Scanner scn = new Scanner(System.in);
@@ -181,7 +180,7 @@ public static Scanner scn = new Scanner(System.in);
 					
 		}else {
 			
-				estaCiudad = true;
+				estaCiudad = false;
 				
 		
 		}
@@ -338,15 +337,18 @@ public static Scanner scn = new Scanner(System.in);
 		System.out.println("Indica el numero de opcion, de la columna 'Opciones'");
 		while(!esOpcion) {
 			System.out.print("- ");
-			opcion = scn.nextInt();
+			opcion = scn.nextInt();	
+
 			if(opcion > opcionColumna){
 				esOpcion = false;
 				System.out.println("NO ES UNA OPCION VALIDA!!");
 				System.out.println("introduce nuevamente un numero indicado en la columna 'Opciones', que te da el precio que quieres");
 			}else {
 				esOpcion = true;
+				}
 			}
-		}
+
+			
 		for (int i = 0; i <= opcionColumna; i++) {
 			if (i == opcion) {
 				precioElegido = precios[opcion-1];
