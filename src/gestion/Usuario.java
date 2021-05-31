@@ -45,6 +45,7 @@ public class Usuario extends Persona {
 	}
 
 
+	@Override
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -79,6 +80,9 @@ public class Usuario extends Persona {
 		this.pasaporte = pasaporte;
 	}
 	//finish gettes and setters
+
+
+
 	
 	
 	
