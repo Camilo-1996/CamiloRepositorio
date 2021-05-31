@@ -142,7 +142,7 @@ public class Gestion {
 	
 		} while (this.comprueboCiudad(origen) != true);
 
-		System.out.println("INTRODUCE UN DESTINO VALIDO");
+		System.out.println("INTRODUCE UN DESTINO");
 
 		do {
 
