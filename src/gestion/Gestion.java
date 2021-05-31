@@ -285,6 +285,7 @@ public class Gestion {
 				if ((diaComprobado <= 31 && diaComprobado >= 1) && (mesComprobado > 0 && mesComprobado < 13)) {
 					
 						fecha = LocalDate.of(2021, mesComprobado, diaComprobado);
+						diaCorrecto = true;
 					
 				} else {
 
@@ -389,6 +390,7 @@ public class Gestion {
 		}
 			
 	}
+<<<<<<< HEAD
 	
 	
 	
@@ -397,11 +399,15 @@ public class Gestion {
 	
 	
 	public Billete confirmoVuelo(int numPasajeros) {
+=======
+	public void confirmoVuelo(int numPasajeros) {
+>>>>>>> branch 'master' of https://github.com/Camilo-1996/ProyectoFinal.git
 		String nombre;
 		String apellido1;
 		String apellido2;
 		String pasaporte ;
-		Persona [] pasajeros = new Persona[numPasajeros];
+		Usuario [] pasajeros = new Usuario[numPasajeros];
+		Persona [] personas = new Persona[numPasajeros];
 		for (int i = 0; i < numPasajeros; i++) {
 			System.out.println("Introduce los datos del pasajero -No"+(i+1));
 			System.out.println("Nombre:");
@@ -412,12 +418,12 @@ public class Gestion {
 			apellido2 = scn.next();
 			System.out.println("Tu numero de pasaporte:");
 			pasaporte = scn.next();
-			pasajeros[i]= new Usuario(nombre,apellido1,apellido2, pasaporte);
+			personas[i] = new Persona(nombre,apellido1,apellido2);
+			pasajeros[i]= new Usuario(personas[i], pasaporte);
 			
 		}
 		System.out.println(pasajeros.toString());
 		//billete.setDatosPasajero(pasajeros[i]);
-		return billete;
 	}
 	
 	
