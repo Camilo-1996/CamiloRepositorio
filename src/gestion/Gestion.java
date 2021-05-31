@@ -548,6 +548,37 @@ public class Gestion {
 			}
 		}
 	
+	/**
+	 * Método que comprueba si el usuario introduce un si o un no,  tanto en la variación de mayúsculas o minúscula y
+	 * una simple "S", como un "Si" tamto en minúscumas como mayúsculas
+	 * @return si quiere cambiar la opcion, o si no.
+	 */
+	public boolean si_no_Opcion() {
+		
+		String opcion;
+		boolean correctaIntoduccion=false;
+		boolean siQuiere=false;
+		
+		while(correctaIntoduccion!=true) {
+			
+			opcion=scn.next();
+			
+			if(opcion.equalsIgnoreCase("SI") || opcion.equalsIgnoreCase("S")||opcion.equalsIgnoreCase("NO") || opcion.equalsIgnoreCase("N")) {
+				
+				if(opcion.equalsIgnoreCase("SI") || opcion.equalsIgnoreCase("S")) {
+					
+					siQuiere=true;
+				}
+				
+			}else {
+				
+				System.out.println("INTODUCE UAN RESPUESTA CORRECTA");
+			}
+		}
+		
+		return siQuiere;
+
+	}
 	
 	
 	}
