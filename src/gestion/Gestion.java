@@ -372,18 +372,23 @@ public class Gestion {
 		opcion = scn.nextInt();
 		
 		switch(opcion) {
+		
 		case 1:
 			solicitoOrigenyDestino(origen,destino);
 			comprobarDiayMesIda(dia, mes, fecha, numPasajeros);
 			break;
+			
 		case 2: 
 			comprobarDiayMesIda(dia, mes, fecha, numPasajeros);
 			break;
+			
 		case 3:
 			inicioSesion();
 			break;
+			
 		case 4:
 			finApp();
+			
 		default:
 			System.out.println("NO ES UNA OPCIÓN CORRECTA. \nVUELVE A INTRODUCIR UNA QUE VIENE EN LA LISTA:");
 				
@@ -427,7 +432,7 @@ public class Gestion {
 	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate fecha,int numPasajeros, int dia, int mes, int opcion){
 		String respuesta = "";
 		aerolinea A01 = new aerolinea("IB", "Iberia");
-		System.out.println("\nLos datos del vuelo son:");
+		System.out.println("\nLOS DATOS DEL VUELO SON");
 		System.out.println("Sale el dia:"+listado_fechas[opcion-1].getDayOfMonth()+"/"+listado_fechas[opcion-1].getMonthValue()+"/"+listado_fechas[opcion-1].getYear());
 		System.out.println("Operado por: "+A01.getNombre());
 		System.out.println("Con precio Total: "+precioElegido+"€");	
@@ -541,5 +546,8 @@ public class Gestion {
 			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
 			eligoOpcion( salida,  dia,  mes,  numPasajeros,  opcion);
 			}
-		}	
+		}
+	
+	
+	
 	}

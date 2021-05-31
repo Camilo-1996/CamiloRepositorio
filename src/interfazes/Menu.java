@@ -42,15 +42,6 @@ public  class  Menu{
 	}
 	
 	
-	/**
-	 * Mensaje que informa al usuario de que la aplicación pide una fecha de ida.
-	 */
-	public static void messajeIda() {
-		
-		System.out.println("POR FAVOR INTRODUCE TU FECHA DE IDA");
-	}
-	
-	
 }
 	
 	//INCLUIR INTERFAZ DE BIENVENIDA
