@@ -70,6 +70,7 @@ public class Billete {
 	
 	/*fecha es la unica variable que tiene setter ya que es la unica variable que se puede cambiar de esta clase.
 	 * Para cambiar los datos de usuario hay que ir a la clase correspondiente Usuario.
+	 * CAMILO
 	 */
 	public void setFechaBillete(LocalDate fechaBillete) {
 		
