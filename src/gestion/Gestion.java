@@ -1,16 +1,25 @@
 package gestion;
 
 import java.sql.Date;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
 import bd.aerolinea;
 import interfazes.Menus;
+
 public class Gestion {
 	
-	Scanner scn = new Scanner(System.in);
-	private Billete billete = new Billete();
+	
+	
+	
+	private Scanner scn = new Scanner(System.in);
 	int opcionElejida = 0;
+	
+	
+	
+	
+	
 	public void inicioSesion() {
 
 		boolean opcionCorrecta = false;
@@ -23,7 +32,7 @@ public class Gestion {
 
 				opcionElejida = Integer.parseInt(scn.next());
 
-				if (opcionElejida <= 4 && opcionElejida > 0) {
+				if (opcionElejida <= 3 && opcionElejida > 0) {
 
 					opcionCorrecta = true;
 
@@ -53,11 +62,13 @@ public class Gestion {
 		case 2:
 			this.idaVuelta();
 			break;
-		case 4:
+		case 3:
 			this.finApp();
 			break;
 		}
 	}
+	
+	
 
 	/**
 	 * Método de Ida ,Que tiene como variables 
@@ -74,10 +85,13 @@ public class Gestion {
 		comprobarDiayMesIda(diaSalida, mesSalida, salida ,numeroPasajeros);
 
 	}
+	
+	
 	/**
 	 * Método de Ida y vuelta ,Que tiene como variables 
 	 */
 	public void idaVuelta() {
+		
 		String origen = "";
 		String destino = "";
 		int diaSalida = 0;
