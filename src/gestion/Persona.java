@@ -15,7 +15,7 @@ public class Persona {
 	 * @param apellido2
 	 * @param pasaporte
 	 */
-	public Persona(String nombre, String apellido1, String apellido2, String pasaporte) {
+	public Persona(String nombre, String apellido1, String apellido2) {
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2=apellido2;

@@ -6,19 +6,21 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import bd.PaisesBBDD;
-import bd.aerolinea;
+import bd.Aerolinea;
 import interfazes.Menu;
+
 
 public class Gestion {
 	
+public static Scanner scn = new Scanner(System.in);
 	
-	
-	
-	public static Scanner scn = new Scanner(System.in);
-	
-	PaisesBBDD consulta = new PaisesBBDD(); 
-	GestionIdayVuelta consultas = new GestionIdayVuelta();
+	//PaisesBBDD consulta = new PaisesBBDD();
+	//GestionIdaYVuelta consultas = new GestionIdaYVuelta();
+	/**
+	 * Creamos las variables globales, opcionElejida de tipo entero que sera la opcion que el usuario elegira segun el menu mostrado
+	 * el ArrayList de la clase Blletes, que almacena los billetes confirmados
+	 * 
+	 * */
 	int opcionElejida = 0;
 	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
 	
@@ -66,14 +68,14 @@ public class Gestion {
 
 			}
 		}
-
+		GestionIdayVuelta consultas = new GestionIdayVuelta();
 		switch (opcionElejida) {
 
 		case 1:
 			this.ida();
 			break;
 		case 2:
-			;
+			consultas.idaVuelta();
 			break;
 		case 3:
 			this.finApp();
@@ -103,27 +105,19 @@ public class Gestion {
 
 	}
 
-	
-	
-		
-	
-	
-	
+
 	/**
 	 * Método de fin de Aplicacion 
 	 */
 	public void finApp() {
 		
-		Menu.mensajeFin();
+		Menu. mensajeFin();
 		System.exit(0);
 		
 	}
-		
-		
-	
-	
+
 	/**
-	 * metodos que comprueban Si el destino y origen introducido son el correcto,
+	 * metodos que comprueban Si el destino y origen introducido son el. correcto,
 	 * @param  origen
 	 * @param  destino
 	 * */
@@ -172,15 +166,16 @@ public class Gestion {
 	 * debe elegir, ya que en un pais puede hacer 1 o mas aereopuertos, pero no
 	 * todas las ciudades lo tienen
 	 * 
+	 * @param ciudad - de tipo String
+	 *  
 	 **/
 	public boolean comprueboCiudad(String ciudad) {
-		String laciudad = "Madrid";// prueba
+		String laciudad = "Madrid";// Creamos esta ciudad de apoyo 
 		
 		boolean estaCiudad = false;
 		
-		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
-		
-		if (consulta.ExisteCiudad(ciudad)) {
+		//consulta.ExisteCiudad(ciudad) - consulta de la base de datos si la ciudad se encuentra en la lista de destinos
+		if (ciudad.equalsIgnoreCase(laciudad)) {
 			
 			estaCiudad = true;
 					
@@ -198,34 +193,17 @@ public class Gestion {
 	
 	
 	
-	
-	
-	
-	
-	public int pidoNumeroDeViajeros(int numeroViajeros) {
-		boolean nValido = false;
-		System.out.println("INTRODUCE EL NÚMERO DE PASAJEROS \n -Nº");
-		
-		try {
-			
-		
-			numeroViajeros = scn.nextInt();
-			
-		}catch(Exception e) {
-			
-		
-			System.out.println("INTRODUCE EL NUMERO CORRECTO");
-			
-		}
-		
-		return numeroViajeros;
-		
-	}
-
-	
-	
-	
-	
+	/**
+	 * El metodo comprobarDiayMesIda, pregunta al usuario el dia de salida y el mes de salida, no selicitamos el año
+	 * ya que tomamos como referencia este año 2021, que ya vuene por defecto, 
+	 * Antes realiza una comprobacion son operaciones condicionantes si el dia esta entre el 1 al 31 y el mes de 1 al 12 
+	 * oara que tenga una sintaxis correcta
+	 * 
+	 * @param diaComprobado - de tipo entero que almacena el numero introducido por el usuario referente al dia de salida
+	 * @param mesComprobado - de tipo entero que almacena el mes introducido por el usuario refenrente al mes de salida
+	 * @param fecha - de tipo LocalDate, que almacena tanto el dia y el mes que se introducio y toma como año el actual 2021
+	 * @param numeroPasajeros - Que almacena el numero de pasajeros que el usuario desea consultar el precio
+	 * */
 	
 	public void comprobarDiayMesIda(int diaComprobado, int mesComprobado, LocalDate fecha,int numeroPasajeros) {
 	
@@ -271,15 +249,163 @@ public class Gestion {
 	}
 	
 	
-	
+	/**
+	 * El metodo pidoNumeroBiajero, solicita al usuario el numero de pasajeros que viajaran, y se tomara 
+	 * el numero para que pueda implementarse en el metodo de mostrarPrecioSoloIda, 
+	 * Realiza una omprobacion si hay alguna excepcion por el dato introducido
+	 * 
+	 * @param numeroViajeros - de tipo entero,
+	 * 
+	 * */
+	public int pidoNumeroDeViajeros(int numeroViajeros) {
+		boolean nValido = false;
+		System.out.println("INTRODUCE EL NÚMERO DE PASAJEROS \n -Nº");
+		
+		try {
+			
+		
+			numeroViajeros = scn.nextInt();
+			
+		}catch(Exception e) {
+			
+		
+			System.out.println("INTRODUCE EL NUMERO CORRECTO");
+			
+		}
+		
+		return numeroViajeros;
+		
+	}
 
+		
+
+
+	/**
+	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de
+	 * 500 a 800 para precio de vuelos de solo ida
+	 */
+	public void precioVueloSoloIda(LocalDate fecha, int dia, int mes, int numPasajeros) {
+		int opcion =0;
+		int opcionColumna =0;
+		String respuesta;
+		float[] listado_precio = new float[4];
+		LocalDate[] listado_fechas = new LocalDate[4];
+		System.out.println("Desde el dia " + fecha.getDayOfMonth() +"/" +fecha.getMonth() +". Tenemos las siguientes opciones, para "+numPasajeros+" pasajeros\n");
+		System.out.println("Fecha       Opciones    Precio Solicitado");
+		System.out.println("-----       --------     ---------------");
+		for (int i = 0; i < listado_precio.length; i++) {
+			float precio_VueloSoloIda_Medio = (float) (Math.random() * 300 + 700);
+			listado_precio[i] = precio_VueloSoloIda_Medio*numPasajeros;
+			listado_fechas[i] = fecha.of(2021, fecha.getMonthValue(), fecha.getDayOfMonth() + i);
+			System.out.print(listado_fechas[i] + " ->");
+			opcionColumna++;
+			System.out.print( " - " +opcionColumna+ " - " + listado_precio[i] + "€\n");
+	
+			}
+			System.out.println("Te interesa alguna opcion? s/n");
+			if(si_no_Opcion()) {//Realizamos la comprobacion implementando elmetodo creado si_no_Opcion, explicado mas abajo
+				consultoOpciondePrecio(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna, listado_precio);
+			}else {
+			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
+			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);//menu opcional
+			}
+		
+	}
+	
+	/**
+	 * El metodo consultoOpciondePrecio, una ves en el metodo de precioVueloSoloIdam el usuario
+	 * decide acceder elegir un precio este metodo empieza a funcionar, mandandoo u mensaje al usuairo indicandole
+	 * que eliga una opcion de la culumna numerica deopciones, que seria un numero
+	 * para posterior hacer una comprobacion con un bucle while si el numero introducido esta en el 
+	 * rango de la columan opciones, si es asi y como el metodo recibe un array de precios que hace refernecia al 
+	 * array que se relleno con numeros aleatorios en el metodo precioVueloSoloIda, lo recorre con un bucle for hasta encontrar 
+	 * la opcion elegida por el usuario tomando de referencia la longitud de la columna opcionColumna, igual tomada del metoso precioVueloSoloIda
+	 * para asi guardarlo en una vairable float, e implementarlo en el metodo muestroDetallesdelPrecioElegido, que mostrara los detalles de ese precio
+	 * 
+	 * @param listado_fechas[], array de tipo LocalDate, que es tomada de referencia del metodo precioVueloSoloIda que tienen las fechas
+	 * @param fecha de tipo LocalDate , que hacec toma la fecha que introducio el usuari
+	 * @param dia de tipo entero que hace referencia al dia introducido por el usuario
+	 * @param mes de tipo entero que hace referencia al mes introducido por el usuario
+	 * @param numPasajeros e tipo entero que hace referencia numero de pasajeros introducido por el usuario
+	 * @param opcionColumna de tipo entero que hace referencia a la longtud de la columna de Opciones
+	 * @param precios , de array de tipo float, que hace referencia al array que contiene a los precios almacenado en el metodo precioVueloSoloIda
+	 * */
+
+	public void consultoOpciondePrecio(LocalDate listado_fechas[] , LocalDate fecha,int dia, int mes, int  numPasajeros, int opcionColumna,float precios[]){
+		boolean esOpcion = false;
+		int opcion=0;
+		float precioElegido =0;
+		System.out.println("Indica el numero de opcion, de la columna 'Opciones'");
+		while(!esOpcion) {
+			System.out.print("- ");
+			opcion = scn.nextInt();
+			if(opcion > opcionColumna){
+				esOpcion = false;
+				System.out.println("NO ES UNA OPCION VALIDA!!");
+				System.out.println("introduce nuevamente un numero indicado en la columna 'Opciones', que te da el precio que quieres");
+			}else {
+				esOpcion = true;
+			}
+		}
+		for (int i = 0; i <= opcionColumna; i++) {
+			if (i == opcion) {
+				precioElegido = precios[opcion-1];
+			}
+		}
+			muestroDetallesdelPrecioElegido(precioElegido, listado_fechas,fecha,  numPasajeros,dia,mes,opcion);	
+		
+}
 	
 	
+	/**
+	 * Metodo muestroDetallesdelPrecioElegido, una ves en el anterior mmetodo realizada la comprobacion de la opciob elegida por el usuario, se 
+	 * muestra el contenido de ese precio y lo que tiene
+	 * Tona de referencia datos que anteriormete se le solicito al usuario como la fecha, etc
+	 * 
+	 * @param listado_fechas[], array de tipo LocalDate, que es tomada de referencia del metodo precioVueloSoloIda que tienen las fechas
+	 * @param fecha de tipo LocalDate , que hacec toma la fecha que introducio el usuari
+	 * @param dia de tipo entero que hace referencia al dia introducido por el usuario
+	 * @param mes de tipo entero que hace referencia al mes introducido por el usuario
+	 * @param numPasajeros e tipo entero que hace referencia numero de pasajeros introducido por el usuario
+	 * @param opcionColumna de tipo entero que hace referencia a la longtud de la columna de Opciones
+	 * @param precioselegido que hace alamaceno el precio escogido por el usuario
+	*/
 	
-	
+	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate salida,int numPasajeros, int dia, int mes, int opcion){
+		String respuesta = "";
+		Aerolinea A01 = new Aerolinea("IB", "Iberia");
+		System.out.println("\nLOS DATOS DEL VUELO SON");
+		System.out.println("Sale el dia:"+listado_fechas[opcion-1].getDayOfMonth()+"/"+listado_fechas[opcion-1].getMonthValue()+"/"+listado_fechas[opcion-1].getYear());
+		System.out.println("Operado por: "+A01.getNombre());
+		System.out.println("Con precio Total: "+precioElegido+"€");	
+		//System.out.println("Parte a las"+fecha.atTime(time));
+		System.out.println("Con 1mt de mano de 10kg");
+		System.out.println("2mt - 23kg");
+		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
+		if(si_no_Opcion()) {
+			confirmoVuelo(numPasajeros, salida, precioElegido);
+		}else {
+			System.out.println("Los precios pueden variar si quieres:");
+			System.out.println("Podemos:\n1.Cambiar Destino\n2.Cambiar fecha\n3.Volver al menu principal\n4.Salir");
+			//eligoOpcion( salida,  dia,  mes,  numPasajeros, opcion);
+		}
+		
+	}
+	/**
+	 * Metodo de prueba que en caso el usuario escogiera la opcion no en la pregunta si desea reservar o le interesa
+	 * algun opcion devulviera este menu 
+	 * 
+	 *  
+	 * @param fecha de tipo LocalDate , que hacec toma la fecha que introducio el usuari
+	 * @param dia de tipo entero que hace referencia al dia introducido por el usuario
+	 * @param mes de tipo entero que hace referencia al mes introducido por el usuario
+	 * @param numPasajeros e tipo entero que hace referencia numero de pasajeros introducido por el usuario
+	 * @param opcion de tipo entero que hace referencia a la longtud de la columna de Opciones
+	 * 
+	 * */
 	public void eligoOpcion(LocalDate fecha, int dia, int mes, int numPasajeros, int opcion) {
 		
-	
+		
 		String origen = "";
 		String destino = "";
 		
@@ -309,9 +435,19 @@ public class Gestion {
 		}
 			
 	}
-
+		
 	
-	
+	/**
+	 * El metodo confirmoVuelo se activaria cuando el usuario este conforme a los datos y el precio elegido
+	 * entonces se solicitaria los datos para almacenarlos en el array de tipo Billete que contendrua los datos
+	 * principales del usuario para posterior almacenarlos en el array Usuario que lleva de parametro la persona y el numero de pasaporte
+	 * y eso guardarlo en el arrayList de billetes que se creo como variable global
+	 * 
+	 * @param numPasajeros de tipo entero que hace referencia al numero de pasaajeros que introducio el usurio
+	 * @param salida de tipo LocalDate que hace referencia a la fecha de salida del vuelo elgido
+	 * @param precio que hace referencia al precio del billete TOTAL
+	 * 
+	 * */
 
 	public void confirmoVuelo(int numPasajeros, LocalDate salida, float precio) {
 
@@ -336,94 +472,10 @@ public class Gestion {
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
 			billetes_conirmados.add(new Billete(pasajeros[i], salida, precio));
 		}
-		System.out.println(billetes_conirmados.get(0).getFechaBillete().toString());
-		System.out.println(billetes_conirmados.get(0).getNombrePasajero());
-
 	}
 	
 	
 	
-	
-	
-	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate salida,int numPasajeros, int dia, int mes, int opcion){
-		String respuesta = "";
-		aerolinea A01 = new aerolinea("IB", "Iberia");
-		System.out.println("\nLOS DATOS DEL VUELO SON");
-		System.out.println("Sale el dia:"+listado_fechas[opcion-1].getDayOfMonth()+"/"+listado_fechas[opcion-1].getMonthValue()+"/"+listado_fechas[opcion-1].getYear());
-		System.out.println("Operado por: "+A01.getNombre());
-		System.out.println("Con precio Total: "+precioElegido+"€");	
-		//System.out.println("Parte a las"+fecha.atTime(time));
-		System.out.println("Con 1mt de mano de 10kg");
-		System.out.println("2mt - 23kg");
-		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
-		if(si_no_Opcion()) {
-			confirmoVuelo(numPasajeros, salida, precioElegido);
-		}else {
-			System.out.println("Los precios pueden variar si quieres:");
-			System.out.println("Podemos:\n1.Cambiar Destino\n2.Cambiar fecha\n3.Volver al menu principal\n4.Salir");
-			eligoOpcion( salida,  dia,  mes,  numPasajeros,  opcion);
-		}
-		
-	}
-	
-	
-	
-	
-	
-	
-	public void consultoOpcion(LocalDate listado_fechas[] , LocalDate fecha,int dia, int mes, int  numPasajeros, int opcionColumna,float precios[]){
-			int opcion=0;
-			float precioElegido =0;
-			System.out.println("Indica el numero de opcion, de la columna 'Opciones'");
-			opcion = scn.nextInt();
-			for (int i = 0; i <= opcionColumna; i++) {
-				if (i == opcion) {
-					precioElegido = precios[opcion-1];
-				}
-			}
-				muestroDetallesdelPrecioElegido(precioElegido, listado_fechas,fecha,  numPasajeros,dia,mes,opcion);	
-			
-	}
-		
-	
-	
-
-	/**
-	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de
-	 * 500 a 800 para precio de vuelos de solo ida
-	 */
-	public void precioVueloSoloIda(LocalDate fecha, int dia, int mes, int numPasajeros) {
-		int opcion =0;
-		int opcionColumna =0;
-		String respuesta;
-		float[] listado_precio = new float[4];
-		LocalDate[] listado_fechas = new LocalDate[4];
-		System.out.println("Desde el dia " + fecha.getDayOfMonth() +"/" +fecha.getMonth() +". Tenemos las siguientes opciones, para "+numPasajeros+" pasajeros\n");
-		System.out.println("Fecha       Opciones    Precio Solicitado");
-		System.out.println("-----       --------     ---------------");
-		for (int i = 0; i < listado_precio.length; i++) {
-			float precio_VueloSoloIda_Medio = (float) (Math.random() * 300 + 700);
-			listado_precio[i] = precio_VueloSoloIda_Medio*numPasajeros;
-			listado_fechas[i] = fecha.of(2021, fecha.getMonthValue(), fecha.getDayOfMonth() + i);
-			System.out.print(listado_fechas[i] + " ->");
-			opcionColumna++;
-			System.out.print( " - " +opcionColumna+ " - " + listado_precio[i] + "€\n");
-	
-			}
-			System.out.println("Te interesa alguna opcion? s/n");
-			if(si_no_Opcion()) {
-				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna, listado_precio);
-			//URGENTE COMPROBAR S Y N
-			}else {
-			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
-			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
-			}
-		
-	}
-
-	
-	
-
 	/*
 	 * Método que comprueba si el usuario introduce un si o un no,  tanto en la variación de mayúsculas o minúscula y
 	 * una simple "S", como un "Si" tamto en minúscumas como mayúsculas
@@ -461,5 +513,5 @@ public class Gestion {
 
 	}
 	
-	
-	}
+
+}
