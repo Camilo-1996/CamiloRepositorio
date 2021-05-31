@@ -73,7 +73,7 @@ public class Gestion {
 			this.ida();
 			break;
 		case 2:
-			//this.idaVuelta();
+			;
 			break;
 		case 3:
 			this.finApp();
@@ -321,7 +321,7 @@ public class Gestion {
 		String pasaporte ;
 		Usuario [] pasajeros = new Usuario[numPasajeros];
 		Persona [] personas = new Persona[numPasajeros];
-		for (int i = 0; i < numPasajeros; i++) {
+		for (int i = 0; i <=(numPasajeros-1); i++) {
 			System.out.println("Introduce los datos del pasajero -No"+(i+1));
 			System.out.println("Nombre:");
 			nombre = scn.next();
