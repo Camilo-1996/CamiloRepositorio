@@ -439,6 +439,10 @@ public class Gestion {
 					
 					siQuiere=true;
 					correctaIntoduccion=true;
+				}else {
+					
+					
+					inicioSesion();
 				}
 				
 			}else {
