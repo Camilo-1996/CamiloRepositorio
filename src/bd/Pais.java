@@ -2,7 +2,10 @@ package bd;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Clase país que contiene su constructor y sus getters y setters
+ *
+ */
 public class Pais {
 
 	private String ID;

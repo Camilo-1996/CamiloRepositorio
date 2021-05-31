@@ -1,5 +1,9 @@
 package bd;
-
+/**
+ * Clase de aerolínea que contiene su constructor y sus getters y setters
+ * @author paul
+ *
+ */
 public class Aerolinea {
 
 	private String id;

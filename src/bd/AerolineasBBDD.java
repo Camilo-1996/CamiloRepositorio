@@ -8,6 +8,10 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+/**
+ * Clase donde se hace la conexión con la Base de datos de aerolineas mediante
+ * el conector JDBC
+ */
 public class AerolineasBBDD {
 	private Statement st;
 	private String databasename = "proyecto";
@@ -22,7 +26,7 @@ public class AerolineasBBDD {
 	public AerolineasBBDD() {
 		try {
 			MysqlDataSource dataSource = new MysqlDataSource();
-			dataSource.setUseSSL(false); 
+			dataSource.setUseSSL(false);
 			dataSource.setServerTimezone(serverTimeZone);
 			dataSource.setDatabaseName(databasename);
 			dataSource.setPortNumber(port);
@@ -58,7 +62,13 @@ public class AerolineasBBDD {
 
 	}
 
-	public aerolinea ObtenerporID(String ID) {
+	/**
+	 * Método que obtendrá el id de la aerolínea
+	 * 
+	 * @param ID
+	 * @return
+	 */
+	public Aerolinea ObtenerporID(String ID) {
 		try {
 			st = BBDDaero.createStatement();
 
@@ -76,6 +86,12 @@ public class AerolineasBBDD {
 
 	}
 
+	/**
+	 * Método que sirve para modificar la aerolínea
+	 * 
+	 * @param ID
+	 * @param Nombre
+	 */
 	public void ModificarNombreAerolinea(String ID, String Nombre) {
 		try {
 			st = BBDDaero.createStatement();
@@ -87,6 +103,11 @@ public class AerolineasBBDD {
 		}
 	}
 
+	/**
+	 * Método que sirve para eliminar la aerolínea
+	 * 
+	 * @param ID
+	 */
 	public void EliminarAerolinea(String ID) {
 
 		try {
@@ -99,6 +120,11 @@ public class AerolineasBBDD {
 		}
 	}
 
+	/**
+	 * Método que sirve para insertar la aerolínea
+	 * 
+	 * @param ae
+	 */
 	public void InsertarAerlionea(Aerolinea ae) {
 		try {
 			st = BBDDaero.createStatement();
@@ -109,6 +135,11 @@ public class AerolineasBBDD {
 		}
 	}
 
+	/**
+	 * Método que es obligado para que no de error en la clase
+	 * 
+	 * @return BBDDaero
+	 */
 	public Connection conectarMySQL() {
 		// TODO Auto-generated method stub
 		return BBDDaero;

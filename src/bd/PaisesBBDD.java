@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
-
+/**
+ * Clase donde se hace la conexión con la Base de datos de Paises
+ * donde se comprobará si existen países mediante un método 
+ */
 public class PaisesBBDD {
 
 	private static Statement st;
@@ -73,7 +76,7 @@ public class PaisesBBDD {
 	/**
 	 * Método para obtener todos las ciudades
 	 * 
-	 * @param pa
+	 * @param pa (pais)
 	 */
 	public void ObtenerCiudades(Pais pa) {
 		try {
@@ -114,7 +117,7 @@ public class PaisesBBDD {
 	 * comprobar si el pais existe
 	 * 
 	 * @param pa (pais)
-	 * @return }
+	 * @return false
 	 */
 
 	public boolean ExistePais(PaisesBBDD pa) {
