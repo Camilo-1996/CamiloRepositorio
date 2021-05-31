@@ -321,7 +321,8 @@ public class Gestion {
 		String pasaporte ;
 		Usuario [] pasajeros = new Usuario[numPasajeros];
 		Persona [] personas = new Persona[numPasajeros];
-		for (int i = 0; i <=(numPasajeros-1); i++) {
+		numPasajeros--;
+		for (int i = 0; i <=numPasajeros; i++) {
 			System.out.println("Introduce los datos del pasajero -No"+(i+1));
 			System.out.println("Nombre:");
 			nombre = scn.next();
@@ -335,8 +336,8 @@ public class Gestion {
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
 			billetes_conirmados.add(new Billete(pasajeros[i], salida, precio));
 		}
-		System.out.println(billetes_conirmados.get(1).getFechaBillete().toString());
-		System.out.println(billetes_conirmados.get(1).getNombrePasajero());
+		System.out.println(billetes_conirmados.get(0).getFechaBillete().toString());
+		System.out.println(billetes_conirmados.get(0).getNombrePasajero());
 
 	}
 	
