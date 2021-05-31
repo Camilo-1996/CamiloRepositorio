@@ -446,7 +446,7 @@ public class Gestion {
 					correctaIntoduccion=true;
 				}else {
 					
-					
+					System.out.println("OPERACIÓN CANCELADA");
 					inicioSesion(); 
 					
 				}
