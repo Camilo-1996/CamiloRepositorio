@@ -2,7 +2,7 @@ package interfazes;
 
 
 /**
- * Clase menú que guarda algunos menús recurrentes utilizados a lo largo del programa.
+ * Clase que guarda algunos menús recurrentes utilizados a lo largo del programa.
  * @author Juan Camilo Ramírez Zapata.
  * @version 1.0.
  */

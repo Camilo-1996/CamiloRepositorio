@@ -8,7 +8,12 @@ import java.util.Scanner;
 
 import bd.Aerolinea;
 import interfazes.Menu;
-
+/**
+ * Clase que gestiona tanto interacción con el usuario como 
+ * las consultas a las bases de datos y la creación de ficheros.
+ * @author Juan Camilo Ramirez Zata
+ * @version 1.0.
+ */
 public class Gestion {
 	
 public static Scanner scn = new Scanner(System.in);

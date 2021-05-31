@@ -2,7 +2,7 @@ package gestion;
 
 /**
  * Clase Usuario que hereda de Persona y crea el usuario de la aplicación del que se 
- * guardara los datos tantode persona como de usuario. Estos datos despues se almacenaran en billete.
+ * guardara los datos tanto de persona como de usuario. Estos datos despues se almacenaran en billete.
  * @author Juan Camilo Ramírez Zapata.
  * @version 1.0.
  *
