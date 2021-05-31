@@ -22,7 +22,7 @@ public class aerolineasBBDD {
 	public aerolineasBBDD() {
 		try {
 			MysqlDataSource dataSource = new MysqlDataSource();
-			dataSource.setUseSSL(false); // Para pruebas!
+			dataSource.setUseSSL(false); 
 			dataSource.setServerTimezone(serverTimeZone);
 			dataSource.setDatabaseName(databasename);
 			dataSource.setPortNumber(port);
@@ -33,6 +33,7 @@ public class aerolineasBBDD {
 		} catch (Exception e) {
 			System.out.println("error al conectarse a la Base de datos! " + e.getMessage());
 		}
+	}
 
 //Metodo para obtener todas las aerolineas
 	public List<aerolinea> TodasAerolineas() {
@@ -106,5 +107,10 @@ public class aerolineasBBDD {
 		} catch (Exception e) {
 			System.out.println("error a insertar la aerolinea");
 		}
+	}
+
+	public Connection conectarMySQL() {
+		// TODO Auto-generated method stub
+		return BBDDaero;
 	}
 }
