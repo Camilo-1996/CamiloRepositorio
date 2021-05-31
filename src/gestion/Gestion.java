@@ -236,6 +236,7 @@ public class Gestion {
 				if ((diaComprobado <= 31 && diaComprobado >= 1) && (mesComprobado > 0 && mesComprobado < 13)) {
 					
 						fecha = LocalDate.of(2021, mesComprobado, diaComprobado);
+						diaCorrecto = true;
 					
 				} else {
 
