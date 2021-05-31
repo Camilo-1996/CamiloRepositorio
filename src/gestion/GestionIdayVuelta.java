@@ -45,7 +45,7 @@ public class GestionIdayVuelta {
 	/**
 	 * metodos que comprueban Si el destino y origen introducido son el correcto, 
 	 * que contiene a si ves dos bucles do-while que piden por entrada de teclado el numero
-	 * y luego implemeta el metodo  compueboCiudad, que retorna un tipo booleano para luego relizar las compribaciones
+	 * y luego implemeta el metodo  compueboC.iudad, que retorna un tipo booleano para luego relizar las compribaciones
 	 * correcpondientes
 	 * 
 	 * @param  origen, de tipo String -referencia al origen introducido
