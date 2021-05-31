@@ -438,6 +438,7 @@ public class Gestion {
 				if(respuesta.equalsIgnoreCase("SI") || respuesta.equalsIgnoreCase("S")) {
 					
 					siQuiere=true;
+					correctaIntoduccion=true;
 				}
 				
 			}else {
