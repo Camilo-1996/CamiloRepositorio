@@ -3,7 +3,7 @@ package gestion;
  * Clase Persona para crear los correspondientes usuarios. 
  * La clase se compone de un nombre y sus dos apellidos.
  * @author Juan Camilo Ramírez Zapata
- * @version 1.0
+ * @version 1.0.
  */
 public class Persona {
 

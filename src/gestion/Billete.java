@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * la información del billete esta relacionada tanto con los datos propios del usuario como los datos del vuelo.
  * El billete se guardara en un fichero.
  * @author Juan Camilo Ramírez Zapata.
- * @version 1.0
+ * @version 1.0.
  */
 public class Billete {
 
