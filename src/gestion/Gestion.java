@@ -448,7 +448,7 @@ public class Gestion {
 					
 					
 					inicioSesion(); 
-					//camilo
+					
 				}
 				
 			}else {
