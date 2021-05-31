@@ -18,7 +18,7 @@ public class Gestion {
 	public static Scanner scn = new Scanner(System.in);
 	
 	PaisesBBDD consulta = new PaisesBBDD(); 
-	
+	GestionIdayVuelta consultas = new GestionIdayVuelta();
 	int opcionElejida = 0;
 	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
 	

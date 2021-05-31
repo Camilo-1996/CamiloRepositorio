@@ -208,7 +208,7 @@ public class GestionIdayVuelta {
 			pasaporte = Gestion.scn.next();
 			personas[i] = new Persona(nombre,apellido1,apellido2);
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
-			gestion.billetes_conirmados.add(new Billete(pasajeros[i]));
+			gestion.billetes_conirmados.add(new Billete(pasajeros[i], null, i));
 		}
 		
 		//billete.setDatosPasajero(pasajeros[i]);
