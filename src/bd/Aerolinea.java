@@ -12,7 +12,9 @@ public class Aerolinea {
 	}
 
 	public String getId() {
+		
 		return id;
+		
 	}
 
 	public void setId(String id) {
@@ -24,6 +26,8 @@ public class Aerolinea {
 	}
 
 	public void setNombre(String nombre) {
+		
 		Nombre = nombre;
+		
 	}
 }
