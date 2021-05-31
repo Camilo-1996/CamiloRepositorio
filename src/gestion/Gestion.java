@@ -10,7 +10,10 @@ import bd.aerolinea;
 import interfazes.Menu;
 
 public class Gestion {
-
+	
+	
+	
+	
 	private Scanner scn = new Scanner(System.in);
 	int opcionElejida = 0;
 	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
@@ -72,6 +75,10 @@ public class Gestion {
 			break;
 		}
 	}
+	
+
+	
+	
 
 	/**
 	 * Método de Ida al elegir la opción 1.<br/>
@@ -90,6 +97,9 @@ public class Gestion {
 
 	}
 
+	
+	
+	
 	/**
 	 * Método de Ida y vuelta ,Que tiene como variables 
 	 */
@@ -107,7 +117,13 @@ public class Gestion {
 		solicitoOrigenyDestino(origen,destino);
 		comprobarDiayMesIdayVuelta(diaSalida, mesSalida, salida,vuelta, numeroPasajeros);
 	}
-
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Método de fin de Aplicacion 
 	 */
@@ -116,6 +132,11 @@ public class Gestion {
 		System.exit(0);
 	}
 
+	
+	
+	
+	
+	
 	/**
 	 * metodos que comprueban Si el destino y origen introducido son el correcto,  
 	 * */
@@ -153,6 +174,11 @@ public class Gestion {
 		System.out.println("Indica el dia/mes de tu viaje");
 	
 	}
+	
+	
+	
+	
+	
 
 	/*
 	 * ERROR DE REPETICION DE ESTE METODO AUNQUE SI COMPRUEBA LA CIUDAD POR RAZON
@@ -185,6 +211,12 @@ public class Gestion {
 		return estaCiudad;
 	}
 	
+	
+	
+	
+	
+	
+
 	/*
 	 * Este metodo comprueba si lo introducido es ciudad o pais, si es ciudad es
 	 * correcto si es pais va al metodo eligoCiudad y lista las ciudades el que se
@@ -212,6 +244,13 @@ public class Gestion {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	public int pidoNumeroDeViajeros(int numeroViajeros) {
 		boolean nValido = false;
 		System.out.println("Introduce el numero de pasajeros \n-nº");
@@ -223,6 +262,11 @@ public class Gestion {
 		return numeroViajeros;
 	}
 
+	
+	
+	
+	
+	
 	public void comprobarDiayMesIda(int diaComprobado, int mesComprobado, LocalDate fecha,int numeroPasajeros) {
 		boolean diaCorrecto = false;
 		while (diaCorrecto != true) {
@@ -270,6 +314,12 @@ public class Gestion {
 		}
 	}
 	
+	
+	
+	
+	
+	
+	
 	public void comprobarDiayMesIdayVuelta(int diaComprobado, int mesComprobado, LocalDate salida,LocalDate vuelta,int numeroPasajeros) {
 		boolean diaCorrecto = false;
 		System.out.println("Indica el dia de salida de tu viaje");
@@ -299,14 +349,21 @@ public class Gestion {
 				}
 
 			} catch (Exception exc) {
+
 				System.out.println("INTRODUCE UN FORMATO ADECCUADO");
 				System.out.println("INTRODUCE DE NUEVO EL DIA");
+
 			}
 		}
 		numeroPasajeros = pidoNumeroDeViajeros(numeroPasajeros);
 		precioVueloIdayVuelta(salida,vuelta,diaComprobado, mesComprobado, numeroPasajeros);
-				
+			
+			
+		
 	}
+	
+	
+	
 	
 	public void eligoOpcion(LocalDate fecha, int dia, int mes, int numPasajeros, int opcion) {
 		String origen = "";
@@ -331,11 +388,18 @@ public class Gestion {
 		}
 			
 	}
-
+<<<<<<< HEAD
+	
+	
+	
+	
+	
+	
+	
 	public Billete confirmoVuelo(int numPasajeros) {
-
+=======
 	public void confirmoVuelo(int numPasajeros) {
-
+>>>>>>> branch 'master' of https://github.com/Camilo-1996/ProyectoFinal.git
 		String nombre;
 		String apellido1;
 		String apellido2;
@@ -360,6 +424,10 @@ public class Gestion {
 		//billete.setDatosPasajero(pasajeros[i]);
 	}
 	
+	
+	
+	
+	
 	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate fecha,int numPasajeros, int dia, int mes, int opcion){
 		String respuesta = "";
 		aerolinea A01 = new aerolinea("IB", "Iberia");
@@ -381,7 +449,12 @@ public class Gestion {
 		}
 		
 	}
-
+	
+	
+	
+	
+	
+	
 	public void consultoOpcion(LocalDate listado_fechas[] , LocalDate fecha,int dia, int mes, int  numPasajeros, int opcionColumna,String respuesta, float precios[]){
 			int opcion=0;
 			float precioElegido =0;
@@ -402,6 +475,9 @@ public class Gestion {
 			
 			
 	}
+		
+	
+	
 
 	/**
 	 * Metodo que contiene un array en la cual se rellena de numeros aleatroios de
@@ -436,6 +512,9 @@ public class Gestion {
 			}
 		
 	}
+
+	
+	
 
 	public void precioVueloIdayVuelta(LocalDate salida, LocalDate vuelta ,int dia, int mes, int numPasajeros) {
 		int opcion =0;
