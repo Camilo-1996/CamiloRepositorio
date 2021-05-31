@@ -19,7 +19,8 @@ public class Billete {
 	private int idPasajero;
 	private static int idBillete;
 	private int numeroBillete;
-	private LocalDate fechaBillete;
+	private LocalDate fechaIda;
+	private LocalDate fechaVuelta;
 	private String origen;
 	private String destino;
 	private float precioBillete;
@@ -30,15 +31,15 @@ public class Billete {
 
 
 
-	//start constructor
+	//start constructors
 	
 	/**
-	 * Contructor de la clase Billete que genera el objeto billete con sus correspondientes datos.
+	 * Contructor de la clase Billete que genera el objeto billete de ida con sus correspondientes datos.
 	 * @param usuario que ha reservado el billete
-	 * @param fecha del vuelo.
+	 * @param fecha de ida del vuelo.
 	 * @param precio del billete.
 	 */
-	public Billete(Usuario usuario, LocalDate fechaBillete, float precio_billete) {
+	public Billete(Usuario usuario, LocalDate fechaIda, float precio_billete) {
 		
 		this.nombrePasajero=usuario.getNombre();
 		this.apellido1_pasajero=usuario.getApellido1();
@@ -46,10 +47,32 @@ public class Billete {
 		this.pasaporte= usuario.getPasaporte();
 		this.idPasajero= usuario.getIdUsuario();
 		this.numeroBillete= idBillete++;
-		this.fechaBillete = fechaBillete;
+		this.fechaIda = fechaIda;
 		this.precioBillete = precio_billete;
 	}
-	//finish constructor
+	
+	
+	/**
+	 * Contructor de la clase Billete que genera el objeto billete de ida y vuelta con sus correspondientes datos.
+	 * @param usuario que ha reservado el billete
+	 * @param fecha de ida del vuelo.
+	 * @param fecha de vuelta del vuelo
+	 * @param precio del billete.
+	 */
+	public Billete(Usuario usuario, LocalDate fechaIda, LocalDate fechaVuelta,  float precio_billete) {
+		
+		this.nombrePasajero=usuario.getNombre();
+		this.apellido1_pasajero=usuario.getApellido1();
+		this.apellido2_pasajero=usuario.getApellido2();
+		this.pasaporte= usuario.getPasaporte();
+		this.idPasajero= usuario.getIdUsuario();
+		this.numeroBillete= idBillete++;
+		this.fechaIda = fechaIda;
+		this.fechaVuelta= fechaVuelta;
+		this.precioBillete = precio_billete;
+	}
+	
+	//finish constructors
 	
 	
 	
@@ -79,6 +102,9 @@ public class Billete {
 		return apellido2_pasajero;
 	}
 	
+	//hasta aquí
+	
+	
 	/**
 	 * método que devuelve el código del pasaporte del pasajero.
 	 * @return el código del pasaporte.
@@ -97,12 +123,22 @@ public class Billete {
 	}
 
 	/**
-	 * método que devuelve la fecha de vuelo del billete.
-	 * @return  fecha de vuelo.
+	 * método que devuelve la fecha de ida del vuelo.
+	 * @return  fecha de ida vuelo.
 	 */
-	public LocalDate getFechaBillete() {
+	public LocalDate getFechaIda() {
 		
-		return fechaBillete;
+		return fechaIda;
+	}
+	
+	
+	/**
+	 * método que devuelve la fecha de vuelta del vuelo.
+	 * @return  fecha de vuelta del vuelo.
+	 */
+	public LocalDate getFechaVuelta() {
+		
+		return this.fechaVuelta;
 	}
 	
 	
@@ -178,12 +214,22 @@ public class Billete {
 
 	
 	/**
-	 *  método para cambiar la fecha del billete
-	 * @param nueva fecha del Billete.
+	 *  método para cambiar la fecha de ida del billete
+	 * @param nueva fecha de ida del Billete.
 	 */
-	public void setFechaBillete(LocalDate fechaBillete) {
+	public void setFechaIda(LocalDate fechaIda) {
 		
-		this.fechaBillete=fechaBillete;
+		this.fechaIda=fechaIda;
+		
+	}
+	
+	/**
+	 *  método para cambiar la fecha de vuelta del billete
+	 * @param nueva fecha de vuelta del Billete.
+	 */
+	public void setFechaVuelta(LocalDate fechaVuelta) {
+		
+		this.fechaVuelta=fechaVuelta;
 		
 	}
 
