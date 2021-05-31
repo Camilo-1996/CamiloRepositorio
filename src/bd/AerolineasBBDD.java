@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
-public class aerolineasBBDD {
+public class AerolineasBBDD {
 	private Statement st;
 	private String databasename = "proyecto";
 	private String serverTimeZone = "UTC";
@@ -19,7 +19,7 @@ public class aerolineasBBDD {
 
 	private Connection BBDDaero;
 
-	public aerolineasBBDD() {
+	public AerolineasBBDD() {
 		try {
 			MysqlDataSource dataSource = new MysqlDataSource();
 			dataSource.setUseSSL(false); 
@@ -36,8 +36,8 @@ public class aerolineasBBDD {
 	}
 
 //Metodo para obtener todas las aerolineas
-	public List<aerolinea> TodasAerolineas() {
-		List<aerolinea> lista = new ArrayList<aerolinea>();
+	public List<Aerolinea> TodasAerolineas() {
+		List<Aerolinea> lista = new ArrayList<Aerolinea>();
 		try {
 
 			st = BBDDaero.createStatement();
@@ -46,7 +46,7 @@ public class aerolineasBBDD {
 			while (rs.next()) {
 				String ID = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
-				aerolinea ae = new aerolinea(ID, Nombre);
+				Aerolinea ae = new Aerolinea(ID, Nombre);
 				lista.add(ae);
 			}
 			st.close();
@@ -66,7 +66,7 @@ public class aerolineasBBDD {
 			if (rs.next()) {
 				String Id = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
-				aerolinea ae = new aerolinea(Id, Nombre);
+				Aerolinea ae = new Aerolinea(Id, Nombre);
 				return ae;
 			}
 		} catch (Exception e) {
@@ -99,7 +99,7 @@ public class aerolineasBBDD {
 		}
 	}
 
-	public void InsertarAerlionea(aerolinea ae) {
+	public void InsertarAerlionea(Aerolinea ae) {
 		try {
 			st = BBDDaero.createStatement();
 

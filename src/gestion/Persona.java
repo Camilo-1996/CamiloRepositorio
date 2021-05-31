@@ -5,21 +5,28 @@ public class Persona {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
+	
 
-	//start constructor
-	public Persona(String nombre, String apellido1, String apellido2) {
-		
-		this.nombre=nombre;
-		this.apellido1=apellido1;
+
+	/**
+	 * Constructor de la clase 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param pasaporte
+	 */
+	public Persona(String nombre, String apellido1, String apellido2, String pasaporte) {
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
 		this.apellido2=apellido2;
 		
+		
 	}
-	//finish constructor
-	
-	
-	
-	
-	// Getters and setters
+	// fin constructor
+
+	/*
+	 *Getters and Setters
+	 */
 	
 	public String getNombre() {
 		return nombre;
@@ -44,7 +51,27 @@ public class Persona {
 	public void setApellido2(String apellido) {
 		this.apellido2 = apellido;
 	}
-	//finish getters and setters 
+
+	public int getDNI() {
+		return DNI;
+	}
+
+	public void setDNI(int dNI) {
+		DNI = dNI;
+	}
+
+	public String getPasaporte() {
+		return pasaporte;
+	}
+
+	public void setPasaporte(String pasaporte) {
+		this.pasaporte = pasaporte;
+	}
+
+	/*
+	 * Fin Getters and Setters
+	 *
+	 */
 	
 	
 	public String getNombreCompleto() {
