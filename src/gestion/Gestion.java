@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import bd.PaisesBBDD;
 import bd.aerolinea;
 import interfazes.Menu;
 
@@ -15,6 +16,9 @@ public class Gestion {
 	
 	
 	public static Scanner scn = new Scanner(System.in);
+	
+	PaisesBBDD consulta = new PaisesBBDD(); 
+	
 	int opcionElejida = 0;
 	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
 	
@@ -69,7 +73,7 @@ public class Gestion {
 			this.ida();
 			break;
 		case 2:
-			//this.idaVuelta();
+			;
 			break;
 		case 3:
 			this.finApp();
@@ -176,7 +180,7 @@ public class Gestion {
 		
 		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
 		
-		if (ciudad.equalsIgnoreCase(laciudad)) {
+		if (consulta.ExisteCiudad(ciudad)) {
 			
 			estaCiudad = true;
 					
@@ -309,7 +313,7 @@ public class Gestion {
 	
 	
 
-	public void confirmoVuelo(int numPasajeros, LocalDate salida) {
+	public void confirmoVuelo(int numPasajeros, LocalDate salida, float precio) {
 
 		String nombre;
 		String apellido1;
@@ -317,19 +321,19 @@ public class Gestion {
 		String pasaporte ;
 		Usuario [] pasajeros = new Usuario[numPasajeros];
 		Persona [] personas = new Persona[numPasajeros];
-		for (int i = 0; i < numPasajeros; i++) {
+		for (int i = 0; i <=(numPasajeros-1); i++) {
 			System.out.println("Introduce los datos del pasajero -No"+(i+1));
 			System.out.println("Nombre:");
 			nombre = scn.next();
 			System.out.println("Primer Apellido:");
 			apellido1 = scn.next();
-			System.out.println("Segundo Apellido:");
+			System.out.println("Segundo Apellido:.");
 			apellido2 = scn.next();
 			System.out.println("Tu numero de pasaporte:");
 			pasaporte = scn.next();
 			personas[i] = new Persona(nombre,apellido1,apellido2);
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
-			billetes_conirmados.add(new Billete(pasajeros[i], salida));
+			billetes_conirmados.add(new Billete(pasajeros[i], salida, precio));
 		}
 		System.out.println(billetes_conirmados.get(1).getFechaBillete().toString());
 		System.out.println(billetes_conirmados.get(1).getNombrePasajero());
@@ -352,7 +356,7 @@ public class Gestion {
 		System.out.println("2mt - 23kg");
 		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
 		if(si_no_Opcion()) {
-			confirmoVuelo(numPasajeros, salida);
+			confirmoVuelo(numPasajeros, salida, precioElegido);
 		}else {
 			System.out.println("Los precios pueden variar si quieres:");
 			System.out.println("Podemos:\n1.Cambiar Destino\n2.Cambiar fecha\n3.Volver al menu principal\n4.Salir");

@@ -15,10 +15,16 @@ public class Billete {
 	private LocalDate fechaBillete;
 	private String origen;
 	private String destino;
+	private float precioBillete;
 	
 	
+
+
+
+
+
 	//start constructor
-	public Billete(Usuario usuario, LocalDate fechaBillete) {
+	public Billete(Usuario usuario, LocalDate fechaBillete, float precio_billete) {
 		
 		this.nombrePasajero=usuario.getNombre();
 		this.apellido1_pasajero=usuario.getApellido1();
@@ -27,7 +33,7 @@ public class Billete {
 		this.idPasajero= usuario.getIdUsuario();
 		this.numeroBillete= idBillete++;
 		this.fechaBillete = fechaBillete;
-		
+		this.precioBillete = precio_billete;
 	}
 	
 	
@@ -89,6 +95,17 @@ public class Billete {
 	
 	public String getDestino() {
 		return destino;
+	}
+	
+	public float getPrecioBillete() {
+		return precioBillete;
+	}
+
+
+
+
+	public void setPrecioBillete(float precioBillete) {
+		this.precioBillete = precioBillete;
 	}
 
 	
