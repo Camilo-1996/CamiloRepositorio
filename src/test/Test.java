@@ -1,13 +1,13 @@
 package test;
 
 import gestion.Gestion;
-import interfazes.Menus;
+import interfazes.Menu;
 
 public class Test {
 
 	public static void main(String[] args) {
 	
-		Menus.menuInicio();
+		Menu.mensajeInicio();
 		
 		Gestion gestion01= new Gestion();
 		
