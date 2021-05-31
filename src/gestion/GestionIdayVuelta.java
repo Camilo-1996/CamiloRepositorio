@@ -66,7 +66,7 @@ public class GestionIdayVuelta {
 	 * correcto si es pais va al metodo eligoCiudad y lista las ciudades el que se
 	 * debe elegir, ya que en un pais puede hacer 1 o mas aereopuertos, pero no
 	 * todas las ciudades lo tienen
-	 * 
+	 * @param 
 	 **/
 	public boolean compueboCiudad(String ciudadOPais) {
 		String laciudad = "Madrid";// prueba

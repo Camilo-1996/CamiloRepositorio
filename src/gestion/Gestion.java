@@ -84,6 +84,7 @@ public class Gestion {
 	/**
 	 * Método de Ida al elegir la opción 1.<br/>
 	 * Éste método solicita el origen y el destino y la fecha de dicho vuelo. 
+	 * 
 	 */
 	public void ida() {
 		String origen = "";
@@ -118,7 +119,9 @@ public class Gestion {
 	
 	
 	/**
-	 * metodos que comprueban Si el destino y origen introducido son el correcto,  
+	 * metodos que comprueban Si el destino y origen introducido son el correcto,
+	 * @param  origen
+	 * @param  destino
 	 * */
 	public  void solicitoOrigenyDestino(String origen,String destino) {
 		
@@ -328,7 +331,8 @@ public class Gestion {
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
 			billetes_conirmados.add(new Billete(pasajeros[i], salida));
 		}
-		System.out.println(billetes_conirmados.get(1));
+		System.out.println(billetes_conirmados.get(1).getFechaBillete().toString());
+		System.out.println(billetes_conirmados.get(1).getNombrePasajero());
 
 	}
 	
@@ -347,8 +351,7 @@ public class Gestion {
 		System.out.println("Con 1mt de mano de 10kg");
 		System.out.println("2mt - 23kg");
 		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
-		respuesta = scn.next();
-		if(si_no_Opcion(respuesta)) {
+		if(si_no_Opcion()) {
 			confirmoVuelo(numPasajeros, salida);
 		}else {
 			System.out.println("Los precios pueden variar si quieres:");
@@ -363,11 +366,9 @@ public class Gestion {
 	
 	
 	
-	public void consultoOpcion(LocalDate listado_fechas[] , LocalDate fecha,int dia, int mes, int  numPasajeros, int opcionColumna,String respuesta, float precios[]){
+	public void consultoOpcion(LocalDate listado_fechas[] , LocalDate fecha,int dia, int mes, int  numPasajeros, int opcionColumna,float precios[]){
 			int opcion=0;
 			float precioElegido =0;
-		if(respuesta.equalsIgnoreCase("s")) {
-			//Comprobar si es s o n
 			System.out.println("Indica el numero de opcion, de la columna 'Opciones'");
 			opcion = scn.nextInt();
 			for (int i = 0; i <= opcionColumna; i++) {
@@ -375,12 +376,7 @@ public class Gestion {
 					precioElegido = precios[opcion-1];
 				}
 			}
-				muestroDetallesdelPrecioElegido(precioElegido, listado_fechas,fecha,  numPasajeros,dia,mes,opcion);
-	}else{
-		System.out.println("Quieres:\n1.Cambiar Destino\n2.Cambiar fecha\n3.Volver al menu principal\n4.Salir");
-		eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
-	}
-			
+				muestroDetallesdelPrecioElegido(precioElegido, listado_fechas,fecha,  numPasajeros,dia,mes,opcion);	
 			
 	}
 		
@@ -410,9 +406,8 @@ public class Gestion {
 	
 			}
 			System.out.println("Te interesa alguna opcion? s/n");
-			respuesta = scn.next();
-			if(si_no_Opcion(respuesta)) {
-				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna,respuesta, listado_precio);
+			if(si_no_Opcion()) {
+				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna, listado_precio);
 			//URGENTE COMPROBAR S Y N
 			}else {
 			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
@@ -429,18 +424,18 @@ public class Gestion {
 	 * una simple "S", como un "Si" tamto en minúscumas como mayúsculas
 	 * @return si quiere cambiar la opcion, o si no.
 	 */
-	public boolean si_no_Opcion(String opcion) {
+	public boolean si_no_Opcion() {
+		String respuesta = "";
 
 		boolean correctaIntoduccion=false;
 		boolean siQuiere=false;
 		
 		while(correctaIntoduccion!=true) {
-			
-			opcion=scn.next();
-			
-			if(opcion.equalsIgnoreCase("SI") || opcion.equalsIgnoreCase("S")||opcion.equalsIgnoreCase("NO") || opcion.equalsIgnoreCase("N")) {
+			respuesta = scn.next();
+
+			if(respuesta.equalsIgnoreCase("SI") || respuesta.equalsIgnoreCase("S")||respuesta.equalsIgnoreCase("NO") || respuesta.equalsIgnoreCase("N")) {
 				
-				if(opcion.equalsIgnoreCase("SI") || opcion.equalsIgnoreCase("S")) {
+				if(respuesta.equalsIgnoreCase("SI") || respuesta.equalsIgnoreCase("S")) {
 					
 					siQuiere=true;
 				}
