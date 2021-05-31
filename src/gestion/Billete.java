@@ -13,6 +13,9 @@ public class Billete {
 	private static int idBillete;
 	private int numeroBillete;
 	private LocalDate fechaBillete;
+	private String origen;
+	private String destino;
+	
 	
 	//start constructor
 	public Billete(Usuario usuario) {
@@ -66,12 +69,48 @@ public class Billete {
 		
 		return fechaBillete;
 	}
+	
+	
 
 	
-	/*fecha es la unica variable que tiene setter ya que es la unica variable que se puede cambiar de esta clase.
+	public int getNumeroBillete() {
+		return numeroBillete;
+	}
+
+
+
+	public String getOrigen() {
+		return origen;
+	}
+
+
+
+	
+	public String getDestino() {
+		return destino;
+	}
+
+	
+
+	/*fecha, origen y destino son las unica variable que tiene setter ya que son las única variables que se puede cambiar de esta clase.
 	 * Para cambiar los datos de usuario hay que ir a la clase correspondiente Usuario.
 	 * CAMILO
 	 */
+	
+
+	public void setOrigen(String origen) {
+		this.origen = origen;
+	}
+
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+
+
+	
+	
 	public void setFechaBillete(LocalDate fechaBillete) {
 		
 		this.fechaBillete=fechaBillete;
