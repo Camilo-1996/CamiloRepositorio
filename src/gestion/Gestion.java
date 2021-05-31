@@ -18,6 +18,7 @@ public class Gestion {
 	int opcionElejida = 0;
 	ArrayList<Billete> billetes_conirmados = new ArrayList<>();	
 	
+	
 	/**
 	 * Método que inicia la sesión de la opción a elegir para el usuario.
 	 * El usuario tinene que elegir entre uno de los 3 números del menú.<br/>
@@ -128,92 +129,54 @@ public class Gestion {
 	 * Método de fin de Aplicacion 
 	 */
 	public void finApp() {
-		System.out.println("HASTA LUEGO!!");
+		
+		Menu.mensajeFin();
 		System.exit(0);
+		
 	}
-
-	
-	
-	
+		
+		
 	
 	
 	/**
 	 * metodos que comprueban Si el destino y origen introducido son el correcto,  
 	 * */
 	public  void solicitoOrigenyDestino(String origen,String destino) {
+		
+	
 		boolean resultadoFinal = false;
-		System.out.println("Introduce tu ciudad o pais de origen");
+		System.out.println("INTRODUCE UNA CIUDAD DE ORIGEN");
 
 		do {
 			
 			origen = scn.next();
 
-			this.compueboCiudadoPais(origen);
+			this.comprueboCiudad(origen);
 
-			if (this.compueboCiudadoPais(origen) != true) {
+			if (this.comprueboCiudad(origen) != true) {
 
 				System.out.println("INTRODUCE UN ORIGEN VALIDO.");
 			}
 	
-		} while (this.compueboCiudadoPais(origen) != true);
+		} while (this.comprueboCiudad(origen) != true);
 
-		System.out.println("Introduce la ciudad o pais de destino");
+		System.out.println("INTRODUCE UN DESTINO VALIDO");
 
 		do {
 
 			destino = scn.next();
 
-			this.compueboCiudadoPais(destino);
+			this.comprueboCiudad(destino);
 
-			if (this.compueboCiudadoPais(destino) != true) {
+			if (this.comprueboCiudad(destino) != true) {
 
 				System.out.println("INTRODUCE UN DESTINO VALIDO.");
 			}
 
-		} while (this.compueboCiudadoPais(destino) != true);
-		System.out.println("Indica el dia/mes de tu viaje");
+		} while (this.comprueboCiudad(destino) != true);
+		System.out.println("INDICA EL DIA/MES DE TU VIAJE");
 	
 	}
-	
-	
-	
-	
-	
-
-	/*
-	 * ERROR DE REPETICION DE ESTE METODO AUNQUE SI COMPRUEBA LA CIUDAD POR RAZON
-	 * DESCONOCIDA REPITE LA OPERACION 3 VECES,(NOTA: NO ME FUNCIONA EL BICHO
-	 * DEPURAR)
-	 **/
-	public boolean eligoCiudad(String ciudadOPais) {
-		
-		String laCiudad = "";
-		boolean estaCiudad = false;
-		System.out.println("A QUE CIUDAD DE " + ciudadOPais + " QUIERES VIAJAR");
-		System.out.println("Madrid");// prueba En ESPERA DE LA CONSULTA DE LA BBDD
-		System.out.println("Barcelona");// prueba En ESPERA DE LA CONSULTA DE LA BBDD
-		System.out.println("Valencia");// prueba En ESPERA DE LA CONSULTA DE LA BBDD
-		try {
-			System.out.println("introduce el nombre de la Ciudad");
-			laCiudad = scn.next();
-			if (laCiudad.equalsIgnoreCase("Madrid")) {
-				estaCiudad = true;
-			} else {
-				System.out.println(
-					"La Ciudad que nos indicas no tiene el Aereopuerto activo ó el nombre no es correcto solo las mostradas");
-				System.out.println("Introduce el nombre la Ciudad nuevamente \n");
-				eligoCiudad(ciudadOPais);
-				
-			}
-		} catch (Exception e) {
-			System.out.println("INTRODUCE EL NOMBRE CORRECTO");
-		}
-		return estaCiudad;
-	}
-	
-	
-	
-	
 	
 	
 
@@ -224,26 +187,31 @@ public class Gestion {
 	 * todas las ciudades lo tienen
 	 * 
 	 **/
-	public boolean compueboCiudadoPais(String ciudadOPais) {
+	public boolean comprueboCiudad(String ciudad) {
+		
+	
 		String elPais = "España";// prueba
 		String laciudad = "Madrid";// prueba
-		boolean estaPaisoCiudad = false;
-		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
-		if (ciudadOPais.equalsIgnoreCase(elPais)) {
-			this.eligoCiudad(ciudadOPais);
-			if(this.eligoCiudad(ciudadOPais) ==true) {
-				estaPaisoCiudad = true;
-			}		
-		}else {if(ciudadOPais.equalsIgnoreCase(laciudad)) {
-				estaPaisoCiudad = true;
-				}
-			
-		}
 		
-		return estaPaisoCiudad;
+		boolean estaCiudad = false;
+		
+		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
+		
+		if (ciudad.equalsIgnoreCase(elPais)) {
+			
+			estaCiudad = true;
+					
+		}else if(ciudad.equalsIgnoreCase(laciudad)) {
+			
+				estaCiudad = true;
+				
+		
+		}
+			
+		
+		return estaCiudad;
 		
 	}
-	
 	
 	
 	
@@ -253,13 +221,22 @@ public class Gestion {
 	
 	public int pidoNumeroDeViajeros(int numeroViajeros) {
 		boolean nValido = false;
-		System.out.println("Introduce el numero de pasajeros \n-nº");
+		System.out.println("INTRODUCE EL NÚMERO DE PASAJEROS \n -Nº");
+		
 		try {
+			
+		
 			numeroViajeros = scn.nextInt();
+			
 		}catch(Exception e) {
+			
+		
 			System.out.println("INTRODUCE EL NUMERO CORRECTO");
-			}
+			
+		}
+		
 		return numeroViajeros;
+		
 	}
 
 	
@@ -268,15 +245,21 @@ public class Gestion {
 	
 	
 	public void comprobarDiayMesIda(int diaComprobado, int mesComprobado, LocalDate fecha,int numeroPasajeros) {
+	
+	
 		boolean diaCorrecto = false;
+		
+		
 		while (diaCorrecto != true) {
+		
+		
 			try {
 
-				System.out.println("Indica el dia de tu viaje");
+				System.out.println("INDICA EL DIA DE TU VIAJE.");
 
 				diaComprobado = scn.nextInt();
 
-				System.out.println("y el mes?");
+				System.out.println("Y EL MES");
 
 				mesComprobado = scn.nextInt();
 
@@ -321,31 +304,46 @@ public class Gestion {
 	
 	
 	public void comprobarDiayMesIdayVuelta(int diaComprobado, int mesComprobado, LocalDate salida,LocalDate vuelta,int numeroPasajeros) {
+		
+	
 		boolean diaCorrecto = false;
-		System.out.println("Indica el dia de salida de tu viaje");
+		
+		System.out.println("INDICA EL DIA DE LA SALIDA DE TU VIAJE");
+		
+		
 		while (diaCorrecto != true) {
+			
+		
 			try {
 
 				diaComprobado = scn.nextInt();
 
-				System.out.println("y el mes?");
+				System.out.println("Y EL MES");
 
 				mesComprobado = scn.nextInt();
 
 				if ((diaComprobado <= 31 && diaComprobado >= 1) && (mesComprobado > 0 && mesComprobado < 13)) {
+					
+				
 					if(salida==null) {
+						
+					
 					  salida = LocalDate.of(2021, mesComprobado, diaComprobado);
-						System.out.println("Indica el dia de la vuelta de tu viaje");
-					}else {if(vuelta ==null) {
+					  
+						System.out.println("INDICA EL DIA DE LA VUELTA DE TU VIAJE");
+						
+					}else if(vuelta ==null) {
+						
 						vuelta = LocalDate.of(2021, mesComprobado, diaComprobado);
 						diaCorrecto=true;
-							}
-						}	
+							
+				
 					} else {
 
 					System.out.println("INTRODUCE UNA FECHA VALIDA");
 					System.out.println("INTRODUCE DE NUEVO EL DIA");
 
+					}
 				}
 
 			} catch (Exception exc) {
@@ -366,9 +364,13 @@ public class Gestion {
 	
 	
 	public void eligoOpcion(LocalDate fecha, int dia, int mes, int numPasajeros, int opcion) {
+		
+	
 		String origen = "";
 		String destino = "";
+		
 		opcion = scn.nextInt();
+		
 		switch(opcion) {
 		case 1:
 			solicitoOrigenyDestino(origen,destino);
@@ -383,23 +385,17 @@ public class Gestion {
 		case 4:
 			finApp();
 		default:
-			System.out.println("No es una opcion correcta vuelve a introducir una que viene en la lista:");
+			System.out.println("NO ES UNA OPCIÓN CORRECTA. \nVUELVE A INTRODUCIR UNA QUE VIENE EN LA LISTA:");
 				
 		}
 			
 	}
-<<<<<<< HEAD
+
 	
 	
-	
-	
-	
-	
-	
-	public Billete confirmoVuelo(int numPasajeros) {
-=======
+
 	public void confirmoVuelo(int numPasajeros) {
->>>>>>> branch 'master' of https://github.com/Camilo-1996/ProyectoFinal.git
+
 		String nombre;
 		String apellido1;
 		String apellido2;
@@ -421,7 +417,7 @@ public class Gestion {
 			billetes_conirmados.add(new Billete(pasajeros[i]));
 		}
 		System.out.println(billetes_conirmados.get(1));
-		//billete.setDatosPasajero(pasajeros[i]);
+
 	}
 	
 	

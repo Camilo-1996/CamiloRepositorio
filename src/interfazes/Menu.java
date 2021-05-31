@@ -51,16 +51,6 @@ public  class  Menu{
 	}
 	
 	
-	/**
-	 * Mensaje que informa al usuario cuantos billetes quiere comprar el usuario.
-	 * 
-	 */
-	public static void mensajeNumeroBilletes() {
-		
-		System.out.println("¿CUANTOS BILLETES QUIERES COMPRAR?");
-		
-	}
-	
 }
 	
 	//INCLUIR INTERFAZ DE BIENVENIDA
