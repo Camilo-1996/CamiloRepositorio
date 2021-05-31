@@ -30,7 +30,7 @@ public static Scanner scn = new Scanner(System.in);
 	 * <br/>
 	 * 1. Ida.<br/>
 	 * 2. Ida y vuelta.<br/>
-	 * 3. Salir de la aplicación.<br/>
+	 * 3. Salir de la aplicación..<br/>
 	 * <br/>
 	 * Se comprueba que la opción elegida sea correcta y se envia el método correcto de gestión.
 	 */
