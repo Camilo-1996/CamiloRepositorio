@@ -10,11 +10,10 @@ public class Gestion {
 	
 	Scanner scn = new Scanner(System.in);
 	private Billete billete = new Billete();
-
+	int opcionElejida = 0;
 	public void inicioSesion() {
 
 		boolean opcionCorrecta = false;
-		int opcionElejida = 0;
 
 		while (opcionCorrecta != true) {
 
@@ -69,9 +68,10 @@ public class Gestion {
 		int diaSalida = 0;
 		int mesSalida = 0;
 		LocalDate salida = null;
+
 		int numeroPasajeros=0; 
 		solicitoOrigenyDestino(origen,destino);
-		comprobarDiayMes(diaSalida, mesSalida, salida, numeroPasajeros);
+		comprobarDiayMesIda(diaSalida, mesSalida, salida ,numeroPasajeros);
 
 	}
 	/**
@@ -85,9 +85,10 @@ public class Gestion {
 		int diaRetorno =0;
 		int mesRetorno =0;
 		int numeroPasajeros =0;
-		
+		LocalDate salida = null;
+		LocalDate vuelta = null;
 		solicitoOrigenyDestino(origen,destino);
-		pidoNumeroDeViajeros(numeroPasajeros);
+		comprobarDiayMesIdayVuelta(diaSalida, mesSalida, salida,vuelta, numeroPasajeros);
 	}
 	/**
 	 * Método de fin de Aplicacion 
@@ -204,28 +205,10 @@ public class Gestion {
 			}
 		return numeroViajeros;
 	}
-	/*
-	 * esta funcion esta en la clase PaisBBDD
-	 * 
-	 * public boolean ExisteCiudad(String ciudad) { String elPais= "Madrid";//prueba
-	 * 
-	 * boolean estaPais=false;
-	 * 
-	 * //staticmetodoPaulBDcomprobarPais(String pais)Metodo booleaan
-	 * if(elPais.equalsIgnoreCase(ciudad)){
-	 * 
-	 * estaPais=true; }
-	 * 
-	 * return estaPais; }
-	 */
 
-
-	/***************************************************************************/
-
-	public void comprobarDiayMes(int diaComprobado, int mesComprobado, LocalDate fecha, int numeroPasajeros) {
+	public void comprobarDiayMesIda(int diaComprobado, int mesComprobado, LocalDate fecha,int numeroPasajeros) {
 		boolean diaCorrecto = false;
 		while (diaCorrecto != true) {
-
 			try {
 
 				System.out.println("Indica el dia de tu viaje");
@@ -238,9 +221,8 @@ public class Gestion {
 
 				if ((diaComprobado <= 31 && diaComprobado >= 1) && (mesComprobado > 0 && mesComprobado < 13)) {
 					
-					fecha = LocalDate.of(2021, mesComprobado, diaComprobado);
-					diaCorrecto = true;
-
+						fecha = LocalDate.of(2021, mesComprobado, diaComprobado);
+					
 				} else {
 
 					System.out.println("INTRODUCE UNA FECHA VALIDA");
@@ -257,8 +239,64 @@ public class Gestion {
 		}
 		numeroPasajeros = pidoNumeroDeViajeros(numeroPasajeros);
 		precioVueloSoloIda(fecha, diaComprobado, mesComprobado, numeroPasajeros);
-
+		if(this.opcionElejida ==1) {
+			
+		}
+		else {
+			if(this.opcionElejida ==2) {
+				
+				LocalDate vuelta = LocalDate.of(2021, mesComprobado, diaComprobado);
+				precioVueloIdayVuelta(fecha,vuelta,diaComprobado, mesComprobado, numeroPasajeros);
+			
+			}
+		}
 	}
+	
+	public void comprobarDiayMesIdayVuelta(int diaComprobado, int mesComprobado, LocalDate salida,LocalDate vuelta,int numeroPasajeros) {
+		boolean diaCorrecto = false;
+		System.out.println("Indica el dia de salida de tu viaje");
+		while (diaCorrecto != true) {
+			try {
+
+				diaComprobado = scn.nextInt();
+
+				System.out.println("y el mes?");
+
+				mesComprobado = scn.nextInt();
+
+				if ((diaComprobado <= 31 && diaComprobado >= 1) && (mesComprobado > 0 && mesComprobado < 13)) {
+					if(salida==null) {
+					  salida = LocalDate.of(2021, mesComprobado, diaComprobado);
+						System.out.println("Indica el dia de la vuelta de tu viaje");
+					}else {if(vuelta ==null) {
+						vuelta = LocalDate.of(2021, mesComprobado, diaComprobado);
+						diaCorrecto=true;
+							}
+						}	
+					} else {
+
+					System.out.println("INTRODUCE UNA FECHA VALIDA");
+					System.out.println("INTRODUCE DE NUEVO EL DIA");
+
+				}
+
+			} catch (Exception exc) {
+
+				System.out.println("INTRODUCE UN FORMATO ADECCUADO");
+				System.out.println("INTRODUCE DE NUEVO EL DIA");
+
+			}
+		}
+		numeroPasajeros = pidoNumeroDeViajeros(numeroPasajeros);
+		precioVueloIdayVuelta(salida,vuelta,diaComprobado, mesComprobado, numeroPasajeros);
+			
+			
+		
+	}
+	
+	
+	
+	
 	public void eligoOpcion(LocalDate fecha, int dia, int mes, int numPasajeros, int opcion) {
 		String origen = "";
 		String destino = "";
@@ -266,10 +304,10 @@ public class Gestion {
 		switch(opcion) {
 		case 1:
 			solicitoOrigenyDestino(origen,destino);
-			comprobarDiayMes(dia, mes, fecha, numPasajeros);
+			comprobarDiayMesIda(dia, mes, fecha, numPasajeros);
 			break;
 		case 2: 
-			comprobarDiayMes(dia, mes, fecha, numPasajeros);
+			comprobarDiayMesIda(dia, mes, fecha, numPasajeros);
 			break;
 		case 3:
 			inicioSesion();
@@ -289,7 +327,7 @@ public class Gestion {
 		String pasaporte ;
 		Billete billete = new Billete();
 		Usuario [] pasajeros = new Usuario[numPasajeros];
-		for (int i = 0; i <= numPasajeros; i++) {
+		for (int i = 0; i < numPasajeros; i++) {
 			System.out.println("Introduce los datos del pasajero -No"+(i+1));
 			System.out.println("Nombre:");
 			nombre = scn.next();
@@ -300,20 +338,23 @@ public class Gestion {
 			System.out.println("Tu numero de pasaporte:");
 			pasaporte = scn.next();
 			pasajeros[i]= new Usuario(nombre,apellido1,apellido2, pasaporte);
-			billete.setDatosPasajero(pasajeros[i]);
+			
 		}
+		System.out.println(pasajeros.toString());
+		//billete.setDatosPasajero(pasajeros[i]);
 		return billete;
 	}
 	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate fecha,int numPasajeros, int dia, int mes, int opcion){
 		String respuesta = "";
 		aerolinea A01 = new aerolinea("IB", "Iberia");
 		System.out.println("\nLos datos del vuelo son:");
-		System.out.println("el vuelo es el:"+listado_fechas[opcion-1].getDayOfMonth()+"/"+listado_fechas[opcion-1].getMonthValue()+"/"+listado_fechas[opcion-1].getYear());
+		System.out.println("Sale el dia:"+listado_fechas[opcion-1].getDayOfMonth()+"/"+listado_fechas[opcion-1].getMonthValue()+"/"+listado_fechas[opcion-1].getYear());
 		System.out.println("Operado por: "+A01.getNombre());
-		System.out.println("Con precio: "+precioElegido+"€");	
+		System.out.println("Con precio Total: "+precioElegido+"€");	
 		//System.out.println("Parte a las"+fecha.atTime(time));
 		System.out.println("Con 1mt de mano de 10kg");
-		System.out.println("Deseas confirmar s/n?");
+		System.out.println("2mt - 23kg");
+		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
 		respuesta = scn.next();
 		if(respuesta.equalsIgnoreCase("s")) {
 			confirmoVuelo(numPasajeros);
@@ -328,6 +369,7 @@ public class Gestion {
 			int opcion=0;
 			float precioElegido =0;
 		if(respuesta.equalsIgnoreCase("s")) {
+			//Comprobar si es s o n
 			System.out.println("Indica el numero de opcion, de la columna 'Opciones'");
 			opcion = scn.nextInt();
 			for (int i = 0; i <= opcionColumna; i++) {
@@ -371,34 +413,41 @@ public class Gestion {
 			respuesta = scn.next();
 			if(respuesta.equalsIgnoreCase("s")) {
 				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna,respuesta, listado_precio);
-			
+			//Comprobar si es s o n
 			}else {
-			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal");
+			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
 			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
 			}
 			
 	}
 
 
-	public void precioVueloIdayVuelta(LocalDate fecha) {
-		float[] listado_precio = new float[6];
-		LocalDate[] listado_Fechas = new LocalDate[6];
-		System.out.println("Desde el dia " + fecha.getDayOfMonth() + " de " + fecha.getMonth()
-				+ ". Tenemos las siguientes opciones;\n");
-		System.out.println("Fecha       Precio Recomendado       Precio Solicitado");
-		System.out.println("-----       ------------------       -----------------");
+	public void precioVueloIdayVuelta(LocalDate fecha, LocalDate vuelta ,int dia, int mes, int numPasajeros) {
+		int opcion =0;
+		int opcionColumna =0;
+		String respuesta;
+		float[] listado_precio = new float[4];
+		LocalDate[] listado_fechas = new LocalDate[4];
+		System.out.println("Desde el dia " + fecha.getDayOfMonth() +"/" +fecha.getMonth() +". Tenemos las siguientes opciones, para "+numPasajeros+" pasajeros\n");
+		System.out.println("Fecha       Opciones    Precio Solicitado");
+		System.out.println("-----       --------     ---------------");
 		for (int i = 0; i < listado_precio.length; i++) {
-			float precio_VueloSoloIda_Medio = (float) (Math.random() * 400 + 700);
-			listado_precio[i] = precio_VueloSoloIda_Medio;
-			listado_Fechas[i] = fecha.of(fecha.getYear(), fecha.getMonthValue(), fecha.getDayOfMonth() + i);
-			System.out.print(listado_Fechas[i] + " ->");
-			System.out.print(i + 1 + "a - " + listado_precio[i] + "€");
-			float precio_VueloSoloIda_Alto1 = (float) (Math.random() * 600 + 900);
-			listado_precio[i] = precio_VueloSoloIda_Alto1;
-			System.out.print("     |    " + i + 1 + "b - " + listado_precio[i] + "€\n");
-
-		}
-	}
-
-}
+			float precio_VueloSoloIda_Medio = (float) (Math.random() * 300 + 700);
+			listado_precio[i] = precio_VueloSoloIda_Medio*numPasajeros;
+			listado_fechas[i] = fecha.of(2021, fecha.getMonthValue(), fecha.getDayOfMonth() + i);
+			System.out.print(listado_fechas[i] + " ->");
+			opcionColumna++;
+			System.out.print( " - " +opcionColumna+ " - " + listado_precio[i] + "€\n");
 	
+			}
+			System.out.println("Te interesa alguna opcion? s/n");
+			respuesta = scn.next();
+			if(respuesta.equalsIgnoreCase("s")) {
+				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna,respuesta, listado_precio);
+			//Comprobar si es s o n
+			}else {
+			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
+			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
+			}
+		}	
+	}
