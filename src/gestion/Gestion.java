@@ -167,20 +167,17 @@ public class Gestion {
 	 * 
 	 **/
 	public boolean comprueboCiudad(String ciudad) {
-		
-	
-		String elPais = "España";// prueba
 		String laciudad = "Madrid";// prueba
 		
 		boolean estaCiudad = false;
 		
 		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
 		
-		if (ciudad.equalsIgnoreCase(elPais)) {
+		if (ciudad.equalsIgnoreCase(laciudad)) {
 			
 			estaCiudad = true;
 					
-		}else if(ciudad.equalsIgnoreCase(laciudad)) {
+		}else {
 			
 				estaCiudad = true;
 				
@@ -309,7 +306,7 @@ public class Gestion {
 	
 	
 
-	public void confirmoVuelo(int numPasajeros) {
+	public void confirmoVuelo(int numPasajeros, LocalDate salida) {
 
 		String nombre;
 		String apellido1;
@@ -329,7 +326,7 @@ public class Gestion {
 			pasaporte = scn.next();
 			personas[i] = new Persona(nombre,apellido1,apellido2);
 			pasajeros[i]= new Usuario(personas[i], pasaporte);
-			billetes_conirmados.add(new Billete(pasajeros[i]));
+			billetes_conirmados.add(new Billete(pasajeros[i], salida));
 		}
 		System.out.println(billetes_conirmados.get(1));
 
@@ -339,7 +336,7 @@ public class Gestion {
 	
 	
 	
-	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate fecha,int numPasajeros, int dia, int mes, int opcion){
+	public void muestroDetallesdelPrecioElegido(float precioElegido, LocalDate listado_fechas[],LocalDate salida,int numPasajeros, int dia, int mes, int opcion){
 		String respuesta = "";
 		aerolinea A01 = new aerolinea("IB", "Iberia");
 		System.out.println("\nLOS DATOS DEL VUELO SON");
@@ -352,11 +349,11 @@ public class Gestion {
 		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
 		respuesta = scn.next();
 		if(si_no_Opcion(respuesta)) {
-			confirmoVuelo(numPasajeros);
+			confirmoVuelo(numPasajeros, salida);
 		}else {
 			System.out.println("Los precios pueden variar si quieres:");
 			System.out.println("Podemos:\n1.Cambiar Destino\n2.Cambiar fecha\n3.Volver al menu principal\n4.Salir");
-			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
+			eligoOpcion( salida,  dia,  mes,  numPasajeros,  opcion);
 		}
 		
 	}

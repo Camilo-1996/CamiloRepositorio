@@ -18,7 +18,7 @@ public class Billete {
 	
 	
 	//start constructor
-	public Billete(Usuario usuario) {
+	public Billete(Usuario usuario, LocalDate fechaBillete) {
 		
 		this.nombrePasajero=usuario.getNombre();
 		this.apellido1_pasajero=usuario.getApellido1();
@@ -26,6 +26,7 @@ public class Billete {
 		this.pasaporte= usuario.getPasaporte();
 		this.idPasajero= usuario.getIdUsuario();
 		this.numeroBillete= idBillete++;
+		this.fechaBillete = fechaBillete;
 		
 	}
 	

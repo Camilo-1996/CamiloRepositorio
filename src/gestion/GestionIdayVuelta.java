@@ -2,6 +2,8 @@ package gestion;
 
 import java.time.LocalDate;
 
+import bd.aerolinea;
+
 public class GestionIdayVuelta {
 	
 	Gestion gestion = new Gestion();
@@ -252,6 +254,6 @@ public class GestionIdayVuelta {
 		}
 	}
 
-}
+
 
 }
