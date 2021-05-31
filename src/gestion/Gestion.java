@@ -351,7 +351,7 @@ public class Gestion {
 		System.out.println("2mt - 23kg");
 		System.out.println("Deseas reservar con esta fecha y precio.? s/n");
 		respuesta = scn.next();
-		if(respuesta.equalsIgnoreCase("s")) {
+		if(si_no_Opcion(respuesta)) {
 			confirmoVuelo(numPasajeros);
 		}else {
 			System.out.println("Los precios pueden variar si quieres:");
@@ -414,7 +414,7 @@ public class Gestion {
 			}
 			System.out.println("Te interesa alguna opcion? s/n");
 			respuesta = scn.next();
-			if(respuesta.equalsIgnoreCase("s")) {
+			if(si_no_Opcion(respuesta)) {
 				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna,respuesta, listado_precio);
 			//URGENTE COMPROBAR S Y N
 			}else {
@@ -432,9 +432,8 @@ public class Gestion {
 	 * una simple "S", como un "Si" tamto en minúscumas como mayúsculas
 	 * @return si quiere cambiar la opcion, o si no.
 	 */
-	public boolean si_no_Opcion() {
-		
-		String opcion;
+	public boolean si_no_Opcion(String opcion) {
+
 		boolean correctaIntoduccion=false;
 		boolean siQuiere=false;
 		
