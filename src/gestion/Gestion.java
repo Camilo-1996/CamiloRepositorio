@@ -413,7 +413,7 @@ public class Gestion {
 			respuesta = scn.next();
 			if(respuesta.equalsIgnoreCase("s")) {
 				consultoOpcion(listado_fechas, fecha,dia, mes, numPasajeros, opcionColumna,respuesta, listado_precio);
-			//Comprobar si es s o n
+			//URGENTE COMPROBAR S Y N
 			}else {
 			System.out.println("Quieres:\n1.Cambiar fecha\n2.Cambiar Destino\n3.Volver al menu principal\nSalir");
 			eligoOpcion( fecha,  dia,  mes,  numPasajeros,  opcion);
