@@ -1,4 +1,4 @@
-0package test;
+package test;
 
 import gestion.Gestion;
 import gestion.ImprimirTicket;
