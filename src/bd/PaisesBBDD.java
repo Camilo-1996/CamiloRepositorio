@@ -102,7 +102,7 @@ public class PaisesBBDD {
 		try {
 			st = BBDDpais.createStatement();
 
-			ResultSet rs = st.executeQuery("select* from ciudades where nombre = '" + Nombre + "'");
+			ResultSet rs = st.executeQuery("select* from proyecto.ciudades where nombre = '" + Nombre + "'");
 			if (rs.next()) {
 				return true;
 			}

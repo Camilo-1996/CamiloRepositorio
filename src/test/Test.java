@@ -22,7 +22,7 @@ public class Test {
 		gestion01.inicioSesion();
 		
 		ImprimirTicket it = new ImprimirTicket();
-		
+		it.imprimeTicket();
 		
 	}
 

@@ -46,7 +46,7 @@ public class AerolineasBBDD {
 
 			st = BBDDaero.createStatement();
 
-			ResultSet rs = st.executeQuery("select* from aerolinea");
+			ResultSet rs = st.executeQuery("select* from proyecto.aerolinea");
 			while (rs.next()) {
 				String ID = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
@@ -72,7 +72,7 @@ public class AerolineasBBDD {
 		try {
 			st = BBDDaero.createStatement();
 
-			ResultSet rs = st.executeQuery("select* from aerolinea where ID = '" + ID + "'");
+			ResultSet rs = st.executeQuery("select* from proyecto.aerolinea where ID = '" + ID + "'");
 			if (rs.next()) {
 				String Id = rs.getString("ID");
 				String Nombre = rs.getString("Nombre");
@@ -113,7 +113,7 @@ public class AerolineasBBDD {
 		try {
 			st = BBDDaero.createStatement();
 
-			st.execute("delete from aerolinea where ID = '" + ID + "'");
+			st.execute("delete from proyecto.aerolinea where ID = '" + ID + "'");
 
 		} catch (Exception e) {
 			System.out.println("error al eliminar la aerolinea ");

@@ -174,18 +174,22 @@ public static Scanner scn = new Scanner(System.in);
 	 *  
 	 **/
 	public boolean comprueboCiudad(String ciudad) {
-
+		String laciudadsalida = "Madrid";
+		String laciudadllegada = "Paris";
 		boolean estaCiudad = false;
+		//consulta.ExisteCiudad(ciudad)
 		
-		if (consulta.ExisteCiudad(ciudad)){
+		if (ciudad.equalsIgnoreCase(laciudadsalida)){
 			
 			estaCiudad = true;
 					
-		}else {
+		}else {if(ciudad.equalsIgnoreCase(laciudadllegada)) {
 			
-				estaCiudad = false;
-				
-		
+				estaCiudad = true;}
+				else {
+					estaCiudad = false;
+				}
+
 		}
 			
 		
