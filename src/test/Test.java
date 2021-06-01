@@ -1,6 +1,7 @@
 0package test;
 
 import gestion.Gestion;
+import gestion.ImprimirTicket;
 import interfazes.Menu;
 
 /**
@@ -19,6 +20,8 @@ public class Test {
 		Gestion gestion01= new Gestion();
 		
 		gestion01.inicioSesion();
+		
+		ImprimirTicket it = new ImprimirTicket();
 		
 		
 	}
