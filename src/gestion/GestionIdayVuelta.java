@@ -3,6 +3,7 @@ package gestion;
 import java.time.LocalDate;
 
 import bd.Aerolinea;
+import bd.PaisesBBDD;
 
 /**
  * La clase GestionIdayVuelta contiene metodos que llaman solicitan compruba y devuelven opciones
@@ -17,6 +18,7 @@ public class GestionIdayVuelta {
 	 * Creamos la variable global gestion de la clase Gestion que cnos ayudara de referencia para llamr atributos 
 	 * y metodos de la clase gestion
 	 * 	 * */
+	PaisesBBDD consulta = new PaisesBBDD();
 	Gestion gestion = new Gestion();
 	
 	/**
@@ -96,10 +98,9 @@ public class GestionIdayVuelta {
 	 * @return estaCiudad;
 	 **/
 	public boolean compueboCiudad(String ciudadOPais) {
-		String laciudad = "Madrid";// prueba
 		boolean estaCiudad = false;
-		// IF(staticmetodoPaulBDcomprobarPais(String pais))Metodo booleaan
-		if (ciudadOPais.equalsIgnoreCase(laciudad)) {
+
+		if (consulta.ExisteCiudad(ciudadOPais)) {
 			estaCiudad = true;
 		}else {
 			estaCiudad = false;

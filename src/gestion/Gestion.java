@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import bd.Aerolinea;
+import bd.PaisesBBDD;
 import interfazes.Menu;
 /**
  * Clase que gestiona tanto interacción con el usuario como 
@@ -18,8 +19,7 @@ public class Gestion {
 	
 public static Scanner scn = new Scanner(System.in);
 	
-	//PaisesBBDD consulta = new PaisesBBDD();
-	//GestionIdaYVuelta consultas = new GestionIdaYVuelta();
+	PaisesBBDD consulta = new PaisesBBDD();
 	/**
 	 * Creamos las variables globales, opcionElejida de tipo entero que sera la opcion que el usuario elegira segun el menu mostrado
 	 * el ArrayList de la clase Blletes, que almacena los billetes confirmados
@@ -174,12 +174,10 @@ public static Scanner scn = new Scanner(System.in);
 	 *  
 	 **/
 	public boolean comprueboCiudad(String ciudad) {
-		String laciudad = "Madrid";// Creamos esta ciudad de apoyo 
-		
+
 		boolean estaCiudad = false;
 		
-		//consulta.ExisteCiudad(ciudad) - consulta de la base de datos si la ciudad se encuentra en la lista de destinos
-		if (ciudad.equalsIgnoreCase(laciudad)) {
+		if (consulta.ExisteCiudad(ciudad)){
 			
 			estaCiudad = true;
 					
